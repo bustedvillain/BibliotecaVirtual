@@ -64,7 +64,7 @@ $menu = 3;
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <h4 class="modal-title" id="myModalLabel">Agregar Autor</h4>
                     </div>
-                    <form role="form" method="post" action="gdaEditarCatalogo.php">
+                    <form role="form" method="post" action="gdaCatalogo.php">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nombreAutor">Nombre</label>
@@ -98,7 +98,7 @@ $menu = 3;
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <h4 class="modal-title" id="myModalLabel">Editar Autor</h4>
                     </div>
-                    <form role="form" method="post" action="gdaCatalogo.php">
+                    <form role="form" method="post" action="gdaEditarCatalogo.php">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nombreAutor">Nombre</label>
