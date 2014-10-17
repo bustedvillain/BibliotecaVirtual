@@ -9,10 +9,10 @@
  * Configuracion de base de datos
  */
 //Configuracion de Base de datos
-define("DB_NAME","softmeta");
-define("USER","softmeta");
-define("PASS","ems20140818");
-define("HOST","192.168.100.150");
+define("DB_NAME","biblioteca_virtual");
+define("USER","biblioteca");
+define("PASS","ems20140825");
+define("HOST","200.66.87.58");
 define("PORT","5432");
 
 define ("IP_SERVER_PUBLIC",'http://192.168.100.150/');

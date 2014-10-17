@@ -141,6 +141,7 @@ function consultaAtributos($tabla, $id_atributo, $nombre_atributo) {
                         <a class="icon-edit editaAtributo" id="$id" title="Editar" href="#editarModal" name="get$nombreAtributoCaps" role="button" data-toggle="modal"></a>
                         <a class="icon-trash" href="borrarAtributo.php?id=$id&tipoAtributo=$nombreAtributoCaps" title="Borrar" onClick="return confirm('¿Está seguro?');"></a>
                     </td>
+                    <td>$id</td>
                     <td>$nombre</td>
                 </tr>
 HTML;

@@ -9,7 +9,10 @@
 <!--Notificaciones-->
 <script src="../libs/notification/js/classie.js"></script>
 <script src="../libs/notification/js/notificationFx.js"></script>
-<script>mensaje_notificacion = '<?php echo $mensaje_notificacion; ?>';</script>
+<script>
+    mensaje_notificacion = '<?php echo $mensaje_notificacion; ?>';
+    notification_type = '<?php echo $notification_type; ?>';
+</script>
 <!--Notifications-->
 
 <!--Biblioteca-->

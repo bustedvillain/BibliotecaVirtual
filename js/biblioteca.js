@@ -25,22 +25,31 @@ $(document).ready(function () {
 
     //Notificacion
     if (mensaje_notificacion != '') {
-        notificacion(mensaje_notificacion);
+        notificacion(mensaje_notificacion, notification_type);
     }
 
-    function notificacion(mensaje) {
+    function notificacion(mensaje, tipo) {
 
         setTimeout(function () {
-
+            var message = "";
+            if(tipo != undefined){
+                if(tipo == "check"){
+                    message = '<div class="ns-thumb"><img src="../img/check.png" width="66" /></div><div class="ns-content"><p>' + mensaje + '.</p></div>';
+                }else{
+                    message = '<div class="ns-thumb"><img src="../img/cross.png" width="66" /></div><div class="ns-content"><p>' + mensaje + '.</p></div>';
+                }
+            }else{
+                
+            }
             // create the notification
             var notification = new NotificationFx({
-                message: '<div class="ns-thumb"><img src="../img/check.png" width="66" /></div><div class="ns-content"><p>' + mensaje + '.</p></div>',
+                message: message,
                 layout: 'other',
                 ttl: 6000,
                 effect: 'thumbslider',
                 type: 'notice', // notice, warning, error or success
                 onClose: function () {
-                    bttn.disabled = false;
+                    //bttn.disabled = false;
                 }
             });
 
@@ -49,6 +58,8 @@ $(document).ready(function () {
 
         }, 1200);
     }
+    
+    $(".invisible").hide();
 
 
 });

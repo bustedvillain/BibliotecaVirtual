@@ -24,9 +24,9 @@ class Query
          * Construye la conexión y crea el objeto
          * @param type $tipoBD
          */
-	function __construct($tipoBD)
+	function __construct()
 	{
-            $this->conexion = new Conexion($tipoBD);
+            $this->conexion = new Conexion(S);
             $this->idConexion = $this->conexion->getIdConexion();
                     
 	}

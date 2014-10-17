@@ -5,7 +5,7 @@
  * Objetivo: Index de la administración de la biblioteca
  */
 include("../sources/funciones.php");
-$menu = 2;
+$menu = 9;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,34 +27,9 @@ $menu = 2;
                 <!--Barra lateral-->
 
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <h1 class="page-header">Biblioteca Virtual: Administraci&oacute;n de Libros</h1>
+                    <h1 class="page-header">Biblioteca Virtual: Estad&iacute;sticas</h1>
 
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#agregar"> + Agregar</button>
-                    <br><br>
-                    <table class="display datatable" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                <th>Acci&oacute;n</th>
-                                <th>ID</th>                                
-                                <th>Imagen</th>
-                                <th>Nombre</th>
-                                <th>Ver</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>Acci&oacute;n</th>
-                                <th>ID</th>                                
-                                <th>Imagen</th>
-                                <th>Nombre</th>
-                                <th>Ver</th>
-                            </tr>
-                        </tfoot>
-
-                        <tbody>
-
-                        </tbody>
-                    </table>
+                    
 
                 </div>
             </div>
@@ -66,7 +41,7 @@ $menu = 2;
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Agregar Libro</h4>
+                        <h4 class="modal-title" id="myModalLabel">Agregar Instancia</h4>
                     </div>
                     <form role="form">
                         <div class="modal-body">

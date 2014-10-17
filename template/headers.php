@@ -34,4 +34,11 @@
 <link rel="stylesheet" type="text/css" href="../libs/datatables/css/jquery.dataTables.min.css" />
 <!--Datatables-->
 
-<?php $mensaje_notificacion = $_GET["notification"]; ?>
+<!--Biblioteca-->
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<!--Biblioteca-->
+
+<?php 
+    $mensaje_notificacion = $_GET["notification"]; 
+    $notification_type = $_GET["notification_type"];
+?>
