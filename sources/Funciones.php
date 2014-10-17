@@ -6,6 +6,9 @@ include 'Correo2.php';
 
 require_once 'Query.php';
 
+//Librerias anexas
+include("Funciones.Admin.php");
+
 /*
  * Autor: José Manuel Nieto Gómez
  * Fecha de Creación: 16/10/2014
