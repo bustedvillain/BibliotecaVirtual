@@ -89,6 +89,41 @@ $menu = 6;
             </div>
         </div>
         <!--Modal agregar-->
+        
+        <!--Modal editar-->
+        <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Editar Nivel Educativo</h4>
+                    </div>
+                    <form role="form" method="post" action="gdaEditarCatalogo.php">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="nombreAutor">Nombre</label>
+                                <input type="text" class="form-control" id="editaAtributo" name="atributo" placeholder="Ingrese nombre del nivel educativo" required>
+                            </div>    
+                            <div class="alert alert-danger alert-dismissible invisible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <strong>Error.</strong> Este nombre ya se encuentra registrado.
+                            </div>
+                        </div>
+                        <input type="hidden" name="entidad" value="autor"/>
+                        <input type="hidden" name="nombre_atributo" value="nombre_autor"/>
+                        <input type="hidden" name="redirect" value="autores.php"/>
+                        <input type="hidden" name="id" value="id_autor"/>
+                        <input type="hidden" name="id_val" id="idAtributo"/>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--Modal editar-->
 
         <!-- Bootstrap core JavaScript
         ================================================== -->

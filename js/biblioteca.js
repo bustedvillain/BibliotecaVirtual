@@ -5,7 +5,11 @@
  */
 
 $(document).ready(function () {
+    debug = true;
 
+    //Encoder
+    Encoder.EncodeType = "entity";
+    
     //Datatables
     $('.datatable').DataTable({
         "language": {
@@ -32,14 +36,14 @@ $(document).ready(function () {
 
         setTimeout(function () {
             var message = "";
-            if(tipo != undefined){
-                if(tipo == "check"){
+            if (tipo !== undefined) {
+                if (tipo === "check") {
                     message = '<div class="ns-thumb"><img src="../img/check.png" width="66" /></div><div class="ns-content"><p>' + mensaje + '.</p></div>';
-                }else{
+                } else {
                     message = '<div class="ns-thumb"><img src="../img/cross.png" width="66" /></div><div class="ns-content"><p>' + mensaje + '.</p></div>';
                 }
-            }else{
-                
+            } else {
+
             }
             // create the notification
             var notification = new NotificationFx({
@@ -58,8 +62,30 @@ $(document).ready(function () {
 
         }, 1200);
     }
-    
+
     $(".invisible").hide();
+
+    $(".editaAtributo").click(function (event) {
+        var id = $(this).attr("id");
+        var nombre_atributo = $(this).attr("nombre_atributo");
+        var entidad = $(this).attr("entidad");
+        var id_nombre = $(this).attr("id_nombre");
+
+        debugConsole("Getting idAtributo:" + id);
+        $.post("../sources/ControladorAdmin.php", {id: id, nombre_atributo: nombre_atributo, entidad: entidad, id_nombre: id_nombre}, function (respuesta) {
+            debugConsole(respuesta);
+            var atributo = jQuery.parseJSON(respuesta);
+            $("#editaAtributo").val(Encoder.htmlDecode(atributo.nombre_atributo));
+            $("#idAtributo").val(atributo.id_atributo);
+            debugConsole("Campos actualizados");
+        });
+    });
+
+    function debugConsole(mensaje) {
+        if (debug === true) {
+            console.log(mensaje);
+        }
+    }
 
 
 });

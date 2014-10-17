@@ -26,7 +26,7 @@ class Query
          */
 	function __construct()
 	{
-            $this->conexion = new Conexion(S);
+            $this->conexion = new Conexion();
             $this->idConexion = $this->conexion->getIdConexion();
                     
 	}

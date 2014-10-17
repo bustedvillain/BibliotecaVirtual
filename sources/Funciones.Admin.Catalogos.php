@@ -123,7 +123,7 @@ function validaInsercionAtributo($atributo, $tabla, $id_atributo, $nombre_atribu
  * @param type $nombre_atributo nombre del campo a consultar
  */
 function consultaAtributos($tabla, $id_atributo, $nombre_atributo) {
-    $nombreAtributoCaps = preparaNombreVariable($tabla);
+    $nombreAtributoCaps = ucfirst($tabla);
     //Crea objeto para realizar consultas de sistema de gestion
     $query = new Query();
     //Query to SG
@@ -138,6 +138,8 @@ function consultaAtributos($tabla, $id_atributo, $nombre_atributo) {
             echo <<<HTML
                 <tr>                    
                     <td>
+                        <button id="$id" nombre_atributo="$nombre_atributo" entidad="$tabla" id_nombre="$id_atributo" class="btn btn-info btn-sm editaAtributo" data-toggle="modal" data-target="#editar"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+                        <a href="borrarAtributo.php?id=$id&tipoAtributo=$nombreAtributoCaps" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> Borrar</a>
                         <a class="icon-edit editaAtributo" id="$id" title="Editar" href="#editarModal" name="get$nombreAtributoCaps" role="button" data-toggle="modal"></a>
                         <a class="icon-trash" href="borrarAtributo.php?id=$id&tipoAtributo=$nombreAtributoCaps" title="Borrar" onClick="return confirm('¿Está seguro?');"></a>
                     </td>
@@ -234,34 +236,6 @@ function borraAtributo($idAtributo, $tabla, $id_nombre) {
         return true;
     } else {
         return false;
-    }
-}
-
-/**
- * Funcion que parsea el nombre de una variable
- * Ej: String inicial nombre_variable
- * Res: NombreVariable
- * @param type $nombre_variable
- * @return type
- */
-function preparaNombreVariable($nombre_variable) {
-    switch ($nombre_variable) {
-        case "habilidades":
-            return "Habilidad";
-        case "asignaturas":
-            return "Asignatura";
-        case "categorias":
-            return "Categoria";
-        case "instituciones":
-            return "Institucion";
-        case "empresa":
-            return "Empresa";
-        case "nivel_escolar":
-            return "NivelEducativo";
-        case "grado_escolar":
-            return "GradoEscolar";
-        case "nacionalidad":
-            return "Nacionalidad";
     }
 }
 
