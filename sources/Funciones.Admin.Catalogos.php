@@ -127,7 +127,7 @@ function consultaAtributos($tabla, $id_atributo, $nombre_atributo) {
     //Crea objeto para realizar consultas de sistema de gestion
     $query = new Query();
     //Query to SG
-    $query->sql = "SELECT $id_atributo, $nombre_atributo from $tabla where status=1";
+    $query->sql = "SELECT $id_atributo, $nombre_atributo from $tabla where status=1 ORDER BY $id_atributo";
     $tabla2 = $query->select("obj");
 
     if ($tabla2) {

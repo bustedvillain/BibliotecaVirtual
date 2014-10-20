@@ -109,10 +109,10 @@ $menu = 4;
                                 <strong>Error.</strong> Este nombre ya se encuentra registrado.
                             </div>
                         </div>
-                        <input type="hidden" name="entidad" value="autor"/>
-                        <input type="hidden" name="nombre_atributo" value="nombre_autor"/>
-                        <input type="hidden" name="redirect" value="autores.php"/>
-                        <input type="hidden" name="id" value="id_autor"/>
+                        <input type="hidden" name="entidad" value="editorial"/>
+                        <input type="hidden" name="nombre_atributo" value="nombre_editorial"/>
+                        <input type="hidden" name="redirect" value="editoriales.php"/>
+                        <input type="hidden" name="id" value="id_editorial"/>
                         <input type="hidden" name="id_val" id="idAtributo"/>
 
                         <div class="modal-footer">
