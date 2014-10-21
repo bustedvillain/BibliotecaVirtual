@@ -104,6 +104,7 @@ function validaInsercionAtributo($atributo, $tabla, $id_atributo, $nombre_atribu
     } else {
         $query->sql = "SELECT $nombre_atributo from $tabla where upper($nombre_atributo) =upper('$atributo') and status=1";
     }
+    echo $query->sql;
     $tabla = $query->select("obj");
 
     if ($tabla) {
@@ -139,9 +140,7 @@ function consultaAtributos($tabla, $id_atributo, $nombre_atributo) {
                 <tr>                    
                     <td>
                         <button id="$id" nombre_atributo="$nombre_atributo" entidad="$tabla" id_nombre="$id_atributo" class="btn btn-info btn-sm editaAtributo" data-toggle="modal" data-target="#editar"><span class="glyphicon glyphicon-edit"></span> Editar</button>
-                        <a href="borrarAtributo.php?id=$id&tipoAtributo=$nombreAtributoCaps" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> Borrar</a>
-                        <a class="icon-edit editaAtributo" id="$id" title="Editar" href="#editarModal" name="get$nombreAtributoCaps" role="button" data-toggle="modal"></a>
-                        <a class="icon-trash" href="borrarAtributo.php?id=$id&tipoAtributo=$nombreAtributoCaps" title="Borrar" onClick="return confirm('¿Está seguro?');"></a>
+                        <a href="borrarAtributo.php?id=$id&entidad=$tabla&id_nombre=$id_atributo&atributo=$nombre" class="btn btn-danger btn-sm" onClick="return confirm('¿Está seguro?');"><span class="glyphicon glyphicon-remove" ></span> Borrar</a>
                     </td>
                     <td>$id</td>
                     <td>$nombre</td>
@@ -212,7 +211,7 @@ function actualiza($idAtributo, $atributo, $tabla, $nombre_atributo, $id_nombre)
     $query = new Query();
     //Query to SG
     $query->sql = "UPDATE $tabla set $nombre_atributo='$atributo' where $id_nombre=$idAtributo";
-//    imprimeConsola($query->sql);
+    echo $query->sql;
     if ($query->update($query->sql)) {
         return true;
     } else {

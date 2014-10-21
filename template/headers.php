@@ -38,7 +38,9 @@
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
 <!--Biblioteca-->
 
-<?php 
-    $mensaje_notificacion = $_GET["notification"]; 
+<?php
+if (isset($_GET["notification"]))
+    $mensaje_notificacion = $_GET["notification"];
+if (isset($_GET["notification_type"]))
     $notification_type = $_GET["notification_type"];
 ?>

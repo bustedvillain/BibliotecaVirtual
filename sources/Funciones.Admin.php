@@ -8,3 +8,5 @@
 
 //Catalogos Genéricos
 include("Funciones.Admin.Catalogos.php");
+//Conexión con instancias remotas de MetaSpace
+include("Funciones.Admin.Instancias.php");

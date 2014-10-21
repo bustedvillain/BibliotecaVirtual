@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     //Encoder
     Encoder.EncodeType = "entity";
-    
+
     //Datatables
     $('.datatable').DataTable({
         "language": {
@@ -72,12 +72,11 @@ $(document).ready(function () {
         var id_nombre = $(this).attr("id_nombre");
 
         debugConsole("Getting idAtributo:" + id);
-        $.post("../sources/ControladorAdmin.php", {id: id, nombre_atributo: nombre_atributo, entidad: entidad, id_nombre: id_nombre}, function (respuesta) {
+        $.post("../sources/ControladorAdmin.php", {consulta: "consultaAtributo", id: id, nombre_atributo: nombre_atributo, entidad: entidad, id_nombre: id_nombre}, function (respuesta) {
             debugConsole(respuesta);
             var atributo = jQuery.parseJSON(respuesta);
             $("#editaAtributo").val(Encoder.htmlDecode(atributo.nombre_atributo));
-            $("#idAtributo").val(atributo.id_atributo);
-            debugConsole("Campos actualizados");
+            $("#idAtributo").val(atributo.id_atributo);            
         });
     });
 
@@ -86,6 +85,31 @@ $(document).ready(function () {
             console.log(mensaje);
         }
     }
+
+    //Clipboard copy
+    var client = new ZeroClipboard($(".copy-clipboard"));
+
+    client.on('ready', function (event) {
+        console.log("Ready to copy!");
+        client.on('aftercopy', function (event) {
+            console.log('Copied text to clipboard: ' + event.data['text/plain']);
+            notificacion("Token de acceso copiado al portapapeles: " + event.data['text/plain'], "check");
+        });
+    });
+
+    //Instancias
+    $(".editaInstancia").click(function (event) {
+        debugConsole("Editar instancia");
+        var id = $(this).attr("id");
+
+        $.post("../sources/ControladorAdmin.php", {consulta: "consultaInstancia", id: id}, function (respuesta) {
+            debugConsole(respuesta);
+            var atributo = jQuery.parseJSON(respuesta);
+            debugConsole(Encoder.htmlDecode(atributo[0].nombre_instancia));
+            $("#editaAtributo").val(Encoder.htmlDecode(atributo[0].nombre_instancia));
+            $("#id_instancia").val(id);
+        });
+    });
 
 
 });

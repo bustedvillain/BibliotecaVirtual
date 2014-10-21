@@ -102,7 +102,7 @@ $menu = 4;
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nombreAutor">Nombre</label>
-                                <input type="text" class="form-control" id="editaAtributo" name="atributo" placeholder="Ingrese nombre de la editorial" required>
+                                <input type="text" class="form-control" id="editaAtributo" name="atributo" placeholder="Cargando..." required>
                             </div>    
                             <div class="alert alert-danger alert-dismissible invisible" role="alert">
                                 <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>

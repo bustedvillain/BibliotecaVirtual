@@ -68,7 +68,7 @@ $menu = 6;
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nombreAutor">Nombre</label>
-                                <input type="text" class="form-control" id="nombre_autor" name="atributo" placeholder="Ingrese nombre del nivel educativo" required>
+                                <input type="text" class="form-control" id="nombre_autor" name="atributo" placeholder="Cargando..." required>
                             </div>    
                             <div class="alert alert-danger alert-dismissible invisible" role="alert">
                                 <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>

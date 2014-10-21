@@ -50,7 +50,7 @@ $menu = 7;
                         </tfoot>
 
                         <tbody>
-
+                            <?php construyeTablaInstancias(); ?>
                         </tbody>
                     </table>
 
@@ -83,10 +83,48 @@ $menu = 7;
         </div>
         <!--Modal agregar-->
 
+        <!--Modal editar-->
+        <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Editar Instancia</h4>
+                    </div>
+                    <form role="form" method="post" action="gdaEditarInstancia.php">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="nombreAutor">Nombre</label>
+                                <input type="text" class="form-control" id="editaAtributo" name="atributo" placeholder="Cargando..." required>
+                            </div>    
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="actualizar_token"> Renovar Token de Acceso
+                                </label>
+                            </div> 
+                            <input type="hidden" id="id_instancia" name="id_instancia">
+                            <div class="alert alert-danger alert-dismissible invisible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <strong>Error.</strong> Este nombre ya se encuentra registrado.
+                            </div>
+                        </div>                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--Modal editar-->
+
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
+        <!--Copy to clipboard-->
+        <script type="text/javascript" src="../libs/zeroclipboard/ZeroClipboard.min.js"></script>
         <?php include("../template/assets.php"); ?>
+
 
 
     </body>

@@ -19,8 +19,7 @@ if($_POST){
         $mensaje = ucfirst($entidad. " ingresado(a) correctamente: $atributo&notification_type=check");
     }else{
         $mensaje = ucfirst($entidad. " no ingresado(a), ya existía con anterioridad: $atributo&notification_type=cross");
-    }
-   
+    }   
     
     header("Location:$redirect?notification=$mensaje");
 }else{

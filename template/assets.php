@@ -10,8 +10,8 @@
 <script src="../libs/notification/js/classie.js"></script>
 <script src="../libs/notification/js/notificationFx.js"></script>
 <script>
-    mensaje_notificacion = '<?php echo $mensaje_notificacion; ?>';
-    notification_type = '<?php echo $notification_type; ?>';
+    mensaje_notificacion = '<?php if(isset($mensaje_notificacion)) echo $mensaje_notificacion; else echo "";?>';
+    notification_type = '<?php if (isset($notification_type)) echo $notification_type; else echo "";?>';
 </script>
 <!--Notifications-->
 
