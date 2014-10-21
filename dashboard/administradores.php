@@ -66,31 +66,35 @@ $menu = 8;
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <h4 class="modal-title" id="myModalLabel">Agregar Administrador</h4>
                     </div>
-                    <form role="form">
+                    <form role="form" method="POST" action="gdaAdministrador.php">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                <label for="nombreAdministrador">Nombre Completo</label>
+                                <input type="text" class="form-control" name="administrador/nombre" required placeholder="Ingrese el nombre completo del administrador">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <label for="nombreUsuarioAdministrador">Nombre de Usuario</label>
+                                <input type="text" class="form-control" name="administrador/nombre_usuario" required placeholder="Ingrese el nombre de usuario">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputFile">File input</label>
-                                <input type="file" id="exampleInputFile">
-                                <p class="help-block">Example block-level help text here.</p>
+                                <label for="nombreUsuarioAdministrador">Correo Electr&oacute;nico</label>
+                                <input type="email" class="form-control" name="administrador/correo" placeholder="Ingrese el correo electrónico">
+                            </div>
+                            <div class="form-group">
+                                <label for="nombreUsuarioAdministrador">Contrase&ntilde;a</label>
+                                <input type="password" class="form-control" id="password" name="administrador/contrasena" placeholder="Ingrese la contraseña" required>
+                                <div class="pwstrength_viewport_progress"></div>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox"> Check me out
+                                    <input type="checkbox" id="contrasenaAutomatica"> Asignar contrase&ntilde;a autom&aacute;ticamente
                                 </label>
-                            </div>
-                            
+                            </div>                                                     
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
                         </div>
                     </form>
                 </div>
@@ -102,7 +106,8 @@ $menu = 8;
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <?php include("../template/assets.php"); ?>
-
-
+        <!--Password Strength-->
+        <script type="text/javascript" src="../libs/pwstrength/pwstrength.js"></script>
+        
     </body>
 </html>

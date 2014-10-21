@@ -76,7 +76,7 @@ $(document).ready(function () {
             debugConsole(respuesta);
             var atributo = jQuery.parseJSON(respuesta);
             $("#editaAtributo").val(Encoder.htmlDecode(atributo.nombre_atributo));
-            $("#idAtributo").val(atributo.id_atributo);            
+            $("#idAtributo").val(atributo.id_atributo);
         });
     });
 
@@ -110,6 +110,40 @@ $(document).ready(function () {
             $("#id_instancia").val(id);
         });
     });
+
+    var contrasenaAutomatica = true;
+    $("#contrasenaAutomatica").click(function (event) {
+        contrasenaAutomatica = !contrasenaAutomatica;
+        validaMostrarCamposContrasena();
+        debugConsole("contrasenaAutomatica:" + contrasenaAutomatica);
+    });
+
+    validaMostrarCamposContrasena();
+    function validaMostrarCamposContrasena() {
+        if (contrasenaAutomatica) {
+            $("#password").removeAttr("disabled");
+        } else {
+            $("#password").attr("disabled", "enabled");
+        }
+    }
+
+    "use strict";
+    var options = {};
+    options.ui = {
+        container: "#pwd-container",
+        showVerdictsInsideProgressBar: true,
+        viewports: {
+            progress: ".pwstrength_viewport_progress"
+        }
+    };
+    options.common = {
+        debug: true,
+        onLoad: function () {
+            $('#messages').text('Start typing password');
+        }
+    };
+    $(':password').pwstrength(options);
+
 
 
 });

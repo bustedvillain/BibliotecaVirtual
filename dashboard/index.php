@@ -11,7 +11,7 @@ $menu=1;
 <html lang="en">
     <head>
         <!--Cabeceras-->
-        <?php include("../template/headers.php"); ?>
+        <?php include("../template/headers.php");?>
         <!--Cabeceras-->       
         
     </head>
