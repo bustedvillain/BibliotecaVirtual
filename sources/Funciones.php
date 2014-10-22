@@ -852,6 +852,33 @@ function guardaImagen($titulo) {
 //    return $ruta;
 }
 
+/**
+ * Funcion que inserta en la base de datos
+ * @param type $campos
+ * @param type $datos
+ * @return type
+ */
+function insertarDatos($tabla, $campos, $datos) {
+    //Crea objeto para realizar consultas de sistema de gestion
+    $query = new Query();
+
+    $query->insert($tabla, $campos, $datos);
+    return $query->ultimoID($tabla);
+}
+
+/**
+ * Realiza edicion sobre una tabla
+ * @param type $tabla nombre de la tabla
+ * @param type $sets valores de los sets
+ * @param type $where condicion
+ */
+function editaDatos($tabla, $sets, $where) {
+    $query = new Query();
+    $sql = "UPDATE $tabla set $sets WHERE $where";
+//    echo "<br>SQL:$sql";
+    $query->update($sql);
+}
+
 
 
 ?>

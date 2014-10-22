@@ -19,6 +19,8 @@ define ("IP_SERVER_PUBLIC",'http://192.168.100.150/');
 
 define("BASE_STORAGE", IP_SERVER_PUBLIC. "storage/");
 
+define("CUENTA_CORREO", "biblioteca_vitual@metaspace.com");
+
 define("VERSION", "v0.1");
 
 ?>

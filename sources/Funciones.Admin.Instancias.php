@@ -67,7 +67,7 @@ function consultaInstanciasJSON($id = NULL) {
 function construyeTablaInstancias() {
     $instancias = consultaInstancias();
 
-    if ($instancias) {
+    if (isset($instancias)) {
         foreach ($instancias as $instancia) {
             $nombreInstancia = $instancia->nombre_instancia;
             $id = $instancia->id_instancia;

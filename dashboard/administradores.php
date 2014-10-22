@@ -50,7 +50,7 @@ $menu = 8;
                         </tfoot>
 
                         <tbody>
-
+                            <?php construyeTablaAdministradores(); ?>
                         </tbody>
                     </table>
 
@@ -60,6 +60,55 @@ $menu = 8;
 
         <!--Modal agregar-->
         <div class="modal fade" id="agregar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Editar Administrador</h4>
+                    </div>
+                    <form role="form" method="POST" action="gdaEditarAdministrador.php">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="nombreAdministrador">Nombre Completo</label>
+                                <input type="text" class="form-control" id="editarNombreAdministrador" name="administrador/nombre" required placeholder="Ingrese el nombre completo del administrador">
+                            </div>
+                            <div class="form-group">
+                                <label for="nombreUsuarioAdministrador">Nombre de Usuario</label>
+                                <input type="text" class="form-control" id="editarNombreUsuario" name="administrador/nombre_usuario" required placeholder="Ingrese el nombre de usuario">
+                            </div>
+                            <div class="form-group">
+                                <label for="nombreUsuarioAdministrador">Correo Electr&oacute;nico</label>
+                                <input type="email" class="form-control" id="editarCorreo" name="administrador/correo" placeholder="Ingrese el correo electrónico">
+                            </div>
+                            <div class="form-group">
+                                <label for="nombreUsuarioAdministrador">Contrase&ntilde;a</label>
+                                <input type="password" class="form-control" id="editarPassword" name="administrador/contrasena" placeholder="Ingrese la contraseña" required>
+                                <div class="pwstrength_viewport_progress"></div>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="cambiarContrasena" id="cambiarContrasena"> Cambiar Contrase&ntilde;a
+                                </label>
+                            </div> 
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="contrasenaAutomatica" id="contrasenaAutomatica"> Asignar contrase&ntilde;a autom&aacute;ticamente
+                                </label>
+                            </div>                                                     
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--Modal agregar-->
+        
+        <!--Modal editar-->
+        <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -87,7 +136,7 @@ $menu = 8;
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" id="contrasenaAutomatica"> Asignar contrase&ntilde;a autom&aacute;ticamente
+                                    <input type="checkbox" name="contrasenaAutomatica" id="contrasenaAutomatica"> Asignar contrase&ntilde;a autom&aacute;ticamente
                                 </label>
                             </div>                                                     
 
@@ -100,7 +149,7 @@ $menu = 8;
                 </div>
             </div>
         </div>
-        <!--Modal agregar-->
+        <!--Modal editar-->
 
         <!-- Bootstrap core JavaScript
         ================================================== -->
