@@ -15,12 +15,15 @@ define("PASS","ems20140825");
 define("HOST","200.66.87.58");
 define("PORT","5432");
 
-define ("IP_SERVER_PUBLIC",'http://192.168.100.150/');
+define ("IP_SERVER_PUBLIC",'http://localhost:81/');
 
-define("BASE_STORAGE", IP_SERVER_PUBLIC. "storage/");
-
+define("BASE", "C:\Bitnami\wappstack-5.4.32-0\apache2\htdocs\\");
+define("BASE_STORAGE", BASE. "storage_biblioteca".DIRECTORY_SEPARATOR."libros");
+define("DIRECTORY_SEPARATOR", '\\');
 define("CUENTA_CORREO", "biblioteca_vitual@metaspace.com");
 
 define("VERSION", "v0.1");
+
+$extensionesPermitidas = array ("pdf", "PDF");
 
 ?>

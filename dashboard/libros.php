@@ -68,31 +68,69 @@ $menu = 2;
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <h4 class="modal-title" id="myModalLabel">Agregar Libro</h4>
                     </div>
-                    <form role="form">
+                    <form role="form" method="POST" action="gdaLibro.php" enctype="multipart/form-data">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                <label for="nombreLibro">Nombre del libro</label>
+                                <input type="text" name="libro/nombre_libro" class="form-control"  placeholder="Ingrese el nombre del libro">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <label for="autor">Autor</label>
+                                <select class="form-control" name="libro/id_autor" required>
+                                    <?php optionsCatalogo("id_autor", "nombre_autor", "autor")?>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputFile">File input</label>
-                                <input type="file" id="exampleInputFile">
-                                <p class="help-block">Example block-level help text here.</p>
+                                <label for="editorial">Editorial</label>
+                                <select class="form-control" name="libro/id_editorial" required>
+                                    <?php optionsCatalogo("id_editorial", "nombre_editorial", "editorial")?>
+                                </select>
                             </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> Check me out
-                                </label>
+                            <div class="form-group">
+                                <label for="clase">Clase</label>
+                                <select class="form-control" name="libro/id_clase" required>
+                                    <?php optionsCatalogo("id_clase", "nombre_clase", "clase")?>
+                                </select>
                             </div>
+                            <div class="form-group">
+                                <label for="nivelEducativo">Nivel Educativo</label>
+                                <select class="form-control" name="libro/id_nivel_educativo" required>
+                                    <?php optionsCatalogo("id_nivel_educativo", "nombre_nivel", "nivel_educativo")?>
+                                </select>
+                            </div>                            
+                            <div class="form-group">
+                                <label for="tipoLibro">Tipo de libro</label>
+                                <select class="form-control" name="libro/tipo_libro" id="tipo-libro" required>
+                                    <option value="0">Gratuito</option>
+                                    <option value="1">Paga</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="url-externa">
+                                <label for="urlExterna">URL externa</label>
+                                <input type="url" class="form-control"  name="libro/url_externa" placeholder="Ingrese la URL externa del libro">
+                            </div>
+                            <div class="form-group" id="libro-gratuito">
+                                <label for="libro">Libro Digital</label>
+                                <input class="form-control" type="file" accept='application/pdf' name="libro">
+                                <p class="help-block">Libro en formato PDF.</p>
+                            </div>
+                            <div class="form-group" id="libro-gratuito">
+                                <label for="libro">Car&aacute;tula del libro</label>
+                                <input class="form-control" type="file" accept="image/*" id="input-imagen" required>
+                                <p class="help-block">Car&aacute;tula del libro en imagen: .png, .jpg, .bmp, .gif.</p>
+                                <div id="muestra-imagen"></div>
+                                <input id="imagen-base64" type="hidden" name="libro/imagen" value="">
+                            </div>  
+                            <div class="form-group" id="url-externa">
+                                <label for="descripcion">Descripci&oacute;n</label>
+                                <textarea class="form-control" rows="4" name="libro/descripcion" required></textarea>
+                            </div>
+                            
                             
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
                         </div>
                     </form>
                 </div>

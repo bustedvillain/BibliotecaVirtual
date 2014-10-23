@@ -20,6 +20,9 @@ if ($_POST) {
             $id = $_POST["id"];
             echo consultaInstanciasJSON($id);
             break;
+        case "consultaAdmin":
+            $id = $_POST["id"];
+            echo consultaUsuarioJSON($id);
     }
 }
 ?>

@@ -12,3 +12,5 @@ include("Funciones.Admin.Catalogos.php");
 include("Funciones.Admin.Instancias.php");
 //Usuarios
 include("Funciones.Admin.Usuarios.php");
+//Libros
+include("Funciones.Admin.Libros.php");

@@ -63,7 +63,7 @@ function consultaUsuario($idUsuario = NULL) {
     if (isset($idUsuario)) {
         $query->sql = "SELECT id_administrador, nombre, nombre_usuario, correo FROM administrador WHERE status = 1 and id_administrador = $idUsuario";
     } else {
-        $query->sql = "SELECT id_administrador, nombre, nombre_usuario, correo FROM administrador WHERE status = 1";
+        $query->sql = "SELECT id_administrador, nombre, nombre_usuario, correo FROM administrador WHERE status = 1 ORDER BY id_administrador";
     }
 
     $resultados = $query->select();
@@ -84,6 +84,9 @@ function consultaUsuarioJSON($idUsuario = NULL) {
     return json_encode(consultaUsuario($idUsuario));
 }
 
+/**
+ * Funcion que contruye los registros de consulta de usuari para tabla html
+ */
 function construyeTablaAdministradores() {
     $usuarios = consultaUsuario();
 
@@ -91,7 +94,6 @@ function construyeTablaAdministradores() {
         foreach (consultaUsuario() as $usuario) {
             $nombreAdmin = $usuario->nombre;
             $id= $usuario->id_administrador;
-            $correo = $usuario->correo;
             echo <<<linea
                 <tr>
                     <td>
@@ -100,9 +102,49 @@ function construyeTablaAdministradores() {
                     </td>
                     <td>$id</td>
                     <td>$nombreAdmin</td>
-                    <td>$correo</td>
+                    <td>$usuario->nombre_usuario</td>
+                    <td>$usuario->correo</td>
                 </tr>
 linea;
         }
+    }
+}
+
+function consultaExistenciaParametro($parametro, $valorParametro, $activo = true){
+    $query = new Query();
+    
+    if($activo){
+        $query->sql = "SELECT id_administrador FROM administrador WHERE upper($parametro) = upper('$valorParametro') and status = 1";
+    }else{
+        $query->sql = "SELECT id_administrador FROM administrador WHERE upper($parametro) = upper('$valorParametro') and status = 0";
+    }
+    
+    $resultados = $query->select();
+    
+    if($resultados){
+        foreach($resultados as $res){
+            return $res->id_administrador;
+        }
+    }else{
+        return NULL;
+    }
+    
+}
+
+/**
+ * Funcion que verifica si hay un administrador existente pero eliminado logicamente.
+ * Si lo hay lo borra definitivamente.
+ * @param type $correo
+ * @param type $usuario
+ */
+function verificaEliminacionUsuario($correo, $usuario){
+    if(($id = consultaExistenciaParametro("nombre_usuario", $usuario, false)) != NULL){
+        $query = new Query();
+        $query->delete("administrador", "id_administrador = $id");
+    }
+    
+    if(($id = consultaExistenciaParametro("correo", $correo, false)) != NULL){
+        $query = new Query();
+        $query->delete("administrador", "id_administrador = $id");
     }
 }

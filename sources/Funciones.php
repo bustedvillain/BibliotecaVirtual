@@ -76,15 +76,15 @@ function codificaMail($email = "") {
  * @param type $titulo
  * @return string
  */
-function guardaArchivo($carpeta, $titulo) {
+function guardaArchivo($input, $carpeta, $titulo) {
     include_once ("Documento.inc");
     $archivo = new Documento();
-    $archivo->archivo = $_FILES["archivo"]["tmp_name"];
-    $archivo->error = $_FILES["archivo"]["errono"];
-    $archivo->nombre = $titulo;
+    $archivo->archivo = $_FILES[$input]["tmp_name"];
+    $archivo->error = $_FILES[$input]["errono"];
+    $archivo->nombre = $_FILES[$input]["name"];
 //echo $img->nombre;
-    $archivo->tamano = $_FILES["archivo"]["size"];
-    $archivo->tipo = $_FILES["archivo"]["type"];
+    $archivo->tamano = $_FILES[$input]["size"];
+    $archivo->tipo = $_FILES[$input]["type"];
     $archivo->titulo = $titulo;
     $archivo->destino = $carpeta;
 
@@ -92,15 +92,15 @@ function guardaArchivo($carpeta, $titulo) {
         if ($archivo->verificarExtension()) {
 //echo "\nextension correcta";
         }
-//        if ($archivo->cambiarNombre()) {
+        if ($archivo->cambiarNombre()) {
 //echo "\nNombre cambiado";
-//        }
+        }
         if ($archivo->copia()) {
 //echo "  Archivo subido";
         }
     }
 
-    $ruta = UNIDADES_PATH . "/" . $img->nombre;
+    $ruta = $carpeta . "/" . $archivo->nombre;
     return $ruta;
 }
 

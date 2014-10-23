@@ -45,6 +45,7 @@ class Documento {
 
     function verificarExtension() {
         global $extensionesPermitidas;
+        echo "<br>Nombre: ".$this->nombre."<br>";
         if (in_array(end(explode(".", $this->nombre)), $extensionesPermitidas)) {
             $this->extension = end(explode(".", strtolower($this->nombre)));
             return TRUE;
@@ -72,13 +73,13 @@ class Documento {
     }
 
     function copia() {
-//        echo $this->destino . "/" . $this->nombre;
+        echo $this->destino . DIRECTORY_SEPARATOR . $this->nombre;
         if (move_uploaded_file($this->archivo, $this->destino . "/" . $this->nombre)) {
             unset($this->archivo);
             @unlink($this->archivo);
 //            return TRUE;
-            
-            return $this->destino . "/" . $this->nombre;
+
+            return $this->destino . DIRECTORY_SEPARATOR . $this->nombre;
         } else {
             exit("<center><h5 id='errorLogin'>ERROR. El archivo no puede ser copiado, intenta nuevamente.</h5></center>");
         }

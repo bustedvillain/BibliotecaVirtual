@@ -99,7 +99,7 @@ function validaInsercionAtributo($atributo, $tabla, $id_atributo, $nombre_atribu
     $query = new Query();
     //Query to SG
     //Si especifica un idHabildiad excluirlo en la busqueda
-    if ($id) {
+    if (isset($id)) {
         $query->sql = "SELECT $nombre_atributo from $tabla where upper($nombre_atributo) =upper('$atributo') and $id_atributo != $id and status=1";
     } else {
         $query->sql = "SELECT $nombre_atributo from $tabla where upper($nombre_atributo) =upper('$atributo') and status=1";
@@ -680,5 +680,29 @@ sql;
     
 }   
 
+function optionsCatalogo($idNombre, $nombreCampo, $entidad){
+    $query = new Query();
+    
+    if($entidad == "nivel_educativo"){
+        $order = "id_nivel_educativo";
+    }else{
+        $order = $nombreCampo;
+    }
+    
+    $query->sql = "SELECT $idNombre, $nombreCampo FROM $entidad WHERE status = 1 ORDER BY $order";
 
-?>
+    $resultados = $query->select();
+    
+    if($resultados){
+        echo "<option>Seleccione una opci&oacute;n</option>";
+        foreach($resultados as $resultado){
+            eval("\$id = \$resultado->$idNombre;");
+            eval("\$nombre = \$resultado->$nombreCampo;");
+            echo <<<option
+                <option value="$id">$nombre</option>
+option;
+        }
+    }else{
+        echo "<option>No hay opciones disponibles</option>";
+    }
+}
