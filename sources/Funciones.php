@@ -510,7 +510,7 @@ function destripaPostEdicion($POST, $delimitador = NULL, $tablas = NULL) {
  * @param type $actualiza
  * @return boolean
  */
-function guardaStorage($FILE, $carpeta, $destino, $actualiza = NULL) {
+function guardaStorage($FILE, $destino) {
 
 //    echo "<br>Archivo:";
 //    var_dump($FILE);
@@ -538,9 +538,7 @@ function guardaStorage($FILE, $carpeta, $destino, $actualiza = NULL) {
 
             $post = array(
                 "archivo" => "@" . $FILE,
-                "carpeta" => $carpeta,
                 "destino" => $destino,
-                "actualiza" => $actualiza
             );
 //            imprimeConsola("POST:");
 //            var_dump($post);

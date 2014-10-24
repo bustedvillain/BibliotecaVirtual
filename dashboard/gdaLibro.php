@@ -12,7 +12,8 @@ if ($_POST) {
     if (validaInsercionAtributo($_POST["libro/nombre_libro"], "libro", "id_libro", "nombre_libro")) {
         //Si es libro gratuito se guarda archivo
         if($_POST["libro/tipo_libro"]== "0"){
-            $_POST["libro/url_archivo"] = guardaArchivo("libro", BASE_STORAGE, $_POST["libro/nombre_libro"]);
+//            $_POST["libro/url_archivo"] = guardaArchivo("libro", BASE_STORAGE, $_POST["libro/nombre_libro"]);
+            $_POST["libro/url_archivo"] = guardaStorage($_FILES["libro"]["tmp_name"], "libros");
         }
         $_POST["libro/status"] = 1;
         //TEMPORAL MIENTRAS SE IMPLEMENTAN SESIONES

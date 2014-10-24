@@ -104,7 +104,7 @@ function validaInsercionAtributo($atributo, $tabla, $id_atributo, $nombre_atribu
     } else {
         $query->sql = "SELECT $nombre_atributo from $tabla where upper($nombre_atributo) =upper('$atributo') and status=1";
     }
-    echo $query->sql;
+    //echo $query->sql;
     $tabla = $query->select("obj");
 
     if ($tabla) {
