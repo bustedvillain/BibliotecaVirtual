@@ -253,7 +253,7 @@ $(document).ready(function () {
     $("#input-imagen").change(function () {
         imageToBase64URL($(this)["context"].files, function (imgBase64) {
             $("#muestra-imagen").html("<center><img class='img-rounded' src='"+imgBase64+"' width='50%'/></center>");
-            $("#imagen-base64").val(imgBase64);
+//            $("#imagen-base64").val(imgBase64);
         });
     });
 

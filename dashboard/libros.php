@@ -38,7 +38,10 @@ $menu = 2;
                                 <th>ID</th>                                
                                 <th>Imagen</th>
                                 <th>Nombre</th>
-                                <th>Ver</th>
+                                <th>Autor</th>
+                                <th>Editorial</th>
+                                <th>Clase</th>
+                                <th>Nivel Educativo</th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -47,12 +50,15 @@ $menu = 2;
                                 <th>ID</th>                                
                                 <th>Imagen</th>
                                 <th>Nombre</th>
-                                <th>Ver</th>
+                                <th>Autor</th>
+                                <th>Editorial</th>
+                                <th>Clase</th>
+                                <th>Nivel Educativo</th>
                             </tr>
                         </tfoot>
 
                         <tbody>
-
+                            <?php consultaLibros(); ?>
                         </tbody>
                     </table>
 
@@ -116,10 +122,10 @@ $menu = 2;
                             </div>
                             <div class="form-group" id="libro-gratuito">
                                 <label for="libro">Car&aacute;tula del libro</label>
-                                <input class="form-control" type="file" accept="image/*" id="input-imagen" required>
+                                <input class="form-control" type="file" name="imagen" accept="image/*" id="input-imagen" required>
                                 <p class="help-block">Car&aacute;tula del libro en imagen: .png, .jpg, .bmp, .gif.</p>
                                 <div id="muestra-imagen"></div>
-                                <input id="imagen-base64" type="hidden" name="libro/imagen" value="">
+                                <!--<input id="imagen-base64" type="hidden"  value="">-->
                             </div>  
                             <div class="form-group" id="url-externa">
                                 <label for="descripcion">Descripci&oacute;n</label>

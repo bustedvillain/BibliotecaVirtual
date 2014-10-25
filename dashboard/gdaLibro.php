@@ -15,6 +15,11 @@ if ($_POST) {
 //            $_POST["libro/url_archivo"] = guardaArchivo("libro", BASE_STORAGE, $_POST["libro/nombre_libro"]);
             $_POST["libro/url_archivo"] = guardaStorage($_FILES["libro"]["tmp_name"], "libros");
         }
+        
+        //Guarda Imagen
+        if(isset($_FILES["imagen"])){
+            $_POST["libro/imagen"] = guardaStorage($_FILES["imagen"]["tmp_name"], "portadas");
+        }
         $_POST["libro/status"] = 1;
         //TEMPORAL MIENTRAS SE IMPLEMENTAN SESIONES
         $_POST["libro/id_administrador"] = 8;
