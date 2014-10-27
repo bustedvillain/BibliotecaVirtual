@@ -157,7 +157,7 @@ $menu = 2;
                     <div class="modal-body">
                         <table class="table table-hover">
                             <tr>
-                                <td rowspan="2" id="ver-imagen"></td>
+                                <td rowspan="2" id="ver-imagen" style="width:50%;"></td>
                                 <td><b>Nombre: </b><span id="ver-nombre"></span></td>
                             </tr>
                             <tr>

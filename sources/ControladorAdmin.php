@@ -1,6 +1,6 @@
 <?php
 
-include("Funciones.php");
+include("funciones.php");
 /*
  * Autor: Jose Manuel Nieto Gomez
  * Fecha de Creacion: 17 de Octubre de 2014

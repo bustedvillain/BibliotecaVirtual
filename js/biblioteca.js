@@ -279,7 +279,7 @@ $(document).ready(function () {
             debugConsole(respuesta);
             var atributo = jQuery.parseJSON(respuesta);
             debugConsole(atributo);
-            $("#ver-imagen").html("<img width='60%' class='img-rounded' src='"+atributo[0].imagen+"'/>");
+            $("#ver-imagen").html("<img width='100%' style='width:100%;' class='img-rounded' src='"+atributo[0].imagen+"'/>");
             $("#ver-nombre").html(Encoder.htmlDecode(atributo[0].nombre_libro));
             $("#ver-descripcion").html(Encoder.htmlDecode(atributo[0].descripcion));
             $("#ver-autor").html(Encoder.htmlDecode(atributo[0].nombre_autor));
@@ -309,7 +309,7 @@ $(document).ready(function () {
             debugConsole(respuesta);
             var atributo = jQuery.parseJSON(respuesta);
             debugConsole(atributo);
-            $("#ver-imagen").html("<img width='60%' class='img-rounded' src='"+atributo[0].imagen+"'/>");
+            $("#ver-imagen").html("<img width='100%' style='width:'100%;' class='img-rounded' src='"+atributo[0].imagen+"'/>");
             $("#ver-nombre").html(Encoder.htmlDecode(atributo[0].nombre_libro));
             $("#ver-descripcion").html(Encoder.htmlDecode(atributo[0].descripcion));
             $("#ver-autor").html(Encoder.htmlDecode(atributo[0].nombre_autor));
@@ -337,7 +337,6 @@ $(document).ready(function () {
     });
     
     $("#guardarLibro").click(function(){
-       alert($("#tipo-libro").val());
        if($("#tipo-libro").val() == "1"){
            $("#libro-gratuito").remove();
        }
