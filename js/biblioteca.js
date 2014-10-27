@@ -66,6 +66,7 @@ $(document).ready(function () {
     $(".invisible").hide();
 
     $(".editaAtributo").click(function (event) {
+        loading();
         var id = $(this).attr("id");
         var nombre_atributo = $(this).attr("nombre_atributo");
         var entidad = $(this).attr("entidad");
@@ -73,6 +74,7 @@ $(document).ready(function () {
 
         debugConsole("Getting idAtributo:" + id);
         $.post("../sources/ControladorAdmin.php", {consulta: "consultaAtributo", id: id, nombre_atributo: nombre_atributo, entidad: entidad, id_nombre: id_nombre}, function (respuesta) {
+            restoreLoading();
             debugConsole(respuesta);
             var atributo = jQuery.parseJSON(respuesta);
             $("#editaAtributo").val(Encoder.htmlDecode(atributo.nombre_atributo));
@@ -124,10 +126,12 @@ $(document).ready(function () {
 
     //Instancias
     $(".editaInstancia").click(function (event) {
+        loading();
         debugConsole("Editar instancia");
         var id = $(this).attr("id");
 
         $.post("../sources/ControladorAdmin.php", {consulta: "consultaInstancia", id: id}, function (respuesta) {
+            restoreLoading();
             debugConsole(respuesta);
             var atributo = jQuery.parseJSON(respuesta);
             debugConsole(Encoder.htmlDecode(atributo[0].nombre_instancia));
@@ -208,9 +212,11 @@ $(document).ready(function () {
     }
 
     $(".editaAdmin").click(function () {
+        loading();
         debugConsole("Editar Admin");
         var id = $(this).attr("id");
         $.post("../sources/ControladorAdmin.php", {consulta: "consultaAdmin", id: id}, function (respuesta) {
+            restoreLoading();
             var atributo = jQuery.parseJSON(respuesta);
             debugConsole(atributo);
             $("#editaNombre").val(Encoder.htmlDecode(atributo[0].nombre));
@@ -252,11 +258,103 @@ $(document).ready(function () {
 
     $("#input-imagen").change(function () {
         imageToBase64URL($(this)["context"].files, function (imgBase64) {
-            $("#muestra-imagen").html("<center><img class='img-rounded' src='"+imgBase64+"' width='50%'/></center>");
+            $("#muestra-imagen").html("<center><img class='img-rounded' src='" + imgBase64 + "' width='50%'/></center>");
 //            $("#imagen-base64").val(imgBase64);
         });
     });
 
+    $("#input-imagen2").change(function () {
+        imageToBase64URL($(this)["context"].files, function (imgBase64) {
+            $("#muestra-imagen2").html("<center><img class='img-rounded' src='" + imgBase64 + "' width='50%'/></center>");
+//            $("#imagen-base64").val(imgBase64);
+        });
+    });
+
+    $(".verLibro").click(function () {
+        loading();
+        debugConsole("Ver detalles libro:"+$(this).attr("id"));
+        var id = $(this).attr("id");
+        $.post("../sources/ControladorAdmin.php", {consulta: "consultaLibro", id: id}, function (respuesta) {
+            restoreLoading();
+            debugConsole(respuesta);
+            var atributo = jQuery.parseJSON(respuesta);
+            debugConsole(atributo);
+            $("#ver-imagen").html("<img width='60%' class='img-rounded' src='"+atributo[0].imagen+"'/>");
+            $("#ver-nombre").html(Encoder.htmlDecode(atributo[0].nombre_libro));
+            $("#ver-descripcion").html(Encoder.htmlDecode(atributo[0].descripcion));
+            $("#ver-autor").html(Encoder.htmlDecode(atributo[0].nombre_autor));
+            $("#ver-editorial").html(Encoder.htmlDecode(atributo[0].nombre_editorial));
+            $("#ver-clase").html(Encoder.htmlDecode(atributo[0].nombre_clase));
+            $("#ver-nivel").html(Encoder.htmlDecode(atributo[0].nombre_nivel));
+            
+            if(atributo[0].tipo_libro == "0"){
+                //Gratuito
+                $("#ver-tipo").html("Gratuito");
+            }else if(atributo[0].tipo_libro == "1"){
+                //Paga
+                $("#ver-tipo").html("Paga");
+            }
+            
+            $("#ver-fecha").html(atributo[0].fecha_inclusion);
+            $("#ver-admin").html(Encoder.htmlDecode(atributo[0].nombre));
+        });
+    });
+    
+    $(".editarLibro").click(function () {
+        loading();
+        debugConsole("Editar libro:"+$(this).attr("id"));
+        var id = $(this).attr("id");
+        $.post("../sources/ControladorAdmin.php", {consulta: "consultaLibro", id: id}, function (respuesta) {
+            restoreLoading();
+            debugConsole(respuesta);
+            var atributo = jQuery.parseJSON(respuesta);
+            debugConsole(atributo);
+            $("#ver-imagen").html("<img width='60%' class='img-rounded' src='"+atributo[0].imagen+"'/>");
+            $("#ver-nombre").html(Encoder.htmlDecode(atributo[0].nombre_libro));
+            $("#ver-descripcion").html(Encoder.htmlDecode(atributo[0].descripcion));
+            $("#ver-autor").html(Encoder.htmlDecode(atributo[0].nombre_autor));
+            $("#ver-editorial").html(Encoder.htmlDecode(atributo[0].nombre_editorial));
+            $("#ver-clase").html(Encoder.htmlDecode(atributo[0].nombre_clase));
+            $("#ver-nivel").html(Encoder.htmlDecode(atributo[0].nombre_nivel));
+            
+            if(atributo[0].tipo_libro == "0"){
+                //Gratuito
+                $("#ver-tipo").html("Gratuito");
+            }else if(atributo[0].tipo_libro == "1"){
+                //Paga
+                $("#ver-tipo").html("Paga");
+            }
+            
+            $("#ver-fecha").html(atributo[0].fecha_inclusion);
+            $("#ver-admin").html(Encoder.htmlDecode(atributo[0].nombre));
+        });
+    });
+    
+    $("form").submit(function(){
+       $("button[type=submit]").val("Enviando...");
+       $("button").attr("disabled", "disabled");
+        
+    });
+    
+    $("#guardarLibro").click(function(){
+       alert($("#tipo-libro").val());
+       if($("#tipo-libro").val() == "1"){
+           $("#libro-gratuito").remove();
+       }
+    });
+    
+    function loading(){
+        modalTitle = $(".modal-title").html();
+        var loading = modalTitle + '<div class="loader"><span></span><span></span><span></span><br>Cargando datos...</div>';
+        $(".modal-title").html(loading);
+    }
+    
+    function restoreLoading(){
+//        $(".modal-title").html(modalTitle);
+    $(".loader").fadeOut("slow");
+    }
+    
+    var modalTitle = "";
 });
 
 

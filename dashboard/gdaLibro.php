@@ -11,9 +11,11 @@ if ($_POST) {
     echo "Guardando datos...";
     if (validaInsercionAtributo($_POST["libro/nombre_libro"], "libro", "id_libro", "nombre_libro")) {
         //Si es libro gratuito se guarda archivo
-        if($_POST["libro/tipo_libro"]== "0"){
+        if($_POST["libro/tipo_libro"]== "0" && isset($_FILES["libro"])){
 //            $_POST["libro/url_archivo"] = guardaArchivo("libro", BASE_STORAGE, $_POST["libro/nombre_libro"]);
             $_POST["libro/url_archivo"] = guardaStorage($_FILES["libro"]["tmp_name"], "libros");
+        }else{
+            $_POST["libro/url_archivo"] = $_POST["libro/url_externa"];
         }
         
         //Guarda Imagen

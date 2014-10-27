@@ -23,6 +23,11 @@ if ($_POST) {
         case "consultaAdmin":
             $id = $_POST["id"];
             echo consultaUsuarioJSON($id);
+            break;
+        case "consultaLibro":
+            $id = $_POST["id"];
+            echo consultaLibrosJSON($id);
+            break;
     }
 }
 ?>
