@@ -235,7 +235,19 @@ $(document).ready(function () {
             $("#libro-gratuito").hide("fast");
         }
     });
+
     $("#tipo-libro").change();
+
+    $("#edita-tipo-libro").change(function () {
+        if ($(this).val() === "0") {
+            $("#url-externa2").hide("fast");
+            $("#libro-gratuito2").show("fast");
+        } else {
+            $("#url-externa2").show("fast");
+            $("#libro-gratuito2").hide("fast");
+        }
+    });
+
 
     /**
      * Función que convierte el input de una imagen en base64
@@ -272,89 +284,164 @@ $(document).ready(function () {
 
     $(".verLibro").click(function () {
         loading();
-        debugConsole("Ver detalles libro:"+$(this).attr("id"));
+        debugConsole("Ver detalles libro:" + $(this).attr("id"));
         var id = $(this).attr("id");
         $.post("../sources/ControladorAdmin.php", {consulta: "consultaLibro", id: id}, function (respuesta) {
             restoreLoading();
             debugConsole(respuesta);
             var atributo = jQuery.parseJSON(respuesta);
             debugConsole(atributo);
-            $("#ver-imagen").html("<img width='100%' style='width:100%;' class='img-rounded' src='"+atributo[0].imagen+"'/>");
+            $("#ver-imagen").html("<img width='100%' style='width:100%;' class='img-rounded' src='" + atributo[0].imagen + "'/>");
             $("#ver-nombre").html(Encoder.htmlDecode(atributo[0].nombre_libro));
             $("#ver-descripcion").html(Encoder.htmlDecode(atributo[0].descripcion));
             $("#ver-autor").html(Encoder.htmlDecode(atributo[0].nombre_autor));
             $("#ver-editorial").html(Encoder.htmlDecode(atributo[0].nombre_editorial));
             $("#ver-clase").html(Encoder.htmlDecode(atributo[0].nombre_clase));
             $("#ver-nivel").html(Encoder.htmlDecode(atributo[0].nombre_nivel));
-            
-            if(atributo[0].tipo_libro == "0"){
+
+            if (atributo[0].tipo_libro == "0") {
                 //Gratuito
                 $("#ver-tipo").html("Gratuito");
-            }else if(atributo[0].tipo_libro == "1"){
+            } else if (atributo[0].tipo_libro == "1") {
                 //Paga
                 $("#ver-tipo").html("Paga");
             }
-            
+
             $("#ver-fecha").html(atributo[0].fecha_inclusion);
             $("#ver-admin").html(Encoder.htmlDecode(atributo[0].nombre));
+            $("#ver-libro").html('<a title="Ver Libro" href="' + atributo[0].url_archivo + '" target="top">Ver Libro </a>');
         });
     });
-    
+
     $(".editarLibro").click(function () {
         loading();
-        debugConsole("Editar libro:"+$(this).attr("id"));
+        debugConsole("Editar libro:" + $(this).attr("id"));
         var id = $(this).attr("id");
         $.post("../sources/ControladorAdmin.php", {consulta: "consultaLibro", id: id}, function (respuesta) {
             restoreLoading();
             debugConsole(respuesta);
             var atributo = jQuery.parseJSON(respuesta);
             debugConsole(atributo);
-            $("#ver-imagen").html("<img width='100%' style='width:'100%;' class='img-rounded' src='"+atributo[0].imagen+"'/>");
-            $("#ver-nombre").html(Encoder.htmlDecode(atributo[0].nombre_libro));
-            $("#ver-descripcion").html(Encoder.htmlDecode(atributo[0].descripcion));
-            $("#ver-autor").html(Encoder.htmlDecode(atributo[0].nombre_autor));
-            $("#ver-editorial").html(Encoder.htmlDecode(atributo[0].nombre_editorial));
-            $("#ver-clase").html(Encoder.htmlDecode(atributo[0].nombre_clase));
-            $("#ver-nivel").html(Encoder.htmlDecode(atributo[0].nombre_nivel));
-            
-            if(atributo[0].tipo_libro == "0"){
-                //Gratuito
-                $("#ver-tipo").html("Gratuito");
-            }else if(atributo[0].tipo_libro == "1"){
-                //Paga
-                $("#ver-tipo").html("Paga");
-            }
-            
-            $("#ver-fecha").html(atributo[0].fecha_inclusion);
-            $("#ver-admin").html(Encoder.htmlDecode(atributo[0].nombre));
+            $("#edita-nombre-libro").val(Encoder.htmlDecode(atributo[0].nombre_libro));
+            $("#edita-descripcion").val(Encoder.htmlDecode(atributo[0].descripcion));
+
+            $("#edita-autor option[value=" + atributo[0].id_autor + "]").attr("selected", true);
+            $("#edita-editorial option[value=" + atributo[0].id_editorial + "]").attr("selected", true);
+            $("#edita-clase option[value=" + atributo[0].id_clase + "]").attr("selected", true);
+            $("#edita-nivel option[value=" + atributo[0].id_nivel_educativo + "]").attr("selected", true);
+            $("#edita-tipo-libro option[value=" + atributo[0].tipo_libro + "]").attr("selected", true);
+            $("#edita-tipo-libro").change();
+            $("#edita-url-externa").val(atributo[0].url_archivo);
+            $("#id_libro").val(id);
+
         });
     });
-    
-    $("form").submit(function(){
-       $("button[type=submit]").val("Enviando...");
-       $("button").attr("disabled", "disabled");
-        
+
+    $("form").submit(function () {
+        $("button[type=submit]").html("Enviando...");
+        $("button").attr("disabled", "disabled");
+
     });
-    
-    $("#guardarLibro").click(function(){
-       if($("#tipo-libro").val() == "1"){
-           $("#libro-gratuito").remove();
-       }
+
+    $("#guardarLibro").click(function () {
+        if ($("#tipo-libro").val() == "1") {
+            $("#libro-gratuito").remove();
+        }
+        if ($("#selecciona-autor").val() != "0") {
+            $("#otro-autor").remove();
+        }
+        if ($("#selecciona-editorial").val() != "0") {
+            $("#otra-editorial").remove();
+        }
+        if ($("#selecciona-clase").val() != "0") {
+            $("#otra-clase").remove();
+        }
     });
-    
-    function loading(){
+
+    $("#guardaEdicionLibro").click(function () {
+        if ($("#tipo-libro2").val() == "1") {
+            $("#libro-gratuito2").remove();
+        }
+        if ($("#edita-autor").val() != "0") {
+            $("#otro-autor2").remove();
+        }
+        if ($("#edita-editorial").val() != "0") {
+            $("#otra-editorial2").remove();
+        }
+        if ($("#edita-clase").val() != "0") {
+            $("#otra-clase2").remove();
+        }
+    });
+
+    function loading() {
         modalTitle = $(".modal-title").html();
         var loading = modalTitle + '<div class="loader"><span></span><span></span><span></span><br>Cargando datos...</div>';
         $(".modal-title").html(loading);
     }
-    
-    function restoreLoading(){
-//        $(".modal-title").html(modalTitle);
-    $(".loader").fadeOut("slow");
+
+    function restoreLoading() {
+        $(".loader").fadeOut("slow");
     }
-    
+
     var modalTitle = "";
+    
+    $("#otro-autor").hide();
+    $("#otra-editorial").hide();
+    $("#otra-clase").hide();
+    $("#otro-autor2").hide();
+    $("#otra-editorial2").hide();
+    $("#otra-clase2").hide();
+    
+    $("#selecciona-autor").change(function(){
+        if($(this).val() == "0"){
+            $("#otro-autor").show("fast");
+        }else{
+            $("#otro-autor").hide("fast");
+        }
+    });
+    
+    $("#selecciona-editorial").change(function(){
+        if($(this).val() == "0"){
+            $("#otra-editorial").show("fast");
+        }else{
+            $("#otra-editorial").hide("fast");
+        }
+    });
+    
+    $("#selecciona-clase").change(function(){
+        if($(this).val() == "0"){
+            $("#otra-clase").show("fast");
+        }else{
+            $("#otra-clase").hide("fast");
+        }
+    });
+    
+    $("#edita-autor").change(function(){
+        if($(this).val() == "0"){
+            $("#otro-autor2").show("fast");
+        }else{
+            $("#otro-autor2").hide("fast");
+        }
+    });
+    
+    $("#edita-editorial").change(function(){
+        if($(this).val() == "0"){
+            $("#otra-editorial2").show("fast");
+        }else{
+            $("#otra-editorial2").hide("fast");
+        }
+    });
+    
+    $("#edita-clase").change(function(){
+        if($(this).val() == "0"){
+            $("#otra-clase2").show("fast");
+        }else{
+            $("#otra-clase2").hide("fast");
+        }
+    });
 });
+
+
 
 
 

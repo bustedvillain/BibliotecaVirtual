@@ -84,21 +84,33 @@ $menu = 2;
                             </div>
                             <div class="form-group">
                                 <label for="autor">Autor</label>
-                                <select class="form-control" name="libro/id_autor" required>
+                                <select class="form-control" name="libro/id_autor" required id="selecciona-autor">
                                     <?php optionsCatalogo("id_autor", "nombre_autor", "autor") ?>
+                                    <option value="0">Otro</option>                                    
                                 </select>
+                                <div id="otro-autor">
+                                    <input class="form-control" type="text" name="autor/nombre_autor" required/>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="editorial">Editorial</label>
-                                <select class="form-control" name="libro/id_editorial" required>
+                                <select class="form-control" name="libro/id_editorial" required id="selecciona-editorial">
                                     <?php optionsCatalogo("id_editorial", "nombre_editorial", "editorial") ?>
+                                    <option value="0">Otra</option>
                                 </select>
+                                <div id="otra-editorial">
+                                    <input class="form-control" type="text" name="editorial/nombre_editorial" required/>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="clase">Clase</label>
-                                <select class="form-control" name="libro/id_clase" required>
+                                <select class="form-control" name="libro/id_clase" required id="selecciona-clase">
                                     <?php optionsCatalogo("id_clase", "nombre_clase", "clase") ?>
+                                    <option value="0">Otra</option>
                                 </select>
+                                <div id="otra-clase">
+                                    <input class="form-control" type="text" name="clase/nombre_clase" required/>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="nivelEducativo">Nivel Educativo</label>
@@ -152,7 +164,7 @@ $menu = 2;
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Agregar Libro</h4>
+                        <h4 class="modal-title" id="myModalLabel">Ver detalels del libro</h4>
                     </div>
                     <div class="modal-body">
                         <table class="table table-hover">
@@ -193,7 +205,7 @@ $menu = 2;
                             </tr>
                             <tr>
                                 <td><b>Ver Libro</b></td>
-                                <td></td>
+                                <td id="ver-libro"></td>
                             </tr>
                         </table>
                     </div>
@@ -225,19 +237,31 @@ $menu = 2;
                                 <label for="autor">Autor</label>
                                 <select class="form-control" name="libro/id_autor" required id="edita-autor">
                                     <?php optionsCatalogo("id_autor", "nombre_autor", "autor") ?>
+                                    <option value="0">Otro</option>
                                 </select>
+                                <div id="otro-autor2">
+                                    <input class="form-control" type="text" name="autor/nombre_autor" required/>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="editorial">Editorial</label>
                                 <select class="form-control" name="libro/id_editorial" required id="edita-editorial">
                                     <?php optionsCatalogo("id_editorial", "nombre_editorial", "editorial") ?>
+                                    <option value="0">Otra</option>
                                 </select>
+                                <div id="otra-editorial2">
+                                    <input class="form-control" type="text" name="editorial/nombre_editorial" required/>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="clase">Clase</label>
                                 <select class="form-control" name="libro/id_clase" required id="edita-clase">
                                     <?php optionsCatalogo("id_clase", "nombre_clase", "clase") ?>
+                                    <option value="0">Otra</option>
                                 </select>
+                                <div id="otra-clase2">
+                                    <input class="form-control" type="text" name="clase/nombre_clase" required/>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="nivelEducativo">Nivel Educativo</label>
@@ -252,16 +276,16 @@ $menu = 2;
                                     <option value="1">Paga</option>
                                 </select>
                             </div>
-                            <div class="form-group" id="url-externa">
+                            <div class="form-group" id="url-externa2">
                                 <label for="urlExterna">URL externa</label>
                                 <input type="url" class="form-control"  name="libro/url_externa" placeholder="Cargando..." id="edita-url-externa">
                             </div>
-                            <div class="form-group" id="libro-gratuito">
+                            <div class="form-group" id="libro-gratuito2">
                                 <label for="libro">Libro Digital</label>
                                 <input class="form-control" type="file" accept='application/pdf' name="libro">
                                 <p class="help-block">Libro en formato PDF.</p>
                             </div>
-                            <div class="form-group" id="libro-gratuito">
+                            <div class="form-group">
                                 <label for="libro">Car&aacute;tula del libro</label>
                                 <input class="form-control" type="file" name="imagen" accept="image/*" id="input-imagen2">
                                 <p class="help-block">Car&aacute;tula del libro en imagen: .png, .jpg, .bmp, .gif.</p>
@@ -272,12 +296,12 @@ $menu = 2;
                                 <label for="descripcion">Descripci&oacute;n</label>
                                 <textarea class="form-control" rows="4" name="libro/descripcion" required id="edita-descripcion"></textarea>
                             </div>
-
+                            <input type="hidden" name="id_libro" id="id_libro"/>
 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-primary" id="guardaEdicionLibro">Guardar</button>
                         </div>
                     </form>
                 </div>

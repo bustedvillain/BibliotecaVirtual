@@ -93,7 +93,7 @@ function construyeTablaAdministradores() {
     if (isset($usuarios)) {
         foreach (consultaUsuario() as $usuario) {
             $nombreAdmin = $usuario->nombre;
-            $id= $usuario->id_administrador;
+            $id = $usuario->id_administrador;
             echo <<<linea
                 <tr>
                     <td>
@@ -110,25 +110,47 @@ linea;
     }
 }
 
-function consultaExistenciaParametro($parametro, $valorParametro, $activo = true){
+/**
+ * Funcion que consulta la existencia de un atributo, ya sea que esté activo o no
+ * @param type $parametro
+ * @param type $valorParametro
+ * @param type $activo
+ * @param type $nombreId
+ * @param type $tabla
+ * @return type
+ */
+function consultaExistenciaParametro($parametro, $valorParametro, $activo = true, $nombreId = NULL, $tabla = NULL) {
     $query = new Query();
-    
-    if($activo){
-        $query->sql = "SELECT id_administrador FROM administrador WHERE upper($parametro) = upper('$valorParametro') and status = 1";
-    }else{
-        $query->sql = "SELECT id_administrador FROM administrador WHERE upper($parametro) = upper('$valorParametro') and status = 0";
-    }
-    
-    $resultados = $query->select();
-    
-    if($resultados){
-        foreach($resultados as $res){
-            return $res->id_administrador;
+
+    if (isset($parametro) && isset($valorParametro) && isset($nombreId) && isset($tabla)) {
+        if ($activo) {
+            $query->sql = "SELECT $nombreId FROM $tabla WHERE upper($parametro) = upper('$valorParametro') and status = 1";
+        } else {
+            $query->sql = "SELECT $nombreId FROM $tabla WHERE upper($parametro) = upper('$valorParametro') and status = 0";
         }
-    }else{
+    } else {
+        if ($activo) {
+            $query->sql = "SELECT id_administrador FROM administrador WHERE upper($parametro) = upper('$valorParametro') and status = 1";
+        } else {
+            $query->sql = "SELECT id_administrador FROM administrador WHERE upper($parametro) = upper('$valorParametro') and status = 0";
+        }
+    }
+
+
+    $resultados = $query->select();
+
+    if ($resultados) {
+        foreach ($resultados as $res) {
+            if(isset($nombreId)){
+                return $res->id_libro;
+            }else{
+                return $res->id_administrador;
+            }
+            
+        }
+    } else {
         return NULL;
     }
-    
 }
 
 /**
@@ -137,13 +159,13 @@ function consultaExistenciaParametro($parametro, $valorParametro, $activo = true
  * @param type $correo
  * @param type $usuario
  */
-function verificaEliminacionUsuario($correo, $usuario){
-    if(($id = consultaExistenciaParametro("nombre_usuario", $usuario, false)) != NULL){
+function verificaEliminacionUsuario($correo, $usuario) {
+    if (($id = consultaExistenciaParametro("nombre_usuario", $usuario, false)) != NULL) {
         $query = new Query();
         $query->delete("administrador", "id_administrador = $id");
     }
-    
-    if(($id = consultaExistenciaParametro("correo", $correo, false)) != NULL){
+
+    if (($id = consultaExistenciaParametro("correo", $correo, false)) != NULL) {
         $query = new Query();
         $query->delete("administrador", "id_administrador = $id");
     }

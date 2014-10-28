@@ -25,9 +25,13 @@ function consultaLibros($id = NULL){
                    l.imagen,
                    l.url_archivo,
                    n.nombre_nivel,
+                   n.id_nivel_educativo,
                    a.nombre_autor,
+                   a.id_autor,
                    e.nombre_editorial,
+                   e.id_editorial,
                    c.nombre_clase,
+                   c.id_clase,
                    l.fecha_inclusion,
                    admin.nombre
             FROM   libro l, nivel_educativo n, autor a, editorial e, clase c, administrador admin
@@ -84,7 +88,7 @@ sql;
                     <td>
                         <button title="Ver Detalles" id="$libro->id_libro" class="btn btn-info btn-sm verLibro" data-toggle="modal" data-target="#ver"><span class="glyphicon glyphicon-search"></span> </button>
                         <button title="Editar Libro" id="$libro->id_libro" class="btn btn-info btn-sm editarLibro" data-toggle="modal" data-target="#editar"><span class="glyphicon glyphicon-edit"></span> </button>
-                        <a title="Eliminar Libro" href="borrarAtributo.php?id=$id&entidad=$tabla&id_nombre=$id_atributo&atributo=$nombre" class="btn btn-danger btn-sm" onClick="return confirm('¿Está seguro?');"><span class="glyphicon glyphicon-remove" ></span> </a>
+                        <a title="Eliminar Libro" href="borrarLibro.php?id=$libro->id_libro&nombre=$libro->nombre_libro" class="btn btn-danger btn-sm" onClick="return confirm('¿Está seguro?');"><span class="glyphicon glyphicon-remove" ></span> </a>
                         <a title="Ver Libro" href="$libro->url_archivo" target="top" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-book" ></span> </a>
                     </th>
                     <td>$libro->id_libro</th>                                
@@ -100,6 +104,17 @@ fila;
            
         }
     }
+   }
+   
+   /**
+    * Verifica si es necesario eliminar un libro definitivamente
+    * @param type $nombre
+    */   
+   function verificaEliminacionLibro($nombre){
+       if(($id = consultaExistenciaParametro("nombre_libro", $nombre, false, "id_libro", "libro"))!= null){
+           $query = new Query();
+           $query->delete("libro", "id_libro = $id");
+       }
    }
 
 

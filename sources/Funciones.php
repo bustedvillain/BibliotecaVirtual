@@ -873,7 +873,7 @@ function insertarDatos($tabla, $campos, $datos) {
 function editaDatos($tabla, $sets, $where) {
     $query = new Query();
     $sql = "UPDATE $tabla set $sets WHERE $where";
-//    echo "<br>SQL:$sql";
+    echo "<br>SQL:$sql";
     $query->update($sql);
 }
 

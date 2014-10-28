@@ -44,12 +44,12 @@ function insertaAtributo($nombre_atributo, $atributo, $tabla, $id_atributo) {
             //Crea objeto para realizar consultas de sistema de gestion
             $query = new Query();
             $query->insert("$tabla", "$nombre_atributo, status", "'$atributo', 1");
-            return true;
+            return $query->ultimoID($tabla);
         } else {
             return false;
         }
     } else {
-        return true;
+        return $id_atributo;
     }
 }
 
@@ -150,6 +150,38 @@ HTML;
     } else {
         echo "No hay datos que mostrar";
     }
+}
+
+/**
+ * Funcion que consulta un atributo y si lo encuentra retorna su id.
+ * @param type $tabla
+ * @param type $id_atributo
+ * @param type $nombre_atributo
+ * @param type $atributo
+ * @param type $status
+ * @return type
+ */
+function consultaAtributo($tabla, $id_atributo, $nombre_atributo, $atributo, $status = true) {
+    $query = new Query();
+    $atributo = __($atributo);
+    
+    if($status){
+        $query->sql = "SELECT $id_atributo FROM $tabla WHERE upper($nombre_atributo) = upper('$atributo') and status = 1";
+    }else{
+        $query->sql = "SELECT $id_atributo FROM $tabla WHERE upper($nombre_atributo) = upper('$atributo') and status = 0";
+    }
+    echo $query->sql;
+    $resultados = $query->select();
+    
+    if($resultados){
+        foreach($resultados as $resultado){
+            eval("\$id = \$resultado->$id_atributo;");
+            return $id;
+        }
+    }else{
+        return null;
+    }
+    
 }
 
 /**

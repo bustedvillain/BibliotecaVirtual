@@ -3,12 +3,13 @@
 include("../sources/funciones.php");
 /*
  * Autor: José Manuel Nieto Gómez
- * Fecha de Creación: 22 de Octubre del 2014
- * Objetivo: Script que recibe petición para almacenar un libro
+ * Fecha de Creación: 27 de Octubre del 2014
+ * Objetivo: Script que recibe petición para editar un libro
  */
 
+var_dump($_FILES);
 if ($_POST) {
-    echo "Guardando datos...";
+    echo "Guardando datos...";    
 
     //Catalogos relacionados
     //Autor
@@ -17,46 +18,48 @@ if ($_POST) {
             $_POST["libro/id_autor"] = $id;
         } else {
             //Si existió
-            if(($id = consultaAtributo("autor", "id_autor", "nombre_autor", $_POST["autor/nombre_autor"], true))!= null){
-                $_POST["libro/id_autor"] = $id;
-            }else{
+            if (($id = consultaAtributo("autor", "id_autor", "nombre_autor", $_POST["autor/nombre_autor"], true)) != null) {
+                $_POST["libro/id_autor"] = $id;              
+            } else {
                 header("Location:libros.php?notification=Error desconocido al vincular otro autor&notification_type=cross");
             }
         }
     }
-    
+
     //Editorial
     if (isset($_POST["editorial/nombre_editorial"])) {
         if (($id = insertaAtributo("nombre_editorial", $_POST["editorial/nombre_editorial"], "editorial", "id_editorial")) != false) {
             $_POST["libro/id_editorial"] = $id;
         } else {
             //Si existió
-            if(($id = consultaAtributo("editorial", "id_editorial", "nombre_editorial", $_POST["editorial/nombre_editorial"], true))!= null){
+            if (($id = consultaAtributo("editorial", "id_editorial", "nombre_editorial", $_POST["editorial/nombre_editorial"], true)) != null) {
                 $_POST["libro/id_editorial"] = $id;
-            }else{
+            } else {
                 header("Location:libros.php?notification=Error desconocido al vincular otra editorial&notification_type=cross");
             }
         }
     }
-    
+
     //Clase
     if (isset($_POST["clase/nombre_clase"])) {
         if (($id = insertaAtributo("nombre_clase", $_POST["clase/nombre_clase"], "clase", "id_clase")) != false) {
             $_POST["libro/id_clase"] = $id;
         } else {
             //Si existió
-            if(($id = consultaAtributo("clase", "id_clase", "nombre_clase", $_POST["clase/nombre_clase"], true))!= null){
+            if (($id = consultaAtributo("clase", "id_clase", "nombre_clase", $_POST["clase/nombre_clase"], true)) != null) {
                 $_POST["libro/id_clase"] = $id;
-            }else{
+            } else {
                 header("Location:libros.php?notification=Error desconocido al vincular otra clase&notification_type=cross");
             }
         }
     }
     
+    $id = $_POST["id_libro"];    
+
     verificaEliminacionLibro($_POST["libro/nombre_libro"]);
-    if (validaInsercionAtributo($_POST["libro/nombre_libro"], "libro", "id_libro", "nombre_libro")) {
+    if (validaInsercionAtributo($_POST["libro/nombre_libro"], "libro", "id_libro", "nombre_libro", $id)) {
         //Si es libro gratuito se guarda archivo
-        if ($_POST["libro/tipo_libro"] == "0" && isset($_FILES["libro"])) {
+        if ($_POST["libro/tipo_libro"] == "0" && !empty($_FILES["libro"]["tmp_name"])) {
 //            $_POST["libro/url_archivo"] = guardaArchivo("libro", BASE_STORAGE, $_POST["libro/nombre_libro"]);
             $_POST["libro/url_archivo"] = guardaStorage($_FILES["libro"]["tmp_name"], "libros");
         } else {
@@ -64,20 +67,20 @@ if ($_POST) {
         }
 
         //Guarda Imagen
-        if (isset($_FILES["imagen"])) {
+        if (!empty($_FILES["imagen"]["tmp_name"])) {
             $_POST["libro/imagen"] = guardaStorage($_FILES["imagen"]["tmp_name"], "portadas");
         }
         $_POST["libro/status"] = 1;
         //TEMPORAL MIENTRAS SE IMPLEMENTAN SESIONES
         $_POST["libro/id_administrador"] = 8;
 
-        $info = destripaPost($_POST, "/", "libro");
-        insertarDatos("libro", $info["campos"]["libro"] . ", fecha_inclusion", $info["valores"]["libro"] . ", now()");
+        $info = destripaPostEdicion($_POST, "/", "libro");
+        editaDatos("libro", $info["libro"], "id_libro = $id");
 
 
-        $mensaje = "Libro agregado correctamente: " . $_POST["libro/nombre_libro"] . "&notification_type=check";
+        $mensaje = "Libro modificado correctamente: " . $_POST["libro/nombre_libro"] . "&notification_type=check";
     } else {
-        $mensaje = "Error al ingresar libro, existe alguno otro con el mismo nombre: " . $_POST["libro/nombre_libro"] . "&notification_type=cross";
+        $mensaje = "Error al modificar libro, existe alguno otro con el mismo nombre: " . $_POST["libro/nombre_libro"] . "&notification_type=cross";
     }
 
     header("Location:libros.php?notification=$mensaje");
