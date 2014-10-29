@@ -14,3 +14,5 @@ include("Funciones.Admin.Instancias.php");
 include("Funciones.Admin.Usuarios.php");
 //Libros
 include("Funciones.Admin.Libros.php");
+//Sesion
+include("Funciones.Admin.Sesion.php");

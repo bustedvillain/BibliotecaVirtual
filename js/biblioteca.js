@@ -8,59 +8,72 @@ $(document).ready(function () {
     debug = true;
 
     //Encoder
-    Encoder.EncodeType = "entity";
-
-    //Datatables
-    $('.datatable').DataTable({
-        "language": {
-            "sLengthMenu": "Mostrando _MENU_ registros por tabla",
-            "sZeroRecords": "No se encuentran registros",
-            "sInfo": "Mostrando de _START_ al _END_ de _TOTAL_ totales",
-            "sInfoEmpty": "",
-            "sInfoFiltered": "(filtrado de _MAX_ registros totales)",
-            "sSearch": "Buscar:",
-            "oPaginate": {
-                "sNext": "Siguiente",
-                "sPrevious": "Anterior"
-            },
-            "aaSorting": [[2, "desc"]]
-        }
-    });
-
-    //Notificacion
-    if (mensaje_notificacion != '') {
-        notificacion(mensaje_notificacion, notification_type);
+    try {
+        Encoder.EncodeType = "entity";
+    } catch (e) {
+        console.log("Libreria Encoder no habilitada");
     }
 
-    function notificacion(mensaje, tipo) {
-
-        setTimeout(function () {
-            var message = "";
-            if (tipo !== undefined) {
-                if (tipo === "check") {
-                    message = '<div class="ns-thumb"><img src="../img/check.png" width="66" /></div><div class="ns-content"><p>' + mensaje + '.</p></div>';
-                } else {
-                    message = '<div class="ns-thumb"><img src="../img/cross.png" width="66" /></div><div class="ns-content"><p>' + mensaje + '.</p></div>';
-                }
-            } else {
-
+    //Datatables
+    try {
+        $('.datatable').DataTable({
+            "language": {
+                "sLengthMenu": "Mostrando _MENU_ registros por tabla",
+                "sZeroRecords": "No se encuentran registros",
+                "sInfo": "Mostrando de _START_ al _END_ de _TOTAL_ totales",
+                "sInfoEmpty": "",
+                "sInfoFiltered": "(filtrado de _MAX_ registros totales)",
+                "sSearch": "Buscar:",
+                "oPaginate": {
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "aaSorting": [[2, "desc"]]
             }
-            // create the notification
-            var notification = new NotificationFx({
-                message: message,
-                layout: 'other',
-                ttl: 6000,
-                effect: 'thumbslider',
-                type: 'notice', // notice, warning, error or success
-                onClose: function () {
-                    //bttn.disabled = false;
+        });
+    } catch (e) {
+        console.log("Datatables no habilitado");
+    }
+
+    //Notificacion
+    try {
+        if (mensaje_notificacion != '') {
+            notificacion(mensaje_notificacion, notification_type);
+        }
+
+
+        function notificacion(mensaje, tipo) {
+
+            setTimeout(function () {
+                var message = "";
+                if (tipo !== undefined) {
+                    if (tipo === "check") {
+                        message = '<div class="ns-thumb"><img src="../img/check.png" width="66" /></div><div class="ns-content"><p>' + mensaje + '.</p></div>';
+                    } else {
+                        message = '<div class="ns-thumb"><img src="../img/cross.png" width="66" /></div><div class="ns-content"><p>' + mensaje + '.</p></div>';
+                    }
+                } else {
+
                 }
-            });
+                // create the notification
+                var notification = new NotificationFx({
+                    message: message,
+                    layout: 'other',
+                    ttl: 6000,
+                    effect: 'thumbslider',
+                    type: 'notice', // notice, warning, error or success
+                    onClose: function () {
+                        //bttn.disabled = false;
+                    }
+                });
 
-            // show the notification
-            notification.show();
+                // show the notification
+                notification.show();
 
-        }, 1200);
+            }, 1200);
+        }
+    } catch (e) {
+        console.log("Notificaciones deshabilitadas");
     }
 
     $(".invisible").hide();
@@ -99,30 +112,34 @@ $(document).ready(function () {
 //        });
 //    });
 
-    // Specify where the Flash movie can be found if not in root folder for web site
-    ZeroClipboard.config({moviePath: '../libs/zeroclipboard/ZeroClipboard.swf'});
+    try {
+        // Specify where the Flash movie can be found if not in root folder for web site
+        ZeroClipboard.config({moviePath: '../libs/zeroclipboard/ZeroClipboard.swf'});
 
-    var client = new ZeroClipboard($(".copy-clipboard"));
+        var client = new ZeroClipboard($(".copy-clipboard"));
 
-    client.on('load', function (client) {
-        console.log("ZeroClipboard loaded");
-        client.on('datarequested', function (client) {
-            var text = "Texto copiado!";
-            client.setText(text);
+        client.on('load', function (client) {
+            console.log("ZeroClipboard loaded");
+            client.on('datarequested', function (client) {
+                var text = "Texto copiado!";
+                client.setText(text);
+            });
+
+            // callback triggered on successful copying
+            client.on('complete', function (client, args) {
+                console.log("Text copied to clipboard: \n" + args.text);
+                notificacion("Token de acceso copiado al portapapeles: " + args.text, "check");
+            });
         });
-
-        // callback triggered on successful copying
-        client.on('complete', function (client, args) {
-            console.log("Text copied to clipboard: \n" + args.text);
-            notificacion("Token de acceso copiado al portapapeles: " + args.text, "check");
-        });
-    });
 
 // In case of error - such as Flash not being available
-    client.on('wrongflash noflash', function () {
-        ZeroClipboard.destroy();
-        notificacion("Token de acceso no copiado al portapapeles: " + args.text, "cross");
-    });
+        client.on('wrongflash noflash', function () {
+            ZeroClipboard.destroy();
+            notificacion("Token de acceso no copiado al portapapeles: " + args.text, "cross");
+        });
+    } catch (e) {
+        console.log("ZeroClipboard no habiitado");
+    }
 
     //Instancias
     $(".editaInstancia").click(function (event) {
@@ -173,7 +190,7 @@ $(document).ready(function () {
     try {
         $(':password').pwstrength(options);
     } catch (e) {
-        console.error("No se cargo la librería pwstrenght:" + e);
+        console.log("No se cargo la librería pwstrenght:" + e);
     }
 
     var cambiarContrasena = false; //No se quiere cambiar
@@ -384,61 +401,94 @@ $(document).ready(function () {
     }
 
     var modalTitle = "";
-    
+
     $("#otro-autor").hide();
     $("#otra-editorial").hide();
     $("#otra-clase").hide();
     $("#otro-autor2").hide();
     $("#otra-editorial2").hide();
     $("#otra-clase2").hide();
-    
-    $("#selecciona-autor").change(function(){
-        if($(this).val() == "0"){
+
+    $("#selecciona-autor").change(function () {
+        if ($(this).val() == "0") {
             $("#otro-autor").show("fast");
-        }else{
+        } else {
             $("#otro-autor").hide("fast");
         }
     });
-    
-    $("#selecciona-editorial").change(function(){
-        if($(this).val() == "0"){
+
+    $("#selecciona-editorial").change(function () {
+        if ($(this).val() == "0") {
             $("#otra-editorial").show("fast");
-        }else{
+        } else {
             $("#otra-editorial").hide("fast");
         }
     });
-    
-    $("#selecciona-clase").change(function(){
-        if($(this).val() == "0"){
+
+    $("#selecciona-clase").change(function () {
+        if ($(this).val() == "0") {
             $("#otra-clase").show("fast");
-        }else{
+        } else {
             $("#otra-clase").hide("fast");
         }
     });
-    
-    $("#edita-autor").change(function(){
-        if($(this).val() == "0"){
+
+    $("#edita-autor").change(function () {
+        if ($(this).val() == "0") {
             $("#otro-autor2").show("fast");
-        }else{
+        } else {
             $("#otro-autor2").hide("fast");
         }
     });
-    
-    $("#edita-editorial").change(function(){
-        if($(this).val() == "0"){
+
+    $("#edita-editorial").change(function () {
+        if ($(this).val() == "0") {
             $("#otra-editorial2").show("fast");
-        }else{
+        } else {
             $("#otra-editorial2").hide("fast");
         }
     });
-    
-    $("#edita-clase").change(function(){
-        if($(this).val() == "0"){
+
+    $("#edita-clase").change(function () {
+        if ($(this).val() == "0") {
             $("#otra-clase2").show("fast");
-        }else{
+        } else {
             $("#otra-clase2").hide("fast");
         }
     });
+
+    /**
+     * Login
+     */
+    $("#login").submit(function (event) {
+        $("#loading").html('<div class="loader"><span></span><span></span><span></span><br>Iniciando Sesi&oacute;n...</div>');
+
+        var correo = $("#email").val();
+        var pass = $("#pass").val();
+        var recordarme = $("#recordarme").prop("checked");
+
+        $.post("verificaLogin.php", {correo: correo, pass: pass, recordarme: recordarme}, function (respuesta) {
+            respuesta = $.parseJSON(respuesta);
+            console.log(respuesta);
+            if (respuesta !== false) {
+                $("#loading").html('<div class="alert alert-success" role="alert">Bienvenido: ' + respuesta.nombre + ', redireccionando...</div>');
+                setTimeout(function () {
+                    window.location = "../dashboard/";
+                }, 1500);
+            } else {
+                $("#loading").html('<div class="alert alert-danger" role="alert">Credenciales de acceso incorrectas</div>');
+                $("#loading").html('<div class="alert alert-danger" role="alert">Credenciales de acceso incorrectas</div>');
+                $("button[type=submit]").html("Iniciar Sesi&oacute;n");
+                $("button").removeAttr("disabled");
+            }
+        });
+
+        event.preventDefault();
+    });
+
+    /**
+     * Login
+     */
 });
 
 

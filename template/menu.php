@@ -13,7 +13,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Ajustes</a></li>
                 <li><a href="#">Perfil</a></li>
-                <li><a href="#">Cerrar Sesi&oacute;n</a></li>            
+                <li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>            
             </ul>
             <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="Buscar...">
