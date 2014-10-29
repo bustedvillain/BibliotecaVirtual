@@ -473,7 +473,7 @@ $(document).ready(function () {
             if (respuesta !== false) {
                 $("#loading").html('<div class="alert alert-success" role="alert">Bienvenido: ' + respuesta.nombre + ', redireccionando...</div>');
                 setTimeout(function () {
-                    window.location = "../dashboard/";
+                    window.location = "../dashboard/?notification=Bienvenido(a) "+respuesta.nombre+"&notification_type=check";
                 }, 1500);
             } else {
                 $("#loading").html('<div class="alert alert-danger" role="alert">Credenciales de acceso incorrectas</div>');

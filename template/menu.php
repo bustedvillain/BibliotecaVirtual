@@ -11,13 +11,14 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" style="color:white;"><b>Usuario: </b><?php echo $_SESSION["administrador"]->nombre?></a></li>
                 <li><a href="#">Ajustes</a></li>
                 <li><a href="#">Perfil</a></li>
                 <li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>            
             </ul>
-            <form class="navbar-form navbar-right">
+<!--            <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="Buscar...">
-            </form>
+            </form>-->
         </div>
     </div>
 </div>

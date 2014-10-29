@@ -8,6 +8,8 @@ require_once 'Query.php';
 
 //Librerias anexas
 include("Funciones.Admin.php");
+//Control de la interfaz alumno/biblioteca
+include("Funciones.Middleware.php");
 
 /*
  * Autor: José Manuel Nieto Gómez

@@ -68,8 +68,8 @@ if ($_POST) {
             $_POST["libro/imagen"] = guardaStorage($_FILES["imagen"]["tmp_name"], "portadas");
         }
         $_POST["libro/status"] = 1;
-        //TEMPORAL MIENTRAS SE IMPLEMENTAN SESIONES
-        $_POST["libro/id_administrador"] = 8;
+        
+        $_POST["libro/id_administrador"] = $_SESSION["administrador"]->id_administrador;
 
         $info = destripaPost($_POST, "/", "libro");
         insertarDatos("libro", $info["campos"]["libro"] . ", fecha_inclusion", $info["valores"]["libro"] . ", now()");
