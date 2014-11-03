@@ -1,4 +1,4 @@
-
+<?php include("../sources/funciones.php")?>
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -16,8 +16,12 @@
         <!--<link rel="stylesheet" type="text/css" href="js/audioplayer/360player.css" />
             <link rel="stylesheet" type="text/css" href="js/audioplayer/360player-visualization.css" />-->
         <!-- END AUDIO SUPPORT -->
-        
-        
+
+        <!--Fancybox-->
+        <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.min.css?v=2.1.5" media="screen" />
+        <!--Fancybox-->
+
+
     </head>
     <body>
         <!-- SLIDER BACKGROUND -->
@@ -42,10 +46,11 @@
                                     </div>
                                     <div class="bk-page">
                                         <div class="bk-content bk-content-current">
-                                            DESCRIPCIÓN:El universo elegante es un libro de divulgación científica, publicado en 1999 y escrito por el Dr. Brian Greene, en el cual el autor describe los últimos avances en la investigación sobre la teoría de cuerdas.
-                                            <div class="hover-effect h-style" style="height: 30px; position: absolute; bottom: 5px;">
-                                                <a href="images/ver_mas.png">
-                                                    <img src="images/ver_mas.png" class="clean-img">
+                                            El universo elegante es un libro de divulgación científica, publicado en 1999 y escrito por el Dr. Brian Greene, en el cual el autor describe los últimos avances en la investigación sobre la teoría de cuerdas.
+                                            <!--<a class="fancybox fancybox.iframe" href="iframe.html">Iframe</a>-->
+                                            <div class="hover-effect h-style " style="height: 30px; position: absolute; bottom: 5px; background-image: url(images/ver_mas.png); background-size: 100% 100%;">
+                                                <a class="fancybox fancybox.iframe" href="detalleLibro.php?id_libro=16">
+                                                    <!--<img src="images/ver_mas.png" class="clean-img">-->
                                                     <div class="mask"><i class="icon-search"></i>
                                                         <span class="img-rollover"></span>
                                                     </div>
@@ -461,7 +466,7 @@
         <script type="text/javascript" src="js/bespoke.min.js"></script>
         <script type="text/javascript" src="js/jquery.flexslider.min.js"></script>
         <script type="text/javascript" src="js/books1.min.js"></script>
-        
+
         <script>
             $(function () {
                 Books.init();
@@ -483,7 +488,15 @@
                  */
 
                 scrollinit("carousel", 1, 1, true, true, true, true, true);
+                
+                $('.fancybox').fancybox({
+                    minHeight:"100%"                    
+                });
             });
         </script>
+
+        <!--Fancybox-->
+        <script type="text/javascript" src="js/fancybox/jquery.fancybox.min.js?v=2.1.5"></script>
+        <!--Fancybox-->
     </body>
 </html>

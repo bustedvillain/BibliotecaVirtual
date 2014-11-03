@@ -311,6 +311,7 @@ $(document).ready(function () {
             $("#ver-imagen").html("<img width='100%' style='width:100%;' class='img-rounded' src='" + atributo[0].imagen + "'/>");
             $("#ver-nombre").html(Encoder.htmlDecode(atributo[0].nombre_libro));
             $("#ver-descripcion").html(Encoder.htmlDecode(atributo[0].descripcion));
+            $("#ver-anio").html(atributo[0].anio);
             $("#ver-autor").html(Encoder.htmlDecode(atributo[0].nombre_autor));
             $("#ver-editorial").html(Encoder.htmlDecode(atributo[0].nombre_editorial));
             $("#ver-clase").html(Encoder.htmlDecode(atributo[0].nombre_clase));
@@ -341,7 +342,7 @@ $(document).ready(function () {
             debugConsole(atributo);
             $("#edita-nombre-libro").val(Encoder.htmlDecode(atributo[0].nombre_libro));
             $("#edita-descripcion").val(Encoder.htmlDecode(atributo[0].descripcion));
-
+            $("#edita-anio").val(atributo[0].anio);
             $("#edita-autor option[value=" + atributo[0].id_autor + "]").attr("selected", true);
             $("#edita-editorial option[value=" + atributo[0].id_editorial + "]").attr("selected", true);
             $("#edita-clase option[value=" + atributo[0].id_clase + "]").attr("selected", true);

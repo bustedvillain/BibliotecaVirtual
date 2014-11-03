@@ -80,41 +80,45 @@ $menu = 2;
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nombreLibro">Nombre del libro</label>
-                                <input type="text" name="libro/nombre_libro" class="form-control"  placeholder="Ingrese el nombre del libro">
+                                <input type="text" name="libro/nombre_libro" class="form-control"  placeholder="Ingrese el nombre del libro" required title="Nombre del libro">
+                            </div>
+                            <div class="form-group">
+                                <label for="nombreLibro">A&ntilde;o</label>
+                                <input type="number" name="libro/anio" class="form-control"  maxlength="4" pattern="[0-9]{4}" title="Año de publicación" required placeholder="Ingrese el año de publicación">
                             </div>
                             <div class="form-group">
                                 <label for="autor">Autor</label>
-                                <select class="form-control" name="libro/id_autor" required id="selecciona-autor">
+                                <select class="form-control" name="libro/id_autor" required id="selecciona-autor" title="Seleccione un autor">
                                     <?php optionsCatalogo("id_autor", "nombre_autor", "autor") ?>
                                     <option value="0">Otro</option>                                    
                                 </select>
                                 <div id="otro-autor">
-                                    <input class="form-control" type="text" name="autor/nombre_autor" required/>
+                                    <input class="form-control" type="text" name="autor/nombre_autor" required title="Otro autor no registrado"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="editorial">Editorial</label>
-                                <select class="form-control" name="libro/id_editorial" required id="selecciona-editorial">
+                                <select class="form-control" name="libro/id_editorial" required id="selecciona-editorial" title="Seleccione una editorial">
                                     <?php optionsCatalogo("id_editorial", "nombre_editorial", "editorial") ?>
                                     <option value="0">Otra</option>
                                 </select>
                                 <div id="otra-editorial">
-                                    <input class="form-control" type="text" name="editorial/nombre_editorial" required/>
+                                    <input class="form-control" type="text" name="editorial/nombre_editorial" required title="Otra editorial no registrada"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="clase">Clase</label>
-                                <select class="form-control" name="libro/id_clase" required id="selecciona-clase">
+                                <select class="form-control" name="libro/id_clase" required id="selecciona-clase" title="Seleccione una clase">
                                     <?php optionsCatalogo("id_clase", "nombre_clase", "clase") ?>
                                     <option value="0">Otra</option>
                                 </select>
                                 <div id="otra-clase">
-                                    <input class="form-control" type="text" name="clase/nombre_clase" required/>
+                                    <input class="form-control" type="text" name="clase/nombre_clase" required title="Otra clase no registrada"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="nivelEducativo">Nivel Educativo</label>
-                                <select class="form-control" name="libro/id_nivel_educativo" required>
+                                <select class="form-control" name="libro/id_nivel_educativo" required title="Seleccione un nivel educativo">
                                     <?php optionsCatalogo("id_nivel_educativo", "nombre_nivel", "nivel_educativo") ?>
                                 </select>
                             </div>                            
@@ -176,6 +180,10 @@ $menu = 2;
                                 <td><b>Desripci&oacute;n: </b><span id="ver-descripcion"></span></td>
                             </tr>
                             <tr>
+                                <td><b>A&ntilde;o: </b></td>
+                                <td><span id="ver-anio"></span></td>
+                            </tr>
+                            <tr>
                                 <td><b>Autor: </b></td>
                                 <td><span id="ver-autor"></span></td>
                             </tr>
@@ -231,8 +239,12 @@ $menu = 2;
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nombreLibro">Nombre del libro</label>
-                                <input type="text" name="libro/nombre_libro" class="form-control"  placeholder="Cargando..." id="edita-nombre-libro">
+                                <input type="text" name="libro/nombre_libro" class="form-control"  placeholder="Cargando..." id="edita-nombre-libro" required>
                             </div>
+                            <div class="form-group">
+                                <label for="nombreLibro">A&ntilde;o</label>
+                                <input type="number" name="libro/anio" class="form-control"  maxlength="4" pattern="[0-9]{4}" title="Año de publicación" required placeholder="Cargando" id="edita-anio">
+                            </div>                            
                             <div class="form-group">
                                 <label for="autor">Autor</label>
                                 <select class="form-control" name="libro/id_autor" required id="edita-autor">

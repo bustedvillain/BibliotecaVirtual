@@ -19,9 +19,11 @@ if ($_GET) {
                     //Validar Nivel educativo
                     if(($id_nivel = validaNivelEducativo($nivel)) !== false){
                         //Validar Usuario
-                        if(($id_usuario_biblioteca = validaUsuario($id_usuario, $id_instancia, $id_nivel)) !== false){
+                        if(($usuario_biblioteca = validaUsuario($id_usuario, $id_instancia, $id_nivel)) !== false){
                             //Todo OK
-                            $_SESSION["usuario"]=$id_usuario_biblioteca;
+                            $_SESSION["usuario"]=$usuario_biblioteca;
+                            //Registra entrada
+                            registrarVisita($usuario_biblioteca->id_usuario);
                             header("Location:navegacion.php");
                         }else{
                             header("Location:error.php?type=7");
