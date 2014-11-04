@@ -61,7 +61,7 @@ html[xmlns] .slides {display: block;}
 
 .flexslider:hover .flex-next, .flexslidera-portfolio:hover .flex-next {opacity: 1; right: 10px!important; }
 .flexslider:hover .flex-prev, .flexslidera-portfolio:hover .flex-prev {opacity: 1; left: 10px!important;}
-.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover, .flexslidera-portfolio:hover .flex-next:hover, .flexslidera-portfolio:hover .flex-prev:hover, {opacity: 1;}
+.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover, .flexslidera-portfolio:hover .flex-next:hover, .flexslidera-portfolio:hover .flex-prev:hover {opacity: 1;}
 .flex-direction-nav .flex-disabled {opacity: 0!important; filter:alpha(opacity=0);  cursor: default;}
 
 /* Control Nav */

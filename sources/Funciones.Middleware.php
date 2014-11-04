@@ -75,6 +75,13 @@ sql;
     }
 }
 
+/**
+ * Funcion que registra la primer entrada de un usuario
+ * @param type $idUsuario
+ * @param type $idInstancia
+ * @param type $idNivel
+ * @return boolean
+ */
 function crearUsuario($idUsuario, $idInstancia, $idNivel) {
     $query = new Query();
     $query->insert("usuarios", "id_usuario_instancia, id_instancia, id_nivel_educativo", "$idUsuario, $idInstancia, $idNivel");
@@ -204,6 +211,125 @@ sql;
             return $resultados;
         }
         return $resultados;
+    }else{
+        return null;
+    }
+}
+
+/**
+ * Funcion que ingresa una nueva valoracion a cierto libro de usuario
+ * Si ya existe una valoracion previa, actualiza la valoracion
+ * @param type $idUsuario
+ * @param type $idLibro
+ * @param type $valoracion
+ */
+function valoraLibro($idUsuario, $idLibro, $valoracion){
+    if(($valoracionBD = consultaValoracion($idUsuario, $idLibro)) != null){
+        $query = new Query();
+        $idValoracion = $valoracionBD->id_valoracion;
+        $query->sql = "UPDATE valoracion SET valoracion = $valoracion WHERE id_valoracion = $idValoracion";
+        $query->update($query->sql);
+        return true;
+    }else{
+        $query = new Query();
+        $query->insert("valoracion", "valoracion, id_libro, id_usuario", "$valoracion, $idLibro, $idUsuario");        
+        return true;
+    }
+}
+
+/**
+ * Funcion que ingresa una nueva valoracion a cierto libro de usuario
+ * Si ya existe una valoracion previa, actualiza la valoracion
+ * Y retorna el resultado en un objeto JSON
+ * @param type $idUsuario
+ * @param type $idLibro
+ * @param type $valoracion
+ * @return type
+ */
+function valoraLibroJSON($idUsuario, $idLibro, $valoracion){
+    return json_encode(valoraLibro($idUsuario, $idLibro, $valoracion));
+}
+
+/**
+ * Funcion que consulta la valoracion de un usuario en un libro y retorna el registro 
+ * en un objeto.
+ * Si no existe retorna un nulo.
+ * @param type $idUsuario
+ * @param type $idLibro
+ * @return type
+ */
+function consultaValoracion($idUsuario, $idLibro){
+    $query = new Query();
+    $query->sql = "SELECT id_valoracion, valoracion FROM valoracion WHERE id_libro = $idLibro and id_usuario = $idUsuario";
+    
+    $resultado = $query->select();
+    
+    if($resultado){
+        foreach($resultado as $r){
+            return $r;
+        }
+    }else{
+        return null;
+    }    
+}
+
+/**
+ * Funcion que consulta la valoración de un usuario en un libro y retorna
+ * la respueta en un objeto
+ * Si no existe retorna nulo en un arreglo JSON
+ * @param type $idUsuario
+ * @param type $idLibro
+ * @return type
+ */
+function consultaValoracionJSON($idUsuario, $idLibro){
+    return json_encode(consultaValoracion($idUsuario, $idLibro));
+}
+
+/**
+ * Funcion que agrega o remueve un libro a un instante
+ * @param type $idUsuario
+ * @param type $idLibro
+ * @return string
+ */
+function agregarRemoverEstante($idUsuario, $idLibro){
+    if(($libro = consultaEstanteLibro($idUsuario, $idLibro))!= null){
+        $query = new Query();
+        $idEstante = $libro->id_estante;
+        $query->delete("estante", "id_estante = $idEstante");
+        return "removido";
+    }else{
+        $query = new Query();
+        $query->insert("estante", "id_libro, id_usuario", "$idLibro, $idUsuario");
+        return "agregado";
+    }
+}
+
+/**
+ * Funcion que agrega o remueve un libro a un estante y devuelve la respuesta
+ * de lo hecho en una variable JSON
+ * @param type $idUsuario
+ * @param type $idLibro
+ * @return type
+ */
+function agregarRemoverEstanteJSON($idUsuario, $idLibro){
+    return json_encode(agregarRemoverEstante($idUsuario, $idLibro));
+}
+
+/**
+ * Funcion que consulta si un libro esta agregado a un estante
+ * @param type $idUsuario
+ * @param type $idLibro
+ * @return type
+ */
+function consultaEstanteLibro($idUsuario, $idLibro){
+    $query = new Query();
+    $query->sql = "SELECT id_estante FROM estante WHERE id_libro = $idLibro and id_usuario = $idUsuario";
+    $resultado = $query->select();
+    
+    if($resultado){
+        foreach($resultado as $r){
+            return $r;
+        }
     }else{
         return null;
     }

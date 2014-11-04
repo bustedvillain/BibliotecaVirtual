@@ -264,7 +264,7 @@ html,body {
 	color: #fff;
 	text-decoration: none;
 }
-.ss-holder .hover-effect a.info: hover {
+.ss-holder .hover-effect a.info:hover {
 	-webkit-box-shadow: 0 0 5px #000;
 	-moz-box-shadow: 0 0 5px #000;
 	box-shadow: 0 0 5px #000;
@@ -2361,7 +2361,7 @@ padding: 15px!important;
 .wisteria .cell a:hover {
 	color:#fff!important;   
 }
-.fb-holder .wisteria .icon-soc-container, .wisteria.addcolor .icon-soc-container, {
+.fb-holder .wisteria .icon-soc-container, .wisteria.addcolor .icon-soc-container {
 	background: #a871c1;
 	color:#fff;
 }
