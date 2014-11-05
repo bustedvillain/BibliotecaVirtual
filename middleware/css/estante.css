@@ -16,8 +16,7 @@ html{
 body {
     background-color: #ffffff;
     background-image: url(../images/slider-bg.jpg);
-    background-size: 100% 100%;
-    
+    background-size: 100% 100%;    
 }
 
 h1{
@@ -29,7 +28,7 @@ h1{
     position: relative;
     width: 60%;
     height: 20px;
-    margin: 100px auto 0;
+    margin: 240px auto 0;
     background-image: -moz-linear-gradient(90deg, #d1d8de 0%, #eff1f3 100%);
     /*FF3.6+ */
     background-image: -webkit-gradient(90deg, left top, right bottom, color-stop(0%, #d1d8de), color-stop(100%, #eff1f3));

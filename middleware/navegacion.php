@@ -1,6 +1,7 @@
 <?php
-if (isset($_SESSION["usuario"])) {
-    header("Location:index.php");
+include("../sources/funciones.php");
+if (!isset($_SESSION["usuario"])) {
+    header("Location:error.php?type=8");
 }
 ?>
 <!DOCTYPE html>
@@ -20,10 +21,10 @@ and open the template in the editor.
         <section class="ccblue top">	
             <div class="mainmenu">
                 <ul>
-                    <li onclick="abrir('destacados.php')"><i class="icon-home icon-large"></i>&nbsp;<main>Destacados</main><span>los m&aacute;s buscados</span></li>
-                    <li onclick="abrir('gratuitos.php')"><i class="icon-archive icon-large"></i>&nbsp;<main>Gratuitos</main><span>te ofrecemos</span></li>
-                    <li onclick="abrir('estante.php')"><i class="icon-book icon-large"></i>&nbsp;<main>Estante</main><span>tus libros</span></li>
-                    <li onclick="abrir('buscar.php')"><i class="icon-search icon-large"></i>&nbsp;<main>Busqueda</main><span>encuentra</span></li>
+                    <li id="destacados" class="active item" onclick="abrir('destacados.php')"><i class="icon-home icon-large"></i>&nbsp;<main>Destacados</main><span>los m&aacute;s buscados</span></li>
+                    <li id="gratuitos" class="item" onclick="abrir('gratuitos.php')"><i class="icon-archive icon-large"></i>&nbsp;<main>Gratuitos</main><span>te ofrecemos</span></li>
+                    <li id="estante" class="item" onclick="abrir('estante.php')"><i class="icon-book icon-large"></i>&nbsp;<main>Estante</main><span>tus libros</span></li>
+                    <li id="buscar" class="item" onclick="abrir('buscar.php')"><i class="icon-search icon-large"></i>&nbsp;<main>Busqueda</main><span>encuentra</span></li>
                  </ul>
             </div>
         </section>
@@ -34,6 +35,7 @@ and open the template in the editor.
             function abrir(direccion){
                 var frame = document.getElementById("frame");
                 frame.src=direccion;
+                document.getElementByClassName("item").className="item";
             }
         </script>
         

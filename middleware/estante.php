@@ -5,6 +5,9 @@ include("../sources/funciones.php");
  * Fecha de Creación. 2 de Noviembre de 2014
  * Objetivo: Sección de Estante, para mostrar los libros relacionados al usuario
  */
+if (!isset($_SESSION["usuario"])) {
+    exit("<script>parent.location.reload();</script>");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,19 +20,93 @@ include("../sources/funciones.php");
         <!--3D BookShelf-->
         <link rel="stylesheet" type="text/css" href="js/3DBookShelf/css/default.css" />
         <link rel="stylesheet" type="text/css" href="js/3DBookShelf/css/component.css" />
-        <script src="js/modernizr.custom.js"></script>
+        <script src="js/3DBookShelf/js/modernizr.custom.js"></script>
         <!--3D BookShelf-->
+
+        <!--Fancybox-->
+        <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.min.css?v=2.1.5" media="screen" />
+        <!--Fancybox-->
     </head>
     <body>
         <h1>Mi Estante</h1>
-        <div class="shelf">
+        <?php mostrarEstante($_SESSION["usuario"]->id_usuario); ?>
 
-            <div class="bookend_left"></div>               
-            <ul id="bk-list" class="bk-list clearfix">
+        <!--        <ul id="bk-list" class="bk-list">
+                    <li>
+                        <div class="bk-book book-1 bk-bookdefault">
+                            <div class="bk-front">
+                                <div class="bk-cover" style="background-image: url(js/3DBookShelf/images/1.png);">
+                                    <h2>
+                                        <span>Anthony Burghiss</span>
+                                        <span>A Catwork Orange</span>
+                                    </h2>
+                                </div>
+                                <div class="bk-cover-back"></div>
+                            </div>
+                            <div class="bk-right"></div>
+                            <div class="bk-left" style="background-image: url(js/3DBookShelf/images/1.png); background-size: 100% 100%;">
+                                <h2>
+                                    <span>Anthony Burghiss</span>
+                                    <span>A Catwork Orange</span>
+                                </h2>
+                            </div>
+                            <div class="bk-top"></div>
+                            <div class="bk-bottom"></div>
+                        </div>
+        
+                    </li>
+                    <li>
+                        <div class="bk-book book-1 bk-bookdefault">
+                            <div class="bk-front">
+                                <div class="bk-cover" style="background-image: url(js/3DBookShelf/images/1.png);">
+                                    <h2>
+                                        <span>Anthony Burghiss</span>
+                                        <span>A Catwork Orange</span>
+                                    </h2>
+                                </div>
+                                <div class="bk-cover-back"></div>
+                            </div>
+                            <div class="bk-right"></div>
+                            <div class="bk-left" style="background-image: url(js/3DBookShelf/images/1.png); background-size: 100% 100%;">
+                                <h2>
+                                    <span>Anthony Burghiss</span>
+                                    <span>A Catwork Orange</span>
+                                </h2>
+                            </div>
+                            <div class="bk-top"></div>
+                            <div class="bk-bottom"></div>
+                        </div>
+        
+                    </li>
+                    <li>
+                        <div class="bk-book book-1 bk-bookdefault">
+                            <div class="bk-front">
+                                <div class="bk-cover" style="background-image: url(js/3DBookShelf/images/1.png);">
+                                    <h2>
+                                        <span>Anthony Burghiss</span>
+                                        <span>A Catwork Orange</span>
+                                    </h2>
+                                </div>
+                                <div class="bk-cover-back"></div>
+                            </div>
+                            <div class="bk-right"></div>
+                            <div class="bk-left" style="background-image: url(js/3DBookShelf/images/1.png); background-size: 100% 100%;">
+                                <h2>
+                                    <span>Anthony Burghiss</span>
+                                    <span>A Catwork Orange</span>
+                                </h2>
+                            </div>
+                            <div class="bk-top"></div>
+                            <div class="bk-bottom"></div>
+                        </div>
+        
+                    </li>
+                
+              
                 <li>
                     <div class="bk-book book-1 bk-bookdefault">
                         <div class="bk-front">
-                            <div class="bk-cover">
+                            <div class="bk-cover" style="background-image: url(js/3DBookShelf/images/1.png);">
                                 <h2>
                                     <span>Anthony Burghiss</span>
                                     <span>A Catwork Orange</span>
@@ -37,22 +114,8 @@ include("../sources/funciones.php");
                             </div>
                             <div class="bk-cover-back"></div>
                         </div>
-                        <div class="bk-page">
-                            <div class="bk-content bk-content-current">
-                                <p>Red snapper Kafue pike fangtooth humums slipmouth, salmon cutlassfish; swallower European perch mola mola sunfish, threadfin bream. Billfish hog sucker trout-perch lenok orbicular velvetfish. Delta smelt striped bass, medusafish dragon goby starry flounder cuchia round whitefish northern anchovy spadefish merluccid hake cat shark Black pickerel. Pacific cod.</p>
-                            </div>
-                            <div class="bk-content">
-                                <p>Whale catfish leatherjacket deep sea anglerfish grenadier sawfish pompano dolphinfish carp large-eye bream, squeaker amago. Sandroller; rough scad, tiger shovelnose catfish snubnose parasitic eel? Black bass soldierfish duckbill--Rattail Atlantic saury Blind shark California halibut; false trevally warty angler!</p>
-                            </div>
-                            <div class="bk-content">
-                                <p>Trahira giant wels cutlassfish snapper koi blackchin mummichog mustard eel rock bass whiff murray cod. Bigmouth buffalo ling cod giant wels, sauger pink salmon. Clingfish luderick treefish flatfish Cherubfish oldwife Indian mul gizzard shad hagfish zebra danio. Butterfly ray lizardfish ponyfish muskellunge Long-finned sand diver mullet swordfish limia ghost carp filefish.</p>
-                            </div>
-                        </div>
-                        <div class="bk-back">
-                            <p>In this nightmare vision of cats in revolt, fifteen-year-old Alex and his friends set out on a diabolical orgy of robbery, rape, torture and murder. Alex is jailed for his teenage delinquency and the State tries to reform him - but at what cost?</p>
-                        </div>
                         <div class="bk-right"></div>
-                        <div class="bk-left">
+                        <div class="bk-left" style="background-image: url(js/3DBookShelf/images/1.png); background-size: 100% 100%;">
                             <h2>
                                 <span>Anthony Burghiss</span>
                                 <span>A Catwork Orange</span>
@@ -61,99 +124,122 @@ include("../sources/funciones.php");
                         <div class="bk-top"></div>
                         <div class="bk-bottom"></div>
                     </div>
-                   
+        
                 </li>
                 <li>
-                    <div class="bk-book book-2 bk-bookdefault">
+                    <div class="bk-book book-1 bk-bookdefault">
                         <div class="bk-front">
-                            <div class="bk-cover">
+                            <div class="bk-cover" style="background-image: url(js/3DBookShelf/images/1.png);">
                                 <h2>
-                                    <span>The Catfather</span>
-                                    <span>Mario Purrzo</span>
+                                    <span>Anthony Burghiss</span>
+                                    <span>A Catwork Orange</span>
                                 </h2>
                             </div>
                             <div class="bk-cover-back"></div>
                         </div>
-                        <div class="bk-page">
-                            <div class="bk-content">
-                                <p>Whale catfish leatherjacket deep sea anglerfish grenadier sawfish pompano dolphinfish carp large-eye bream, squeaker amago. Sandroller; rough scad, tiger shovelnose catfish snubnose parasitic eel? Black bass soldierfish duckbill--Rattail Atlantic saury Blind shark California halibut; false trevally warty angler!</p>
-                            </div>
-                            <div class="bk-content">
-                                <p>Trahira giant wels cutlassfish snapper koi blackchin mummichog mustard eel rock bass whiff murray cod. Bigmouth buffalo ling cod giant wels, sauger pink salmon. Clingfish luderick treefish flatfish Cherubfish oldwife Indian mul gizzard shad hagfish zebra danio. Butterfly ray lizardfish ponyfish muskellunge Long-finned sand diver mullet swordfish limia ghost carp filefish.</p>
-                            </div>
-                            <div class="bk-content bk-content-current">
-                                <p>Red snapper Kafue pike fangtooth humums's slipmouth, salmon cutlassfish; swallower European perch mola mola sunfish, threadfin bream. Billfish hog sucker trout-perch lenok orbicular velvetfish. Delta smelt striped bass, medusafish dragon goby starry flounder cuchia round whitefish northern anchovy spadefish merluccid hake cat shark Black pickerel. Pacific cod.</p>
-                            </div>
-                        </div>
-                        <div class="bk-back">
-                            <p>Tyrant, blackmailer, racketeer, murderer - his influence reaches every level of American society. Meet Cat Corleone, a friendly cat, a just cat, a reasonable cat. The deadliest lord of the Cata Nostra. The Catfather.</p>
-                        </div>
                         <div class="bk-right"></div>
-                        <div class="bk-left">
+                        <div class="bk-left" style="background-image: url(js/3DBookShelf/images/1.png); background-size: 100% 100%;">
                             <h2>
-                                <span>The Catfather</span>
-                                <span>by Mario Purrzo</span>
+                                <span>Anthony Burghiss</span>
+                                <span>A Catwork Orange</span>
                             </h2>
                         </div>
                         <div class="bk-top"></div>
                         <div class="bk-bottom"></div>
                     </div>
-                   
+        
                 </li>
                 <li>
-                    <div class="bk-book book-3 bk-bookdefault">
+                    <div class="bk-book book-1 bk-bookdefault">
                         <div class="bk-front">
-                            <div class="bk-cover">
+                            <div class="bk-cover" style="background-image: url(js/3DBookShelf/images/1.png);">
                                 <h2>
-                                    <span>J.C. Salinger</span>
-                                    <span>The Catcher in the Rye</span>
+                                    <span>Anthony Burghiss</span>
+                                    <span>A Catwork Orange</span>
                                 </h2>
                             </div>
                             <div class="bk-cover-back"></div>
                         </div>
-                        <div class="bk-page">
-                            <div class="bk-content bk-content-current">
-                                <p>Oceanic flyingfish spotted danio fingerfish leaffish, Billfish halibut Atlantic cod threadsail poacher slender mola. Swallower muskellunge, turbot needlefish yellow perch trout dhufish dwarf gourami false moray southern smelt cod dwarf gourami. Betta blue catfish bottlenose electric ray sablefish.</p>
-                            </div>
-                            <div class="bk-content">
-                                <p>Whale catfish leatherjacket deep sea anglerfish grenadier sawfish pompano dolphinfish carp large-eye bream, squeaker amago. Sandroller; rough scad, tiger shovelnose catfish snubnose parasitic eel? Black bass soldierfish duckbill--Rattail Atlantic saury Blind shark California halibut; false trevally warty angler!</p>
-                            </div>
-                            <div class="bk-content">
-                                <p>Trahira giant wels cutlassfish snapper koi blackchin mummichog mustard eel rock bass whiff murray cod. Bigmouth buffalo ling cod giant wels, sauger pink salmon. Clingfish luderick treefish flatfish Cherubfish oldwife Indian mul gizzard shad hagfish zebra danio. Butterfly ray lizardfish ponyfish muskellunge Long-finned sand diver mullet swordfish limia ghost carp filefish.</p>
-                            </div>
-                        </div>
-                        <div class="bk-back">
-                            <img src="images/3.png" alt="cat"/>
-                            <p>Holden Catfield is a seventeen-year-old dropout who has just been kicked out of his fourth school. Navigating his way through the challenges of growing up, Holden dissects the 'phony' aspects of society.</p>
-                        </div>
                         <div class="bk-right"></div>
-                        <div class="bk-left">
+                        <div class="bk-left" style="background-image: url(js/3DBookShelf/images/1.png); background-size: 100% 100%;">
                             <h2>
-                                <span>J.C. Salinger</span>
-                                <span>The Catcher in the Rye</span>
+                                <span>Anthony Burghiss</span>
+                                <span>A Catwork Orange</span>
                             </h2>
                         </div>
                         <div class="bk-top"></div>
                         <div class="bk-bottom"></div>
                     </div>
-                    
+        
+                </li>
+                <li>
+                    <div class="bk-book book-1 bk-bookdefault">
+                        <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url(js/3DBookShelf/images/1.png);">
+                                <h2>
+                                    <span>Anthony Burghiss</span>
+                                    <span>A Catwork Orange</span>
+                                </h2>
+                            </div>
+                            <div class="bk-cover-back"></div>
+                        </div>
+                        <div class="bk-right"></div>
+                        <div class="bk-left" style="background-image: url(js/3DBookShelf/images/1.png); background-size: 100% 100%;">
+                            <h2>
+                                <span>Anthony Burghiss</span>
+                                <span>A Catwork Orange</span>
+                            </h2>
+                        </div>
+                        <div class="bk-top"></div>
+                        <div class="bk-bottom"></div>
+                    </div>
+        
                 </li>
             </ul>
-        </div>
-        <div class="bookend_right"></div>
-        <div class="reflection"></div>
-    </div>
+        
+            <div class="shelf">       
+                <div class="bookend_left"></div>   
+                <div class="bookend_right"></div>
+                <div class="reflection"></div>
+            </div>
+            <div class="shelf">       
+                <div class="bookend_left"></div>   
+                <div class="bookend_right"></div>
+                <div class="reflection"></div>
+            </div>
+        
+            <div class="shelf">       
+                <div class="bookend_left"></div>   
+                <div class="bookend_right"></div>
+                <div class="reflection"></div>
+            </div>
+        
+            <div class="shelf">       
+                <div class="bookend_left"></div>   
+                <div class="bookend_right"></div>
+                <div class="reflection"></div>
+            </div>-->
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/3DBookShelf/js/books1.js"></script>
-    <script>
-        $(function () {
 
-            Books.init();
 
-        });
-    </script>
-</body>
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/3DBookShelf/js/books1.js"></script>
+        <!--Fancybox-->
+        <script type="text/javascript" src="js/fancybox/jquery.fancybox.min.js?v=2.1.5"></script>
+        <!--Fancybox-->
+        <script>
+            $(function () {
+
+                Books.init();
+                $('.fancybox').fancybox({
+                    minHeight:"100%"                    
+                });
+
+            });
+        </script>
+    </body>
 </html>
 
 

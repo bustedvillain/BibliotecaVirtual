@@ -4,6 +4,9 @@
  * Fecha de Creación: 2 de Noviembre de 2014
  * Objetivo: Sección gratuitos 
  */
+if (!isset($_SESSION["usuario"])) {
+    exit("<script>parent.location.reload();</script>");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en-US">

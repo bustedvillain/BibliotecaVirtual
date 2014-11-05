@@ -5,6 +5,9 @@
  * Objetivo: Sección destacados que imprime los libros con mayores busquedas,
  * y mayores agregados a estantes
  */
+if (!isset($_SESSION["usuario"])) {
+    exit("<script>parent.location.reload();</script>");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -38,7 +41,7 @@
             <div id="effects"><!-- script will add automatically the scroll effect class here -->
                 <article id="articlehold">
                     <!-- START SLIDE -->
-                    <?php consultaLibrosGratuitos($_SESSION["usuario"]->id_nivel_educativo, "imprime")?>
+                    <?php consultaLibrosDestacados($_SESSION["usuario"]->id_nivel_educativo, "imprime"); ?>
                     <!-- END SLIDE -->                    
                 </article>
                 <!-- START NAVIGATION ARROWS -->

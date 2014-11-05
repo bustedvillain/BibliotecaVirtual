@@ -54,13 +54,31 @@ body{
     -webkit-transition: all 0.5s ease-in-out;
 }
 
+.active main { 
+    margin-left: 10px; 
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+}
+.active span { 
+    margin-left: 25px; 
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+}
+
 /* COLOR MANAGEMENT */
 
 .ccblue .mainmenu { background: none repeat scroll 0 0 #03B2EC;}
 .ccblue .mainmenu li:hover { background: #044c64; }
 .ccblue .mainmenu li:hover i {color: #ffffff;}
+.active{ background: #044c64; }
+.active i {color: #ffffff;}
 .ccblue .mainmenu li i { color: #044c64; }
 .ccblue .mainmenu li:hover i {color: #ffffff;}
+.active i {color: #ffffff;}
 
 .ccred .mainmenu { background: none repeat scroll 0 0 #f00940;}
 .ccred .mainmenu li:hover { background: #a30328; }

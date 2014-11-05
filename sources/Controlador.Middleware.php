@@ -17,6 +17,8 @@ if($_POST){
         case "consultaValoracion":
             echo consultaValoracionJSON($_POST["id_usuario"], $_POST["id_libro"]);
             break;
+        case "buscar":
+            echo buscarJSON($_POST["palabra"], $_SESSION["usuario"]->id_nivel_educativo);
     }
 }else{
     echo "Error, no hay post";

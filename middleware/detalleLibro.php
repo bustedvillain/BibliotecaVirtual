@@ -17,7 +17,7 @@ if (isset($_SESSION["usuario"])) {
         if ($libro) {
             foreach ($libro as $l) {
                 $estante = "";
-                if (($estante) != null) {
+                if (($estante = consultaEstanteLibro($_SESSION["usuario"]->id_usuario, $_GET["id_libro"])) != null) {
                     $estante = "Remover de mi estante";
                 } else {
                     $estante = "Agregar a mi estante";
@@ -43,12 +43,22 @@ if (isset($_SESSION["usuario"])) {
 
                         <link href="css/detalleLibro.css" rel="stylesheet"/>
                         <link href="../css/style.css" rel="stylesheet"/>
+                        
+                        <?php 
+                            if(isset($_GET["live_update"])){
+                                if($_GET["live_update"] = "yes"){
+                                    echo <<<script
+                                        <script>var live_update = true;</script>
+script;
+                                }
+                            }
+                        ?>
 
 
                     </head>
                     <body>
                         <div class="notification-shape shape-progress" id="notification-shape">
-                            <!--<div class="ns-box ns-other ns-effect-loadingcircle ns-type-notice ns-show"><div class="ns-box-inner"><p>Valoración guardada correctamente</p></div><span class="ns-close"></span></div>-->
+                            <!--<div class="ns-box ns-other ns-effect-loadingcircle ns-type-notice ns-show"><div class="ns-box-inner"><h1>Valoración guardada correctamente</h1></div><span class="ns-close"></span></div>-->
                             <svg width="70px" height="70px"><path d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"/></svg>
                         </div>
                         <div class="portada">

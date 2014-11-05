@@ -90,6 +90,9 @@ and open the template in the editor.
                     case "7":
                         echo "Error al vincular usuario con el sistema";
                         break;
+                    case "8":
+                        echo "Error, no hay una sesión activa";
+                        break;
                 }
                 ?>
             </p>

@@ -11,7 +11,7 @@ $(document).ready(function () {
     var idLibro = $("#id_libro").val();
 
     establecerRating(idLibro, idUsuario);
-    
+
     function establecerRating(idLibro, idUsuario) {
         $.post("../sources/Controlador.Middleware.php", {funcion: "consultaValoracion", id_usuario: idUsuario, id_libro: idLibro}, function (respuesta) {
             console.log(respuesta);
@@ -19,7 +19,7 @@ $(document).ready(function () {
                 var responseJSON = $.parseJSON(respuesta);
                 if (responseJSON) {
                     console.log(responseJSON);
-                    $("#val"+responseJSON.valoracion).prop("checked", true);
+                    $("#val" + responseJSON.valoracion).prop("checked", true);
                 } else {
                     console.log("No hay valoracion previa");
                 }
@@ -58,6 +58,13 @@ $(document).ready(function () {
                         $("#agregarEstante").html("Remover de mi estante");
                     } else if (responseJSON === "removido") {
                         notificacion("Libro removido del estante");
+                        if (live_update) {
+                            try {
+                                parent.location.reload();
+                            } catch (e) {
+                                console.error(e);
+                            }
+                        }
                         $("#agregarEstante").html("Agregar a mi estante");
                     } else {
                         notificacion("Error desconocido");
@@ -79,7 +86,7 @@ $(document).ready(function () {
             var svgshape = document.getElementById('notification-shape');
             var notification = new NotificationFx({
                 wrapper: svgshape,
-                message: '<p>' + mensaje + '</p>',
+                message: '<h2 style="margin-top:0;">' + mensaje + '</h2>',
                 layout: 'other',
                 effect: 'loadingcircle',
                 ttl: 9000,
