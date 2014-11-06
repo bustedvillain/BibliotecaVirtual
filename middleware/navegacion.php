@@ -21,23 +21,34 @@ and open the template in the editor.
         <section class="ccblue top">	
             <div class="mainmenu">
                 <ul>
-                    <li id="destacados" class="active item" onclick="abrir('destacados.php')"><i class="icon-home icon-large"></i>&nbsp;<main>Destacados</main><span>los m&aacute;s buscados</span></li>
-                    <li id="gratuitos" class="item" onclick="abrir('gratuitos.php')"><i class="icon-archive icon-large"></i>&nbsp;<main>Gratuitos</main><span>te ofrecemos</span></li>
-                    <li id="estante" class="item" onclick="abrir('estante.php')"><i class="icon-book icon-large"></i>&nbsp;<main>Estante</main><span>tus libros</span></li>
-                    <li id="buscar" class="item" onclick="abrir('buscar.php')"><i class="icon-search icon-large"></i>&nbsp;<main>Busqueda</main><span>encuentra</span></li>
-                 </ul>
+                    <li id="destacados" class="active item" onclick="abrir('destacados.php', 0)"><i class="icon-home icon-large"></i>&nbsp;<main>Destacados</main><span>los m&aacute;s buscados</span></li>
+                    <li id="gratuitos" class="item" onclick="abrir('gratuitos.php', 1)"><i class="icon-archive icon-large"></i>&nbsp;<main>Gratuitos</main><span>te ofrecemos</span></li>
+                    <li id="estante" class="item" onclick="abrir('estante.php', 2)"><i class="icon-book icon-large"></i>&nbsp;<main>Estante</main><span>tus libros</span></li>
+                    <li id="buscar" class="item" onclick="abrir('buscar.php', 3)"><i class="icon-search icon-large"></i>&nbsp;<main>Busqueda</main><span>encuentra</span></li>
+                </ul>
             </div>
         </section>
         <div id="contenedor">
             <iframe id="frame" frameBorder="0" width="100%" height="90%" src="destacados.php"></iframe>
         </div>
         <script>
-            function abrir(direccion){
+            function abrir(direccion, pos) {
                 var frame = document.getElementById("frame");
-                frame.src=direccion;
-                document.getElementByClassName("item").className="item";
+                frame.src = direccion;
+                try {
+                    var elements = document.getElementsByClassName("item");
+                    for (var i = 0; i < elements.length; i++) {
+                        if (i === pos) {
+                            elements[i].className = "item active";
+                        } else {
+                            elements[i].className = "item";
+                        }
+                    }
+                } catch (e) {
+                    console.error(e);
+                }
             }
         </script>
-        
+
     </body>
 </html>

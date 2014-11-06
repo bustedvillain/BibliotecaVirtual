@@ -1,0 +1,754 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* VISTA Padre
+
+Verde:	#02dc02;
+ */
+
+body {
+	background-image:url(../img/padre/fondo.gif);
+
+}
+		  /* CABECERA
+    ----------------------------------------------------------*/
+	
+#header {
+	border-bottom: 1px solid #02dc02;
+	background-color: #3a3a3a;	
+}
+
+#nombre {
+	background-color: #02dc02;
+}
+
+#buscador_alu input {
+	border: 8px solid #02dc02;
+}
+
+.separador {
+	background-image:url(../img/padre/separador.gif);
+}
+
+#foto_perfil span {
+	background-image:url(../img/padre/recorte.png);
+}
+
+		  /* LATERAL NAV
+    ----------------------------------------------------------*/
+
+#lateral_pad_familia a, #lateral_pad_familia a:visited {
+	background: #fff url(../img/lateral_nav.png) no-repeat -10px -1276px !important;	
+}
+
+#lateral_pad_familia a:hover, #lateral_pad_familia a:active, #lateral_pad_familia span {
+	background: #3a3a3a url(../img/lateral_nav.png) no-repeat -10px -1334px !important;	
+}
+
+#lateral_pad_educacion a, #lateral_pad_educacion a:visited {
+	background: #fff url(../img/lateral_nav.png) no-repeat -10px -1161px !important;	
+}
+
+#lateral_pad_educacion a:hover, #lateral_pad_educacion a:active, #lateral_pad_educacion span {
+	background: #3a3a3a url(../img/lateral_nav.png) no-repeat -10px -1219px !important;	
+}
+
+#lateral_pad_comunicacion a, #lateral_pad_comunicacion a:visited {
+	background: #fff url(../img/lateral_nav.png) no-repeat -10px -1392px !important;	
+}
+
+#lateral_pad_comunicacion a:hover, #lateral_pad_comunicacion a:active, #lateral_pad_comunicacion span {
+	background: #3a3a3a url(../img/lateral_nav.png) no-repeat -10px -1450px !important;	
+}
+
+#lateral_pad_biblioteca a, #lateral_pad_biblioteca a:visited {
+	background: #fff url(../img/lateral_nav.png) no-repeat -10px -1508px !important;	
+}
+
+#lateral_pad_biblioteca a:hover, #lateral_pad_biblioteca a:active, #lateral_pad_biblioteca span {
+	background: #3a3a3a url(../img/lateral_nav.png) no-repeat -10px -1566px !important;	
+}
+
+
+#lateral_hijo span {
+	width:129px;
+	height: 58px;
+	line-height: 58px;
+	display:block;
+	color: #3a3a3a;
+	background: #02dc02 !important;
+	text-decoration:none;
+	list-style:none;
+	text-indent: 40px!important;	
+	-moz-border-radius: 10px; /* Firefox */
+	-webkit-border-radius: 10px; /* Google Chrome y Safari */
+	border-radius: 10px; /* CSS3 (Opera 10.5, IE 9 y est&aacute;ndar a ser soportado por todos los futuros navegadores) */		
+	font-size: 14px !important;
+	position: relative;
+}
+
+#lateral_hijo span img {
+	width:30px;
+	height: 30px;
+	position:absolute;
+	top: 10px;
+	left: 5px;
+}
+		  /* CONTENEDOR 
+    ----------------------------------------------------------*/
+
+.contenedor {
+	background-color: #02dc02;
+}
+
+#vacio {
+	border: 3px solid #02dc02;
+}
+
+#vacio h2 {
+	background: #02dc02;
+}
+
+#datos_mi_perfil strong {
+	color: #02dc02;
+	
+}
+		  /* Botones
+    ----------------------------------------------------------*/
+
+#btn_int_regresar a, #btn_int_regresar a:visited {
+	background-image:url(../img/padre/btn_regresar.png);
+}
+
+#btn_int_regresar a:hover, #btn_int_regresar a:active {
+	background-image:url(../img/padre/btn_regresar_hover.png);
+}
+
+#btn_int_capturar a, #btn_int_capturar a:visited {
+	background-image:url(../img/padre/btn_capturar.png);
+}
+
+#btn_int_capturar a:hover, #btn_int_capturar a:active {
+	background-image:url(../img/padre/btn_capturar_hover.png);
+}
+
+#tutor_btn_lista,  #tutor_btn_editar, #tutor_btn_subir  {
+	max-width: 175px;
+	width: 30%;
+	height: 98px;
+	float: left;
+	margin: 1.5%;
+}
+
+		  /* FORM ENVIO
+    ----------------------------------------------------------*/
+
+.form_tutor input {
+	background-color: #02dc02;
+}
+
+		  /* BIBLIOTECA
+    ----------------------------------------------------------*/
+
+.libro_sup {
+	color: #02dc02;
+}
+
+#nav_biblio ul li:first-child a:hover, #nav_biblio ul li:first-child a:active {
+	background-color: #02dc02;
+}
+
+
+#nav_biblio ul li:last-child a:hover, #nav_biblio ul li:first-child a:active {
+	background-color: #02dc02;
+}
+
+#nav_biblio ul li a:hover {
+	background-color: #02dc02;
+}
+
+.libro_a_titulo {
+	background-color: #02dc02;
+}
+
+		  /* MAPA
+    ----------------------------------------------------------*/
+
+
+
+#calidad_nav ul li {
+	border: 3px solid #02dc02;
+}
+
+#calidad_nav ul li a {
+	color: #3a3a3a;
+}
+
+#calidad_nav ul li a:hover {
+	background-color: #02dc02;
+	color: #fff;
+}
+
+		  /* PIE DE PÁGINA
+    ----------------------------------------------------------*/
+	
+#footer ul li a, #footer ul li a:visited {
+	font-size: 14px;
+	border-bottom: 1px solid #02dc02;
+}
+	
+
+#social_fb a, #social_fb a:visited  {
+	background:#fff url(../img/social.png) no-repeat 0 -80px !important;
+}
+
+#social_tw a, #social_tw a:visited {
+	background:#fff url(../img/social.png) no-repeat 0 -200px !important;
+}
+
+
+
+		  /* VERTICAL BTN
+    ----------------------------------------------------------*/
+
+
+.vertical_btn li a, .vertical_btn li a:visited  {
+	color: #02dc02 !important;
+		border: 2px solid #02dc02 !important;
+}
+
+.vertical_btn li a:hover, .vertical_btn li a:active  {
+	background-color:#02dc02 !important;	
+	border: 2px solid #02dc02 !important;
+	color: #fff !important;
+}
+
+		  /* BAUL
+    ----------------------------------------------------------*/
+
+
+#baul_nav ul {
+	border: 2px solid #02dc02;
+}
+
+
+#baul_nav ul li a:hover, #baul_nav ul li a:active, #baul_nav ul li span {
+	background-color: #02dc02;
+}
+
+/*#############################   PADRE  hijos   ####################################### */
+
+.hijo {
+	background: #333;
+	-moz-border-radius: 10px; /* Firefox */
+	-webkit-border-radius: 10px; /* Google Chrome y Safari */
+	border-radius: 10px; /* CSS3 (Opera 10.5, IE 9 y est&aacute;ndar a ser soportado por todos los futuros navegadores) */
+	width: 27%;
+	margin: 5px 2.5%;
+	height: auto;
+	float:left;
+	border: 2px solid #fff;
+}
+
+.hijo_foto {
+	width: 60%;
+	padding: 5% 20%;
+	height: auto;
+	position: relative;
+	float:left;
+}
+
+.hijo_foto img {
+	width: 100%;
+	height:auto;
+}
+
+.hijo_nombre {
+	float:left;
+	width: 96%;
+	color: #fff;
+	text-align: center;
+	background: #02dc02;
+	padding: 2%;
+	height: 24px;
+	line-height: 24px;
+	border-top: 2px solid #fff;
+	-moz-border-bottom-left-radius: 8px; /* Firefox */
+	-webkit-border-bottom-left-radius: 8px; /* Google Chrome y Safari */
+	border-bottom-left-radius: 8px; /* CSS3 (Opera 10.5, IE 9 y est&aacute;ndar a ser soportado por todos los futuros navegadores) */
+	
+	-moz-border-bottom-right-radius: 8px; /* Firefox */
+	-webkit-border-bottom-right-radius: 8px; /* Google Chrome y Safari */
+	border-bottom-right-radius: 8px; /* CSS3 (Opera 10.5, IE 9 y est&aacute;ndar a ser soportado por todos los futuros navegadores) */
+}
+
+/*#############################   PADRE  hijos   ####################################### */
+
+.padre_enlace0 {
+	width:225px;
+	height:40px;
+	display:block;
+	position:absolute;
+	top: 25px;
+	left: 25px;
+}
+
+.padre_enlace1 {
+	width:225px;
+	height:40px;
+	display:block;
+	position:absolute;
+	top: 85px;
+	left: 25px;
+}
+
+.padre_enlace2 {
+	width:225px;
+	height:40px;
+	display:block;
+	position:absolute;
+	top: 145px;
+	left: 25px;
+}
+
+.padre_enlace3 {
+	width:225px;
+	height:40px;
+	display:block;
+	position:absolute;
+	top: 205px;
+	left: 25px;
+}
+
+.padre_enlace4 {
+	width:225px;
+	height:40px;
+	display:block;
+	position:absolute;
+	top: 225px;
+	left: 25px;
+}
+
+.padre_enlace0 a, .padre_enlace1 a, .padre_enlace2 a,  .padre_enlace3 a, .padre_enlace4 a  {
+	width:225px;
+	height:40px;
+	line-height: 40px;
+	display:block;
+	font-family: 'Dosis', Arial, serif;
+	font-size: 20px;
+	color: #02dc02;
+	text-align:center;
+	text-decoration:none;
+	background-color:#FFF;	
+	-moz-border-radius: 6px; /* Firefox */
+	-webkit-border-radius: 6px; /* Google Chrome y Safari */
+	border-radius: 6px; /* CSS3 (Opera 10.5, IE 9 y est&aacute;ndar a ser soportado por todos los futuros navegadores) */
+		border: 2px solid white;
+}
+
+.padre_enlace0 a:hover, .padre_enlace1 a:hover, .padre_enlace2 a:hover, .padre_enlace3 a:hover, .padre_enlace4 a:hover {
+	width:225px;
+	height:40px;
+	line-height: 40px;
+	display:block;
+	font-family: 'Dosis', Arial, serif;
+	font-size: 20px;
+	color: #fff;
+	text-align:center;
+	text-decoration:none;
+	background-color:#02dc02;	
+	-moz-border-radius: 6px; /* Firefox */
+	-webkit-border-radius: 6px; /* Google Chrome y Safari */
+	border-radius: 6px; /* CSS3 (Opera 10.5, IE 9 y est&aacute;ndar a ser soportado por todos los futuros navegadores) */
+	border: 2px solid white;
+}
+
+.padre_foro_enlace1 {
+	width:225px;
+	height:40px;
+	display:block;
+	position:absolute;
+	top: 45px;
+	left: 25px;
+}
+
+.padre_foro_enlace2 {
+	width:225px;
+	height:40px;
+	display:block;
+	position:absolute;
+	top: 105px;
+	left: 25px;
+}
+
+.padre_foro_enlace3 {
+	width:225px;
+	height:40px;
+	display:block;
+	position:absolute;
+	top: 165px;
+	left: 25px;
+}
+
+.padre_foro_enlace4 {
+	width:225px;
+	height:40px;
+	display:block;
+	position:absolute;
+	top: 225px;
+	left: 25px;
+}
+
+.padre_foro_enlace0 a, .padre_foro_enlace1 a, .padre_foro_enlace2 a,  .padre_foro_enlace3 a, .padre_foro_enlace4 a  {
+	width:225px;
+	height:40px;
+	line-height: 40px;
+	display:block;
+	font-family: 'Dosis', Arial, serif;
+	font-size: 20px;
+	color: #02dc02;
+	text-align:center;
+	text-decoration:none;
+	background-color:#FFF;	
+	-moz-border-radius: 6px; /* Firefox */
+	-webkit-border-radius: 6px; /* Google Chrome y Safari */
+	border-radius: 6px; /* CSS3 (Opera 10.5, IE 9 y est&aacute;ndar a ser soportado por todos los futuros navegadores) */
+		border: 2px solid white;
+}
+
+.padre_foro_enlace1 a:hover, .padre_foro_enlace2 a:hover, .padre_foro_enlace3 a:hover, .padre_foro_enlace4 a:hover {
+	width:225px;
+	height:40px;
+	line-height: 40px;
+	display:block;
+	font-family: 'Dosis', Arial, serif;
+	font-size: 20px;
+	color: #fff;
+	text-align:center;
+	text-decoration:none;
+	background-color:#02dc02;	
+	-moz-border-radius: 6px; /* Firefox */
+	-webkit-border-radius: 6px; /* Google Chrome y Safari */
+	border-radius: 6px; /* CSS3 (Opera 10.5, IE 9 y est&aacute;ndar a ser soportado por todos los futuros navegadores) */
+	border: 2px solid white;
+}
+
+
+#reporte_nav {
+	width: 825px;
+	height: 33px;
+	float: left;
+}
+
+#reporte_nav ul {
+	float: right;
+	border: 2px solid #02dc02;
+	-moz-border-radius: 8px; /* Firefox */
+	-webkit-border-radius: 8px; /* Google Chrome y Safari */
+	border-radius: 8px; /* CSS3 (Opera 10.5, IE 9 y est&aacute;ndar a ser soportado por todos los futuros navegadores) */
+}
+
+#reporte_nav ul li {
+	float: left;
+}
+
+#reporte_nav ul li a {
+	text-decoration:none;
+	display:block;
+	font-size: 19px;
+	font-weight: bold;
+	padding: 5px;
+	color: #3a3a3a;
+}
+
+#reporte_nav ul li a:hover, #reporte_nav ul li a:active, #reporte_nav ul li span {
+	text-decoration:none;
+	display:block;
+	font-size: 19px;
+	font-weight: bold;
+	padding: 5px;
+	color: #fff;
+	-moz-border-radius: 5px; /* Firefox */
+	-webkit-border-radius: 5px; /* Google Chrome y Safari */
+	border-radius: 5px; /* CSS3 (Opera 10.5, IE 9 y est&aacute;ndar a ser soportado por todos los futuros navegadores) */
+	background-color: #02dc02;
+}
+
+		  /* MODULOS
+    ----------------------------------------------------------*/
+
+#modulo_p_mensaje1 a, #modulo_p_mensaje1 a:visited {
+	width: 280px;
+	height: 240px;
+	display:block;
+	background-image:url(../img/padre/modulo_mensaje1.gif);
+}
+
+#modulo_p_mensaje1 a:hover, #modulo_p_mensaje1 a:active {
+	width: 280px;
+	height: 240px;
+	display:block;
+	background-image:url(../img/padre/modulo_mensaje1_hover.gif);
+}
+
+#modulo_p_mensaje2 a, #modulo_p_mensaje2 a:visited {
+	width: 280px;
+	height: 240px;
+	display:block;
+	background-image:url(../img/padre/modulo_mensaje2.gif);
+}
+
+#modulo_p_mensaje2 a:hover, #modulo_p_mensaje2 a:active {
+	width: 280px;
+	height: 240px;
+	display:block;
+	background-image:url(../img/padre/modulo_mensaje2_hover.gif);
+}
+
+#modulo_p_foros a, #modulo_p_foros a:visited {
+	width: 280px;
+	height: 240px;
+	display:block;
+	background-image:url(../img/padre/modulo_foros.gif);
+}
+
+#modulo_p_foros a:hover, #modulo_p_foros a:active {
+	width: 280px;
+	height: 240px;
+	display:block;
+	background-image:url(../img/padre/modulo_foros_hover.gif);
+}
+
+#modulo_p_enviar a, #modulo_p_enviar a:visited {
+	width: 280px;
+	height: 240px;
+	display:block;
+	background-image:url(../img/padre/modulo_enviar.gif);
+}
+
+#modulo_p_enviar a:hover, #modulo_p_enviar a:active {
+	width: 280px;
+	height: 240px;
+	display:block;
+	background-image:url(../img/padre/modulo_enviar_hover.gif);
+}
+
+
+		  /* EDUCACIÓN
+    ----------------------------------------------------------*/
+
+.educacion {
+	width: 67%;
+	min-height: 220px;
+	float: left;
+	margin: 0 2% 20px;
+	background: #d4d4d4;
+	-moz-border-radius: 10px; /* Firefox */
+	-webkit-border-radius: 10px; /* Google Chrome y Safari */
+	border-radius: 10px; /* CSS3 (Opera 10.5, IE 9 y est&aacute;ndar a ser soportado por todos los futuros navegadores) */
+}
+
+.educacion h2 {
+	font-family: 'Dosis', Arial, serif;
+	font-weight: 500;
+	font-size: 22px;
+	width: 100%;
+	height: 37px;
+	text-indent: 3%;
+	line-height: 37px;
+	background: #616161;
+		-moz-border-top-left-radius: 8px; /* Firefox */
+	-webkit-border-top-left-radius: 8px; /* Google Chrome y Safari */
+	border-top-left-radius: 10px; /* CSS3 (Opera 10.5, IE 9 y est&aacute;ndar a ser soportado por todos los futuros navegadores) */
+	
+	-moz-border-top-right-radius: 8px; /* Firefox */
+	-webkit-border-top-right-radius: 8px; /* Google Chrome y Safari */
+	border-top-right-radius: 8px; /* CSS3 (Opera 10.5, IE 9 y est&aacute;ndar a ser soportado por todos los futuros navegadores) */
+	color: #fff;
+}
+
+.educacion ul {
+	width: 100%;
+	float:left;
+}
+
+.educacion ul li {
+	width: 100%;
+	line-height: 20px;
+	float:left;
+	border-bottom: 2px solid #fff;
+}
+
+.educacion ul li a {
+	text-decoration:none;
+	color:inherit;
+	display:block;
+	padding: 4px 15px;
+}
+
+.educacion ul li a:hover, .educacion ul li a:active {
+	text-decoration:none;
+	color: #fff;
+	background-color: #02dc02;
+}
+
+		  /* TABS
+    ----------------------------------------------------------*/
+
+.comunic_tabs1 a, .comunic_tabs2 a{
+	color: #02dc02;
+}
+
+.contenido_tabs a:hover, .comunic_tabs1 a:hover, .comunic_tabs2 a:hover{
+	color: #fff;
+	background-color:#02dc02;	
+}
+
+.msgs li a:hover {
+	background:#02dc02;
+}
+
+.horizontal_btn2 a, .horizontal_btn2 a:visited  {
+	color: #02dc02;
+	background-color:#FFF;	
+	border: 2px solid #02dc02;
+}
+
+.horizontal_btn2 a:hover, .horizontal_btn2 a:active  {
+	color: #fff;
+	background-color:#02dc02;	
+	border: 2px solid #02dc02;
+}
+
+.horizontal_btn2 a, .horizontal_btn2 a:visited  {
+	color: #02dc02;
+	background-color:#FFF;	
+}
+
+.horizontal_btn2 a:hover, .horizontal_btn2 a:active  {
+	color: #fff;
+	background-color:#02dc02;	
+	border: 2px solid #02dc02;
+}
+
+/* Portrait */
+@media screen and (orientation:portrait) {
+	#buscador_alu input  {
+	border: 4px solid #02dc02 !important;
+}
+
+		  /* LATERAL NAV
+    ----------------------------------------------------------*/	
+
+
+#lateral_nav li {
+  border: 1px solid #02dc02;
+}
+
+#lateral_pad_familia a, #lateral_pad_familia a:visited {
+	background: #fff url(../img/lateral_nav_mini.png) no-repeat 0px -1021px !important;	
+}
+
+#lateral_pad_familia a:hover, #lateral_pad_familia a:active, #lateral_pad_familia span {
+	background: #3a3a3a url(../img/lateral_nav_mini.png) no-repeat 0px -1068px !important;	
+}
+
+#lateral_pad_educacion a, #lateral_pad_educacion a:visited {
+	background: #fff url(../img/lateral_nav_mini.png) no-repeat 0px -929px !important;	
+}
+
+#lateral_pad_educacion a:hover, #lateral_pad_educacion a:active, #lateral_pad_educacion span {
+	background: #3a3a3a url(../img/lateral_nav_mini.png) no-repeat 0px -976px !important;	
+}
+
+#lateral_pad_comunicacion a, #lateral_pad_comunicacion a:visited {
+	background: #fff url(../img/lateral_nav_mini.png) no-repeat 0px -1114px !important;	
+}
+
+#lateral_pad_comunicacion a:hover, #lateral_pad_comunicacion a:active, #lateral_pad_comunicacion span {
+	background: #3a3a3a url(../img/lateral_nav_mini.png) no-repeat 0px -1161px !important;	
+}
+
+#lateral_pad_biblioteca a, #lateral_pad_biblioteca a:visited {
+	background: #fff url(../img/lateral_nav_mini.png) no-repeat 0px -1209px !important;	
+}
+
+#lateral_pad_biblioteca a:hover, #lateral_pad_biblioteca a:active, #lateral_pad_biblioteca span {
+	background: #3a3a3a url(../img/lateral_nav_mini.png) no-repeat 0px -1255px !important;	
+}
+
+.educacion {
+	width: 90%;
+	min-height: 220px;
+	float: left;
+	margin: 0 5% 20px;
+	background: #d4d4d4;
+	-moz-border-radius: 10px; /* Firefox */
+	-webkit-border-radius: 10px; /* Google Chrome y Safari */
+	border-radius: 10px; /* CSS3 (Opera 10.5, IE 9 y est&aacute;ndar a ser soportado por todos los futuros navegadores) */
+}
+
+}
+
+@media screen and (max-width:780px){
+
+#buscador_alu input  {
+	border: 4px solid #02dc02 !important;
+}
+
+		  /* LATERAL NAV
+    ----------------------------------------------------------*/	
+
+
+#lateral_nav li {
+  border: 1px solid #02dc02;
+}
+
+#lateral_pad_familia a, #lateral_pad_familia a:visited {
+	background: #fff url(../img/lateral_nav_mini.png) no-repeat 0px -1021px !important;	
+}
+
+#lateral_pad_familia a:hover, #lateral_pad_familia a:active, #lateral_pad_familia span {
+	background: #3a3a3a url(../img/lateral_nav_mini.png) no-repeat 0px -1068px !important;	
+}
+
+#lateral_pad_educacion a, #lateral_pad_educacion a:visited {
+	background: #fff url(../img/lateral_nav_mini.png) no-repeat 0px -929px !important;	
+}
+
+#lateral_pad_educacion a:hover, #lateral_pad_educacion a:active, #lateral_pad_educacion span {
+	background: #3a3a3a url(../img/lateral_nav_mini.png) no-repeat 0px -976px !important;	
+}
+
+#lateral_pad_comunicacion a, #lateral_pad_comunicacion a:visited {
+	background: #fff url(../img/lateral_nav_mini.png) no-repeat 0px -1114px !important;	
+}
+
+#lateral_pad_comunicacion a:hover, #lateral_pad_comunicacion a:active, #lateral_pad_comunicacion span {
+	background: #3a3a3a url(../img/lateral_nav_mini.png) no-repeat 0px -1161px !important;	
+}
+
+#lateral_pad_biblioteca a, #lateral_pad_biblioteca a:visited {
+	background: #fff url(../img/lateral_nav_mini.png) no-repeat 0px -1209px !important;	
+}
+
+#lateral_pad_biblioteca a:hover, #lateral_pad_biblioteca a:active, #lateral_pad_biblioteca span {
+	background: #3a3a3a url(../img/lateral_nav_mini.png) no-repeat 0px -1255px !important;	
+}
+
+.educacion {
+	width: 90%;
+	min-height: 220px;
+	float: left;
+	margin: 0 5% 20px;
+	background: #d4d4d4;
+	-moz-border-radius: 10px; /* Firefox */
+	-webkit-border-radius: 10px; /* Google Chrome y Safari */
+	border-radius: 10px; /* CSS3 (Opera 10.5, IE 9 y est&aacute;ndar a ser soportado por todos los futuros navegadores) */
+}
+
+
+}
+
+
+

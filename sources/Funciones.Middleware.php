@@ -118,10 +118,7 @@ function imprimeLibros($libros) {
                                 <div class="bk-book book-1 bk-bookdefault bk-bookview">
                                     <div class="bk-front">
                                         <div class="bk-cover" style="background-image: url($libro->imagen); background-size: 100% 100%;">
-                                            <h2>
-                                                <span>$libro->nombre_libro</span>
-                                                <span>$libro->nombre_autor</span>
-                                            </h2>
+                                            
                                         </div>
                                         <div class="bk-cover-back"></div>
                                     </div>
@@ -169,6 +166,7 @@ function consultaLibrosGratuitos($nivel = NULL, $imprime = NULL, $limit = 10) {
     $query = new Query();
     $query->sql = <<<sql
          SELECT l.id_libro,
+                l.nombre_libro,
                 l.descripcion,
                 l.imagen, 
                 l.url_archivo,
@@ -231,6 +229,7 @@ function consultaLibrosDestacados($nivel = NULL, $imprime = NULL, $limit = 10) {
     $query = new Query();
     $query->sql = <<<sql
          SELECT l.id_libro,
+                l.nombre_libro,
                 l.descripcion,
                 l.imagen, 
                 l.url_archivo,

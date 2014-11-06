@@ -6,7 +6,7 @@ include("../sources/funciones.php");
  * Fecha de Creación: 28 de Octubre de 2014
  * Objetivo: Middeware que conecta a MetaSpace con la Bibioteca Virtual
  */
-unset($_SESSION["usuario"]);
+//unset($_SESSION);
 if ($_GET) {
     if (isset($_GET["token"])) {
         if (isset($_GET["id_usuario"])) {
@@ -15,25 +15,34 @@ if ($_GET) {
                 $id_usuario = $_GET["id_usuario"];
                 $nivel = $_GET["nivel_educativo"];
                 //Validar Instancia
-                if(($id_instancia = validarToken($token)) !== false){
+                if (($id_instancia = validarToken($token)) !== false) {
                     //Validar Nivel educativo
-                    if(($id_nivel = validaNivelEducativo($nivel)) !== false){
+                    if (($id_nivel = validaNivelEducativo($nivel)) !== false) {
                         //Validar Usuario
-                        if(($usuario_biblioteca = validaUsuario($id_usuario, $id_instancia, $id_nivel)) !== false){
+                        if (($usuario_biblioteca = validaUsuario($id_usuario, $id_instancia, $id_nivel)) !== false) {
                             //Todo OK
-                            $_SESSION["usuario"]=$usuario_biblioteca;
+                            $_SESSION["usuario"] = $usuario_biblioteca;
+                            var_dump($usuario_biblioteca);
+                            var_dump($_SESSION);
                             //Registra entrada
-                            registrarVisita($usuario_biblioteca->id_usuario);
-                            header("Location:navegacion.php");
-                        }else{
+                            if (is_numeric($_SESSION["usuario"])) {
+//                                registrarVisita($_SESSION["usuario"]);
+                                echo "Es numerico";
+                                header("Location:index.php?token=$token&id_usuario=$id_usuario&nivel_educativo=$nivel");
+                            } else {
+                                registrarVisita($_SESSION["usuario"]->id_usuario);
+                                echo "no es numerico";
+                                header("Location:navegacion.php");
+                            }                            
+                        } else {
                             header("Location:error.php?type=7");
                         }
-                    }else{
+                    } else {
                         header("Location:error.php?type=6");
                     }
-                }else{
+                } else {
                     header("Location:error.php?type=5");
-                }                
+                }
             } else {
                 header("Location:error.php?type=4");
             }
