@@ -28,6 +28,34 @@ if ($_POST) {
             $id = $_POST["id"];
             echo consultaLibrosJSON($id);
             break;
+        case "registraLectura":
+            registrarLectura($_POST["id_libro"], $_POST["id_usuario"]);
+            break;
+        //Estadisticas
+        case "estadisticaInstancias":
+            echo estadisticaUsuariosPorInstanciaJSON();
+            break;
+        case "estadisticaVisitasInstancia":
+            echo estadisticaVisitasInstanciaJSON();
+            break;
+        case "estadisticaLibrosNivelEducativo":
+            echo estadisticaLibrosNivelEducativoJSON();
+            break;
+        case "estadisticaLibrosCategoria":
+            echo estadisticaLibrosCategoriaJSON();
+            break;
+        case "estadisticaMasBuscados":
+            echo estadisticaMasBuscadosJSON();
+            break;
+        case "estadisticaMasLeidos":
+            echo estadisticaMasLeidosJSON();
+            break;
+        case "estadisticaMasEstante":
+            echo estadisticaMasEstanteJSON();
+            break;
+        case "estadisticaMejorValoracion":
+            echo estadisticaMejorValoracionJSON();
+            break;
     }
 }
 ?>

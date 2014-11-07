@@ -6,6 +6,9 @@
  * Objetivo: Librería de funciones para manejar la administración de la interfaz de la biblioteca.
  */
 
+//Estadisticas
+include("Funciones.Middleware.Estadisticas.php");
+
 /**
  * Funcion que vaida el token de acceso y retorna e id de instancia
  * @param type $token
@@ -257,7 +260,6 @@ function consultaLibrosDestacados($nivel = NULL, $imprime = NULL, $limit = 10) {
             and l.id_clase = c.id_clase
             and l.id_administrador = admin.id_administrador
             and l.status = 1
-            and l.id_nivel_educativo = 1
             and (l.id_libro in (
                 SELECT l2.id_libro
                 FROM busquedas b, libro l2 
@@ -271,7 +273,13 @@ function consultaLibrosDestacados($nivel = NULL, $imprime = NULL, $limit = 10) {
                 where l3.id_libro = e.id_libro 
                 group by l3.id_libro 
                 order by count(*) desc
-            ))
+            )
+            or l.id_libro in(
+                SELECT l4.id_libro
+                from libro l4 
+                where l4.tipo_libro = 1
+                order by l4.fecha_inclusion desc
+            ))  
             $extraWhere
             LIMIT $limit
             
@@ -446,7 +454,7 @@ li;
         }
 
         echo "</ul>";
-        $estantes = round($cantLibros / 4);
+        $estantes = round($cantLibros / 2);
     }
     $i = 0;
     do {
@@ -578,4 +586,14 @@ function registraBusquedas($resultados) {
             $query->insert("busquedas", "id_libro, id_usuario, fecha", $res->id_libro . ", " . $_SESSION["usuario"]->id_usuario . ", now()");
         }
     }
+}
+
+/**
+ * Funcion que registra las lecturas de un libro gratuito
+ * @param type $idLibro
+ * @param type $idUsuario
+ */
+function registrarLectura($idLibro, $idUsuario){
+    $query = new Query();
+        $query->insert("lecturas", "id_libro, id_usuario", "$idLibro, $idUsuario");
 }

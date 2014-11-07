@@ -16,6 +16,6 @@
 <!--Notifications-->
 
 <!--Biblioteca-->
-<script src="../js/biblioteca.js"></script>
+<script src="../js/biblioteca.min.js"></script>
 <script src="../js/encoder.min.js"></script>
 <!--Biblitoeca-->

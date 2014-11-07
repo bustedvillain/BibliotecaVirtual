@@ -21,7 +21,7 @@ include("../sources/funciones.php");
     <body>
         <h1>Busqueda</h1>
         <form id="searchbox">
-            <input id="search" type="text" placeholder="¿Que buscas?: ¿Autor, Libro, Categoría, Editorial, Año de publicación?...">
+            <input id="search" type="text" placeholder="¿Qué buscas?: ¿Autor, Libro, Categoría, Editorial, Año de publicación?...">
             <input id="submit" type="submit" value="Buscar">
         </form>
         <div id="resultados">

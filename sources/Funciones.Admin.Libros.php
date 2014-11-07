@@ -25,6 +25,7 @@ function consultaLibros($id = NULL){
                    l.imagen,
                    l.url_archivo,
                    l.anio,
+                   l.tipo_libro,
                    n.nombre_nivel,
                    n.id_nivel_educativo,
                    a.nombre_autor,

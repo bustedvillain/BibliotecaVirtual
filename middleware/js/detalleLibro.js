@@ -103,6 +103,13 @@ $(document).ready(function () {
     } catch (e) {
         console.error("Error en notificacion:" + e);
     }
+    
+    
+    $("#leer").click(function(){
+       $.post("../sources/ControladorAdmin.php", {consulta:"registraLectura", id_usuario: idUsuario, id_libro:idLibro}, function(){
+          console.log("Lectura registrada");
+       }); 
+    });
 });
 
 

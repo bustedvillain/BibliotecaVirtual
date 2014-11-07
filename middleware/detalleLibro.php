@@ -8,14 +8,21 @@ include("../sources/funciones.php");
 if (isset($_SESSION["usuario"])) {
     if (isset($_GET["id_libro"])) {
         $libro = consultaLibros($_GET["id_libro"]);
-        $leerComprar = "";
-        if ($libro->tipo_libro == 0) {
-            $leerComprar = "Leer";
-        } else {
-            $leerComprar = "Comprar";
-        }
         if ($libro) {
             foreach ($libro as $l) {
+                $leerComprar = "";
+        
+                switch ($l->tipo_libro) {
+                    case "0":
+                        $leerComprar = "Leer";
+                        break;
+                    case "1":
+                        $leerComprar = "Comprar";
+                        break;
+                    default:
+                        $leerComprar = "Desconocido";
+                        break;
+                }
                 $estante = "";
                 if (($estante = consultaEstanteLibro($_SESSION["usuario"]->id_usuario, $_GET["id_libro"])) != null) {
                     $estante = "Remover de mi estante";
@@ -43,15 +50,15 @@ if (isset($_SESSION["usuario"])) {
 
                         <link href="css/detalleLibro.css" rel="stylesheet"/>
                         <link href="../css/style.css" rel="stylesheet"/>
-                        
-                        <?php 
-                            if(isset($_GET["live_update"])){
-                                if($_GET["live_update"] = "yes"){
-                                    echo <<<script
+
+                        <?php
+                        if (isset($_GET["live_update"])) {
+                            if ($_GET["live_update"] = "yes") {
+                                echo <<<script
                                         <script>var live_update = true;</script>
 script;
-                                }
                             }
+                        }
                         ?>
 
 
@@ -86,7 +93,7 @@ script;
                             <p class="seccion"><b>Clasificaci&oacute;n:</b> <?= $l->nombre_clase; ?></p>
                             <p class="botones">
                                 <button class="myButton" id="agregarEstante" id_usuario="<?= $_SESSION["usuario"]->id_usuario; ?>" id_libro="<?= $_GET["id_libro"]; ?>"><?= $estante; ?></button>
-                                <a class="myButton" target="top" href="<?= $l->url_archivo; ?>"><?= $leerComprar; ?></a>
+                                <a id="leer" class="myButton" target="top" href="<?= $l->url_archivo; ?>"><?= $leerComprar; ?></a>
                             </p>
                         </div>                        
 

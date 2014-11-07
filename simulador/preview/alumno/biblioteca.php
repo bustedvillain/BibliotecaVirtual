@@ -69,6 +69,7 @@ if(isset($_POST["id_usuario"]) && isset($_POST["id_nivel_educativo"]) && isset($
                 </ul>
                 <div id="biblioteca">
                     <iframe id="frame" frameBorder="0" width="100%" height="550px" scrolling="no" src="/BibliotecaVirtual/middleware/?token=<?=$token?>&id_usuario=<?=$idUsuario?>&nivel_educativo=<?=$nivel?>">El navegador no soporta IFrames</iframe>
+                    <a href="/BibliotecaVirtual/middleware/?token=<?=$token?>&id_usuario=<?=$idUsuario?>&nivel_educativo=<?=$nivel?>" target="top">Abrir Biblitoteca en una ventana nueva</a>
                 </div>       
 
 

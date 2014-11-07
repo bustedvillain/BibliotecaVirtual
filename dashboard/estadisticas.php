@@ -29,56 +29,136 @@ $menu = 9;
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                     <h1 class="page-header">Biblioteca Virtual: Estad&iacute;sticas</h1>
 
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Usuarios por instancia</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="estadistica1" style="width: 100%; height: 300px;" class="loader highligth">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <h2>Cargando estad&iacute;sticas...</h2>
+                            </div>
+                        </div>
+                    </div>    
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Vistias por instancia</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="estadistica2" style="width: 100%; height: 300px;" class="loader highligth">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <h2>Cargando estad&iacute;sticas...</h2>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Libros por nivel educativo</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="estadistica3" style="width: 100%; height: 300px;" class="loader highligth">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <h2>Cargando estad&iacute;sticas...</h2>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Libros por categor&iacute;a</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="estadistica4" style="width: 100%; height: 300px;" class="loader highligth">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <h2>Cargando estad&iacute;sticas...</h2>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Libros m&aacute;s buscados</h3>                            
+                        </div>
+                        <div class="panel-body">
+                            <div id="estadistica5" style="width: 100%; height: 300px;" class="loader highligth">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <h2>Cargando estad&iacute;sticas...</h2>
+                            </div>
+                        </div>
+                    </div> 
                     
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Libros m&aacute;s le&iacute;dos</h3>                            
+                        </div>
+                        <div class="panel-body">
+                            <div id="estadistica6" style="width: 100%; height: 300px;" class="loader highligth">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <h2>Cargando estad&iacute;sticas...</h2>
+                            </div>
+                        </div>
+                    </div> 
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Libros agregados m&aacute;s veces a estante</h3>                            
+                        </div>
+                        <div class="panel-body">
+                            <div id="estadistica7" style="width: 100%; height: 300px;" class="loader highligth">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <h2>Cargando estad&iacute;sticas...</h2>
+                            </div>
+                        </div>
+                    </div> 
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Libros mejor votados</h3>                            
+                        </div>
+                        <div class="panel-body">
+                            <div id="estadistica8" style="width: 100%; height: 300px;" class="loader highligth">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <h2>Cargando estad&iacute;sticas...</h2>
+                            </div>
+                        </div>
+                    </div> 
 
                 </div>
             </div>
         </div>
 
-        <!--Modal agregar-->
-        <div class="modal fade" id="agregar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Agregar Instancia</h4>
-                    </div>
-                    <form role="form">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputFile">File input</label>
-                                <input type="file" id="exampleInputFile">
-                                <p class="help-block">Example block-level help text here.</p>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> Check me out
-                                </label>
-                            </div>
-                            
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary">Guardar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!--Modal agregar-->
+
 
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <?php include("../template/assets.php"); ?>
+
+        <script src="../libs/amcharts/amcharts.min.js" type="text/javascript"></script>
+        <script src="../libs/amcharts/pie.min.js" type="text/javascript"></script>
+        <script src="../libs/amcharts/serial.min.js" type="text/javascript"></script>
+
+        <script src="../js/estadisticas.js" type="text/javascript"></script>
+
+
 
 
     </body>
