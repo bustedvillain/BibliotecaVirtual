@@ -156,7 +156,7 @@ $menu = 9;
         <script src="../libs/amcharts/pie.min.js" type="text/javascript"></script>
         <script src="../libs/amcharts/serial.min.js" type="text/javascript"></script>
 
-        <script src="../js/estadisticas.js" type="text/javascript"></script>
+        <script src="../js/estadisticas.min.js" type="text/javascript"></script>
 
 
 
