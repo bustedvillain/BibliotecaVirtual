@@ -11,6 +11,8 @@ and open the template in the editor.
 
 body{
     margin: 0px;   
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    color: #3a3a3a;
 }
 
 #contenedor{

@@ -79,7 +79,7 @@ function construyeTablaInstancias() {
                     </td>
                     <td>$id</td>
                     <td>$nombreInstancia</td>
-                    <td>$instancia->token <button class="btn btn-info btn-sm copy-clipboard" data-clipboard-text="$instancia->token" title="Copiar al portapapeles">Copiar</button></td>
+                    <td>$instancia->token</td>
                 </tr>
 linea;
         }

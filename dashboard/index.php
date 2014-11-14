@@ -29,13 +29,13 @@ $menu = 1;
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                     <h1 class="page-header">Biblioteca Virtual: Panel de Administraci&oacute;n</h1>
                     <?php
-                    var_dump($_COOKIE);
-                    setcookie("test_cookie", "test", time() + 36000, '/');
-                    if (count($_COOKIE) > 1) {
-                        echo "Cookies are enabled";
-                    } else {
-                        echo "Cookies are disabled";
-                    }
+//                    var_dump($_COOKIE);
+//                    setcookie("test_cookie", "test", time() + 36000, '/');
+//                    if (count($_COOKIE) > 1) {
+//                        echo "Cookies are enabled";
+//                    } else {
+//                        echo "Cookies are disabled";
+//                    }
                     ?>
                     <img src="../img/biblioteca.jpg" width="100%"/>
 

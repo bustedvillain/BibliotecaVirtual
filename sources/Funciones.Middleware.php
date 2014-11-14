@@ -6,9 +6,6 @@
  * Objetivo: Librería de funciones para manejar la administración de la interfaz de la biblioteca.
  */
 
-//Estadisticas
-include("Funciones.Middleware.Estadisticas.php");
-
 /**
  * Funcion que vaida el token de acceso y retorna e id de instancia
  * @param type $token

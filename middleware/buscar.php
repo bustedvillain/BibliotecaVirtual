@@ -19,13 +19,14 @@ include("../sources/funciones.php");
         <!--Fancybox-->
     </head>
     <body>
-        <h1>Busqueda</h1>
+        <h1>B&uacute;squeda</h1>
         <form id="searchbox">
             <input id="search" type="text" placeholder="¿Qué buscas?: ¿Autor, Libro, Categoría, Editorial, Año de publicación?...">
             <input id="submit" type="submit" value="Buscar">
         </form>
+    <center>
         <div id="resultados">
-            <table class="zebra">
+<!--            <table class="zebra">
                 <thead>
                     <tr>
                         <th>#</th>        
@@ -53,12 +54,13 @@ include("../sources/funciones.php");
                 <tbody>
 
                 </tbody>
-            </table>
+            </table>-->
         </div>
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="js/busqueda.js"></script>
-        <!--Fancybox-->
-        <script type="text/javascript" src="js/fancybox/jquery.fancybox.min.js?v=2.1.5"></script>
-        <!--Fancybox-->
-    </body>
+    </center>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/busqueda.js"></script>
+    <!--Fancybox-->
+    <script type="text/javascript" src="js/fancybox/jquery.fancybox.min.js?v=2.1.5"></script>
+    <!--Fancybox-->
+</body>
 </html>

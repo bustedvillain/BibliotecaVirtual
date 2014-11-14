@@ -16,3 +16,5 @@ include("Funciones.Admin.Usuarios.php");
 include("Funciones.Admin.Libros.php");
 //Sesion
 include("Funciones.Admin.Sesion.php");
+//Estadisticas
+include("Funciones.Admin.Estadisticas.php");

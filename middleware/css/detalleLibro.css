@@ -17,6 +17,11 @@ html{
     background-repeat: repeat;
 }
 
+body{
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    color: #3a3a3a;
+}
+
 .portada{
     width: 30%;
     height: 100%;
