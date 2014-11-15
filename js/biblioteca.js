@@ -77,8 +77,8 @@ $(document).ready(function () {
     }
 
     $(".invisible").hide();
-
-    $(".editaAtributo").click(function (event) {
+    
+    $("body").on("click", ".editaAtributo", function(event){
         loading();
         var id = $(this).attr("id");
         var nombre_atributo = $(this).attr("nombre_atributo");
@@ -142,7 +142,7 @@ $(document).ready(function () {
     }
 
     //Instancias
-    $(".editaInstancia").click(function (event) {
+    $("body").on("click", ".editaInstancia", function(event){
         loading();
         debugConsole("Editar instancia");
         var id = $(this).attr("id");
@@ -227,8 +227,8 @@ $(document).ready(function () {
             $("#editaPassword").attr("disabled", "enabled");
         }
     }
-
-    $(".editaAdmin").click(function () {
+    
+    $("body").on("click", ".editaAdmin", function(event){
         loading();
         debugConsole("Editar Admin");
         var id = $(this).attr("id");
@@ -299,7 +299,8 @@ $(document).ready(function () {
         });
     });
 
-    $(".verLibro").click(function () {
+    $("body").on("click", ".verLibro", function(event){
+        console.log("VER LIBROO");
         loading();
         debugConsole("Ver detalles libro:" + $(this).attr("id"));
         var id = $(this).attr("id");
@@ -331,7 +332,7 @@ $(document).ready(function () {
         });
     });
 
-    $(".editarLibro").click(function () {
+    $("body").on("click", ".editarLibro", function(event){
         loading();
         debugConsole("Editar libro:" + $(this).attr("id"));
         var id = $(this).attr("id");
