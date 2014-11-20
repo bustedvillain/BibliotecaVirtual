@@ -162,7 +162,8 @@ function consultaExistenciaParametro($parametro, $valorParametro, $activo = true
 function verificaEliminacionUsuario($correo, $usuario) {
     if (($id = consultaExistenciaParametro("nombre_usuario", $usuario, false)) != NULL) {
         $query = new Query();
-        $query->delete("administrador", "id_administrador = $id");
+//        $query->delete("administrador", "id_administrador = $id");
+        $query->update("UPDATE administrador set nombre_usuario = nombre_usuario || ' (Perfil desactivado)', correo = correo || ' (Perfil desactivado), nombre = nombre || ' (Perfil desactivado)''  where id_administrador = $id");
     }
 
     if (($id = consultaExistenciaParametro("correo", $correo, false)) != NULL) {

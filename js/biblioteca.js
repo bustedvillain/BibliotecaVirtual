@@ -394,8 +394,8 @@ $(document).ready(function () {
 
     function loading() {
         modalTitle = $(".modal-title").html();
-        var loading = modalTitle + '<div class="loader"><span></span><span></span><span></span><br>Cargando datos...</div>';
-        $(".modal-title").html(loading);
+        var loading = '<div class="loader"><span></span><span></span><span></span><br>Cargando datos...</div>';
+        $(".modal-title").append(loading);
     }
 
     function restoreLoading() {

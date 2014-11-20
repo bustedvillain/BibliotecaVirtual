@@ -28,7 +28,7 @@ if(isset($_SESSION["administrador"])){
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Biblioteca Virtual">
         <meta name="author" content="">
-        <link rel="icon" href="../../favicon.ico">
+        <link rel="icon" href="../img/ico.ico">
 
         <title>| Biblioteca Virtual: Inicio de Sesión |</title>
 

@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Biblioteca Virtual">
 <meta name="author" content="EMS: Enterprise Management Service">
-<link rel="icon" href="../../favicon.ico">
+<link rel="icon" href="../img/ico.ico">
 
 <title>| Biblioteca Virtual: Panel de Administracion |</title>
 

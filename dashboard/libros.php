@@ -168,7 +168,7 @@ $menu = 2;
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Ver detalels del libro</h4>
+                        <h4 class="modal-title" id="myModalLabel">Ver detalles del libro</h4>
                     </div>
                     <div class="modal-body">
                         <table class="table table-hover">

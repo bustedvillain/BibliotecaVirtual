@@ -16,6 +16,7 @@ and open the template in the editor.
         <title></title>
         <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
         <link href="css/navigation.css" rel="stylesheet">
+        <link rel="icon" href="../img/ico.ico">
     </head>
     <body>
         <section class="ccblue top">	
