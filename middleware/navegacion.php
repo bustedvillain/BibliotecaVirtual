@@ -18,7 +18,7 @@ and open the template in the editor.
         <link href="css/navigation.css" rel="stylesheet">
         <link rel="icon" href="../img/ico.ico">
     </head>
-    <body>
+    <body id="body">
         <section class="ccblue top">	
             <div class="mainmenu">
                 <ul>
@@ -30,7 +30,7 @@ and open the template in the editor.
             </div>
         </section>
         <div id="contenedor">
-            <iframe id="frame" frameBorder="0" width="100%" height="90%" src="destacados.php"></iframe>
+            <iframe id="frame" frameBorder="0" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%" src="destacados.php"></iframe>
         </div>
         <script>
             function abrir(direccion, pos) {
@@ -49,6 +49,31 @@ and open the template in the editor.
                     console.error(e);
                 }
             }
+
+//            function windowSize() {
+//                var w = window.innerWidth
+//                        || document.documentElement.clientWidth
+//                        || document.body.clientWidth;
+//
+//                var h = window.innerHeight
+//                        || document.documentElement.clientHeight
+//                        || document.body.clientHeight;
+//                return {
+//                    width: w,
+//                    height: h
+//                }
+//            }
+//
+//            function resize() {
+//                window.resizeTo(windowSize().width, windowSize().height);
+//                document.getElementById("body").style.height=windowSize().height+"px";
+//            }
+//            resize();
+//            window.onresize = function () {
+//                resize();
+//            };
+//            
+//            alert(windowSize().height);
         </script>
 
     </body>

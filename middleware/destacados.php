@@ -1,4 +1,5 @@
-<?php include("../sources/funciones.php");
+<?php
+include("../sources/funciones.php");
 /**
  * Autor: José Manuel Nieto Gómez
  * Fecha de Creación: 2 de Noviembre de 2014
@@ -41,7 +42,7 @@ if (!isset($_SESSION["usuario"])) {
             <div id="effects"><!-- script will add automatically the scroll effect class here -->
                 <article id="articlehold">
                     <!-- START SLIDE -->
-                    <?php consultaLibrosDestacados($_SESSION["usuario"]->id_nivel_educativo, "imprime"); ?>
+<?php consultaLibrosDestacados($_SESSION["usuario"]->id_nivel_educativo, "imprime"); ?>
                     <!-- END SLIDE -->                    
                 </article>
                 <!-- START NAVIGATION ARROWS -->
@@ -95,10 +96,11 @@ if (!isset($_SESSION["usuario"])) {
                  */
 
                 scrollinit("carousel", 1, 1, true, true, true, true, true);
-                
+
                 $('.fancybox').fancybox({
-                    minHeight:"100%"                    
+                    minHeight: "100%"
                 });
+                
             });
         </script>
 
