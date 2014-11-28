@@ -5,7 +5,7 @@
  * Objetivo: Index de la administración de la biblioteca
  */
 include("../sources/funciones.php");
-$menu = 5;
+$menu = 3;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +26,13 @@ $menu = 5;
                 <?php include("../template/sidebar.php"); ?>
                 <!--Barra lateral-->
 
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <h1 class="page-header">Biblioteca Virtual: Administraci&oacute;n de Clases</h1>
+                <!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">-->
+                <div class="container theme-showcase main">
+                    <div class="jumbotron">
+                        <h1>Clases</h1>
+                        <p>A continuaci&oacute;n se muestra el cat&aacute;logo de clases</p>
+                    </div>
+                    <!--<h1 class="page-header">Biblioteca Virtual: Administraci&oacute;n de Clases</h1>-->
 
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#agregar"> + Agregar</button>
                     <br><br>
@@ -51,7 +56,7 @@ $menu = 5;
                             <?php consultaAtributos("clase", "id_clase", "nombre_clase"); ?>
                         </tbody>
                     </table>
-
+                    <?php include("../template/footer.php"); ?>
                 </div>
             </div>
         </div>

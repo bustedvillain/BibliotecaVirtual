@@ -22,7 +22,7 @@ define("BASE_STORAGE", IP_SERVER_PUBLIC . "/" . "storage_biblioteca". "/");
 define("CUENTA_CORREO", "biblioteca_vitual@metaspace.com");
 
 
-define("VERSION", "v0.1");
+define("VERSION", "v0.8.1");
 
 $extensionesPermitidas = array ("pdf", "PDF");
 

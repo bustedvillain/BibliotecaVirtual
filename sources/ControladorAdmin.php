@@ -28,6 +28,10 @@ if ($_POST) {
             $id = $_POST["id"];
             echo consultaLibrosJSON($id);
             break;
+        case "consultaNivel":
+            $id = $_POST["id"];
+            echo consultaNivelJSON($id);
+            break;
         case "registraLectura":
             registrarLectura($_POST["id_libro"], $_POST["id_usuario"]);
             break;

@@ -26,8 +26,13 @@ $menu = 1;
                 <?php include("../template/sidebar.php"); ?>
                 <!--Barra lateral-->
 
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <h1 class="page-header">Biblioteca Virtual: Panel de Administraci&oacute;n</h1>
+                <!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">-->
+                <div class="container theme-showcase main">
+                    <div class="jumbotron">
+                        <h1>Biblioteca Virtual</h1>
+                        <p>Bienvenido al sistema integral de administraci&oacute;n de la Biblioteca Virtual</p>
+                    </div>
+                    <!--<h1 class="page-header">Biblioteca Virtual: Panel de Administraci&oacute;n</h1>-->
                     <?php
 //                    var_dump($_COOKIE);
 //                    setcookie("test_cookie", "test", time() + 36000, '/');
@@ -37,8 +42,8 @@ $menu = 1;
 //                        echo "Cookies are disabled";
 //                    }
                     ?>
-                    <img src="../img/biblioteca.jpg" width="100%"/>
-
+                    <!--<img src="../img/biblioteca.jpg" width="100%"/>-->
+                    <?php include("../template/footer.php"); ?>    
                 </div>
             </div>
         </div>

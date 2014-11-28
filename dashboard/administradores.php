@@ -5,7 +5,7 @@
  * Objetivo: Index de la administración de la biblioteca
  */
 include("../sources/funciones.php");
-$menu = 8;
+$menu = 4;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +26,13 @@ $menu = 8;
                 <?php include("../template/sidebar.php"); ?>
                 <!--Barra lateral-->
 
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <h1 class="page-header">Biblioteca Virtual: Administradores de la Biblioteca</h1>
+                <!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">-->
+                <div class="container theme-showcase main">
+                    <div class="jumbotron">
+                        <h1>Administradores</h1>
+                        <p>Administradores de la Biblitoeca Virtual</p>
+                    </div>
+                    <!--<h1 class="page-header">Biblioteca Virtual: Administradores de la Biblioteca</h1>-->
 
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#agregar"> + Agregar</button>
                     <br><br>
@@ -55,7 +60,7 @@ $menu = 8;
                             <?php construyeTablaAdministradores(); ?>
                         </tbody>
                     </table>
-
+                    <?php include("../template/footer.php"); ?>
                 </div>
             </div>
         </div>
@@ -103,7 +108,7 @@ $menu = 8;
             </div>
         </div>
         <!--Modal agregar-->
-        
+
         <!--Modal editar-->
         <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -159,6 +164,6 @@ $menu = 8;
         <?php include("../template/assets.php"); ?>
         <!--Password Strength-->
         <script type="text/javascript" src="../libs/pwstrength/pwstrength.js"></script>
-        
+
     </body>
 </html>

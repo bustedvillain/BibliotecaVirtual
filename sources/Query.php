@@ -115,7 +115,7 @@ class Query
 		{
 			unset($this->sql);
 			$this->sql = "INSERT INTO $tabla ($campos) VALUES ($values) ";
-//                        imprimeConsola($this->sql);
+                        echo($this->sql);
                         $this->idQuery = pg_query($this->idConexion, $this->sql)
                         or die(Error::error_pgsql(pg_errormessage(),__FILE__,__LINE__,__CLASS__,__FUNCTION__,__METHOD__,$_SERVER['PHP_SELF'],$this->sql));
 		}

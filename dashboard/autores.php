@@ -26,8 +26,13 @@ $menu = 3;
                 <?php include("../template/sidebar.php"); ?>
                 <!--Barra lateral-->
 
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <h1 class="page-header">Biblioteca Virtual: Administraci&oacute;n de Autores</h1>
+                <!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">-->
+                <div class="container theme-showcase main">
+                    <div class="jumbotron">
+                        <h1>Autores</h1>
+                        <p>A continuaci&oacute;n se muestra el cat&aacute;logo de autores</p>
+                    </div>
+                    <!--<h1 class="page-header">Biblioteca Virtual: Administraci&oacute;n de Autores</h1>-->
 
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#agregar"> + Agregar</button>
                     <br><br>
@@ -51,7 +56,7 @@ $menu = 3;
                             <?php consultaAtributos("autor", "id_autor", "nombre_autor"); ?>
                         </tbody>
                     </table>
-
+                    <?php include("../template/footer.php"); ?>
                 </div>
             </div>
         </div>

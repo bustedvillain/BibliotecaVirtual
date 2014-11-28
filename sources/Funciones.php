@@ -10,6 +10,8 @@ require_once 'Query.php';
 include("Funciones.Admin.php");
 //Control de la interfaz alumno/biblioteca
 include("Funciones.Middleware.php");
+//Niveles
+include("Funciones.Niveles.php");
 
 /*
  * Autor: José Manuel Nieto Gómez

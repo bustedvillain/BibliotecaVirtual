@@ -94,6 +94,22 @@ $(document).ready(function () {
             $("#idAtributo").val(atributo.id_atributo);
         });
     });
+    
+    $("body").on("click", ".editaNivel", function(event){
+        loading();
+        var id = $(this).attr("id");
+        
+        debugConsole("Getting idAtributo:" + id);
+        $.post("../sources/ControladorAdmin.php", {consulta: "consultaNivel", id: id}, function (respuesta) {
+            restoreLoading();
+            debugConsole(respuesta);
+            var atributo = jQuery.parseJSON(respuesta);
+            $("#editaNombreNivel").val(Encoder.htmlDecode(atributo.nombre_nivel));
+            $("#editaColor1").val(atributo.color1);
+            $("#editaColor2").val(atributo.color2);
+            $("#id_nivel_educativo").val(id);
+        });
+    });
 
     function debugConsole(mensaje) {
         if (debug === true) {

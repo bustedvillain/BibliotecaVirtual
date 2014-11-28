@@ -64,7 +64,8 @@ html,body {
     position:fixed;
     z-index:-55;
     overflow:hidden;
-    background: #fff url(../images/slider-bg.jpg);
+    /*background: #fff url(../images/slider-bg.jpg);*/
+    background: #f0f0f0;
     background-size: 100% 100%;
     background-color:transparent;
     -webkit-backface-visibility: hidden;
@@ -4143,6 +4144,22 @@ html,body {
         position:static!important;
     }
 
+}
 
+.Aligner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.Aligner-item {
+    max-width: 50%;
+}
+
+.Aligner-item--top {
+    align-self: flex-start;
+}
+
+.Aligner-item--bottom {
+    align-self: flex-end;
 }

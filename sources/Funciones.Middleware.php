@@ -15,7 +15,7 @@ function validarToken($token) {
     $token = __($token);
     $query = new Query();
     $query->sql = "SELECT id_instancia FROM instancia WHERE token = '$token'";
-
+    
     $token = $query->select();
 
     if ($token) {
@@ -112,7 +112,7 @@ function imprimeLibros($libros) {
         foreach ($libros as $libro) {
             echo <<<libro
                 <!-- START SLIDE -->
-                    <section>
+                    <section class="Aligner-item">
                         <ul id="bk-list" class="bk-list clearfix belizehole">
                             <li>
                                 <div class="bk-book book-1 bk-bookdefault bk-bookview">
@@ -137,9 +137,7 @@ function imprimeLibros($libros) {
                                     </div>
                                     <div class="bk-right"></div>
                                     <div class="bk-left" style="background-image: url($libro->imagen); background-size: 100% 100%;">
-                                        <h2>
-                                            <span>por $libro->nombre_autor</span>              
-                                        </h2>
+                                        
                                     </div>
                                     <div class="bk-top"></div>
                                     <div class="bk-bottom"></div>

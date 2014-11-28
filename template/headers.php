@@ -11,6 +11,16 @@
 <!-- Bootstrap core CSS -->
 <link href="../libs/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
 
+<!--Tipo de letra-->
+<link href="http://fonts.googleapis.com/css?family=Dosis:400,300,500" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+    body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+        font-family: 'Dosis', Arial, serif;
+    }
+</style>
+
 <!-- Custom styles for this template -->
 <link href="dashboard.css" rel="stylesheet">
 

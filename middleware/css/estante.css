@@ -14,13 +14,14 @@ html{
     
 }
 body {
-    background-color: #ffffff;
-    background-image: url(../images/slider-bg.jpg);
+    /*background: #fff url(../images/slider-bg.jpg);*/
+    background: #fff;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: 100% 100%;    
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     color: #3a3a3a;
+    overflow: auto;
 }
 
 h1{

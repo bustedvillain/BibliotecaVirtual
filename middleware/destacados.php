@@ -40,9 +40,9 @@ if (!isset($_SESSION["usuario"])) {
         <!-- START SLIDER HOLDER -->
         <div id="ss-holder" class="ss-holder">
             <div id="effects"><!-- script will add automatically the scroll effect class here -->
-                <article id="articlehold">
+                <article id="articlehold" class="Aligner">
                     <!-- START SLIDE -->
-<?php consultaLibrosDestacados($_SESSION["usuario"]->id_nivel_educativo, "imprime"); ?>
+                    <?php consultaLibrosDestacados($_SESSION["usuario"]->id_nivel_educativo, "imprime"); ?>
                     <!-- END SLIDE -->                    
                 </article>
                 <!-- START NAVIGATION ARROWS -->
@@ -100,7 +100,124 @@ if (!isset($_SESSION["usuario"])) {
                 $('.fancybox').fancybox({
                     minHeight: "100%"
                 });
-                
+
+                //Modificar tamaños
+                try {
+                    function setSliderSize() {
+                        
+                        var ratio = pWidth(100) / pHeight(100);
+                        
+                        if(ratio > 1){
+                            //Horizontal
+                            console.log("Horizontal");
+                            height = pHeight(70);
+                            width = height * 0.75;
+                            
+                        }else if(ratio < 1){
+                            //Vertical
+                            console.log("Vertical");
+                            width = pWidth(30);
+                            height = width * 1.25;
+                        }else{
+                            width = pWidth(30);
+                            height = pHeight(70)
+                        }                      
+                        
+                        $(".bk-book").css({
+                            width: width,
+                            height: height
+                        });
+
+                        $(".bk-cover").css({
+                            width: width,
+                            height: height
+                        });
+
+                        $(".bk-cover-back").css({
+                           width: width,
+                            height: height
+                        });
+
+                        $(".bk-left").css({
+                            height: height,
+                        });
+
+                        $(".bk-right").css({
+                            height: height
+                        });
+
+                        $(".bk-top").css({
+                            width: width
+                        });
+
+                        $(".bk-bottom").css({
+                            width: width
+                        });
+
+                        $(".bk-page").css({
+                            width: width,
+                            height: height - 10
+                        });
+
+                        $(".bk-front").css({
+                            width: width,
+                            height: height
+                        });
+                        
+                        $(".ss-holder section").css({
+                           "font-size": width * .05
+                        });
+                        
+                        $(".ss-holder .bk-list li").css({
+                            width: width
+                        });   
+                        
+                        $(".ss-holder section").css({
+                           top: "" 
+                        });
+                        
+//                        $("ul").css({
+//                           top: pHeight(8) * ratio
+//                        });
+                        $(".ss-holder .bk-list").css({
+                            "margin-left": ""
+                        });
+                        
+                        $("section").css({
+                            width: width,
+                            height: height
+                        });
+                    }
+                    setSliderSize();
+                    $(window).resize(function (e) {
+                        setSliderSize();
+                    });
+                } catch (e) {
+                    console.error(e);
+                }
+
+                function windowSize() {
+                    var w = window.innerWidth
+                            || document.documentElement.clientWidth
+                            || document.body.clientWidth;
+
+                    var h = window.innerHeight
+                            || document.documentElement.clientHeight
+                            || document.body.clientHeight;
+                    return {
+                        width: w,
+                        height: h
+                    }
+                }
+
+                function pWidth(porcentaje) {
+                    return windowSize().width * (porcentaje / 100);
+                }
+
+                function pHeight(porcentaje) {
+                    return windowSize().height * (porcentaje / 100);
+                }
+
             });
         </script>
 

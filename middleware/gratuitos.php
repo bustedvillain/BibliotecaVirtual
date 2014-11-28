@@ -1,4 +1,5 @@
-<?php include("../sources/funciones.php");
+<?php
+include("../sources/funciones.php");
 /**
  * Autor: José Manuel Nieto Gómez
  * Fecha de Creación: 2 de Noviembre de 2014
@@ -40,7 +41,7 @@ if (!isset($_SESSION["usuario"])) {
             <div id="effects"><!-- script will add automatically the scroll effect class here -->
                 <article id="articlehold">
                     <!-- START SLIDE -->
-                    <?php consultaLibrosGratuitos($_SESSION["usuario"]->id_nivel_educativo, "imprime")?>
+<?php consultaLibrosGratuitos($_SESSION["usuario"]->id_nivel_educativo, "imprime") ?>
                     <!-- END SLIDE -->                    
                 </article>
                 <!-- START NAVIGATION ARROWS -->
@@ -94,10 +95,92 @@ if (!isset($_SESSION["usuario"])) {
                  */
 
                 scrollinit("carousel", 1, 1, true, true, true, true, true);
-                
+
                 $('.fancybox').fancybox({
-                    minHeight:"100%"                    
+                    minHeight: "100%"
                 });
+
+                //Modificar tamaños
+                try {
+                    function setSliderSize() {
+                        var width = pWidth(30);
+                        var height = width * 1.25;
+                        $(".bk-book").css({
+                            width: width,
+                            height: height
+                        });
+
+                        $(".bk-cover").css({
+                            width: width,
+                            height: height
+                        });
+
+                        $(".bk-cover-back").css({
+                            width: width,
+                            height: height
+                        });
+
+                        $(".bk-left").css({
+                            height: height,
+                        });
+
+                        $(".bk-right").css({
+                            height: height
+                        });
+
+                        $(".bk-top").css({
+                            width: width
+                        });
+
+                        $(".bk-bottom").css({
+                            width: width
+                        });
+
+                        $(".bk-page").css({
+                            width: width,
+                            height: height - 10
+                        });
+
+                        $(".bk-front").css({
+                            width: width,
+                            height: height
+                        });
+
+                        var ratio = width / height;
+                        $("ul").css({
+                            top: pHeight(8) * ratio
+                        });
+                    }
+                    setSliderSize();
+                    $(window).resize(function (e) {
+                        setSliderSize();
+                    });
+                } catch (e) {
+                    console.error(e);
+                }
+
+                function windowSize() {
+                    var w = window.innerWidth
+                            || document.documentElement.clientWidth
+                            || document.body.clientWidth;
+
+                    var h = window.innerHeight
+                            || document.documentElement.clientHeight
+                            || document.body.clientHeight;
+                    return {
+                        width: w,
+                        height: h
+                    }
+                }
+
+                function pWidth(porcentaje) {
+                    return windowSize().width * (porcentaje / 100);
+                }
+
+                function pHeight(porcentaje) {
+                    return windowSize().height * (porcentaje / 100);
+                }
+
             });
         </script>
 

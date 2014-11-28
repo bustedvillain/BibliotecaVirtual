@@ -5,7 +5,7 @@
  * Objetivo: Index de la administración de la biblioteca
  */
 include("../sources/funciones.php");
-$menu = 9;
+$menu = 5;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +26,13 @@ $menu = 9;
                 <?php include("../template/sidebar.php"); ?>
                 <!--Barra lateral-->
 
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <h1 class="page-header">Biblioteca Virtual: Estad&iacute;sticas</h1>
+                <!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">-->
+                <div class="container theme-showcase main">
+                    <div class="jumbotron">
+                        <h1>Estadísticas</h1>
+                        <p>A continuaci&oacute;n se muestran las estadísticas relacionadas a la Biblioteca Virtual</p>
+                    </div>
+                    <!--<h1 class="page-header">Biblioteca Virtual: Estad&iacute;sticas</h1>-->
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -140,7 +145,7 @@ $menu = 9;
                             </div>
                         </div>
                     </div> 
-
+                    <?php include("../template/footer.php"); ?>
                 </div>
             </div>
         </div>

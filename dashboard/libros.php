@@ -26,8 +26,13 @@ $menu = 2;
                 <?php include("../template/sidebar.php"); ?>
                 <!--Barra lateral-->
 
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <h1 class="page-header">Biblioteca Virtual: Administraci&oacute;n de Libros</h1>
+                <!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">-->
+                <div class="container theme-showcase main">
+                    <div class="jumbotron">
+                        <h1>Libros</h1>
+                        <p>A continuaci&oacute;n se muestra el cat&aacute;logo de libros.</p>
+                    </div>
+                    <!--<h1 class="page-header">Biblioteca Virtual: Administraci&oacute;n de Libros</h1>-->
 
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#agregar"> + Agregar</button>
                     <br><br>
@@ -63,7 +68,7 @@ $menu = 2;
                             <?php construyeLibros(); ?>
                         </tbody>
                     </table>
-
+                    <?php include("../template/footer.php"); ?>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<div class="col-sm-3 col-md-2 sidebar">
+<!--<div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav nav-sidebar">
         <li><img src="../img/jquery-logo.png" width="100%"/></li>
         <li <?php if($menu==1) echo 'class="active"';?>><a href="index.php">Inicio</a></li>
@@ -23,4 +23,4 @@
         <li><center><?php echo VERSION; ?></center></li>
     </ul>
 
-</div>
+</div>-->

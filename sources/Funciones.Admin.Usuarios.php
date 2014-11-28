@@ -136,7 +136,6 @@ function consultaExistenciaParametro($parametro, $valorParametro, $activo = true
         }
     }
 
-
     $resultados = $query->select();
 
     if ($resultados) {
@@ -165,7 +164,7 @@ function verificaEliminacionUsuario($correo, $usuario) {
 //        $query->delete("administrador", "id_administrador = $id");
         $uniq = uniqid();
         $query->sql="UPDATE administrador set nombre_usuario = nombre_usuario || ' (Perfil desactivado:$uniq)', correo = correo || ' (Perfil desactivado:$uniq)', nombre = nombre || ' (Perfil desactivado)'  where id_administrador = $id";
-        echo $query->sql;
+        
         $query->update($query->sql);
     }
 

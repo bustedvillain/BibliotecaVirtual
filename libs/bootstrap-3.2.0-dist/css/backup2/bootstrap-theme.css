@@ -5,8 +5,8 @@
  */
 
 /*!
- * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=c83e25defe19cd5bfcfb)
- * Config saved to config.json and https://gist.github.com/c83e25defe19cd5bfcfb
+ * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=685d4b7a748730dde45f)
+ * Config saved to config.json and https://gist.github.com/685d4b7a748730dde45f
  */
 .btn-default,
 .btn-primary,
@@ -204,13 +204,13 @@
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
-  background-image: -webkit-linear-gradient(top, #f58a00 0%, #dc7c00 100%);
-  background-image: -o-linear-gradient(top, #f58a00 0%, #dc7c00 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f58a00), to(#dc7c00));
-  background-image: linear-gradient(to bottom, #f58a00 0%, #dc7c00 100%);
+  background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  background-image: -o-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#e8e8e8));
+  background-image: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff58a00', endColorstr='#ffdc7c00', GradientType=0);
-  background-color: #dc7c00;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
+  background-color: #e8e8e8;
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,

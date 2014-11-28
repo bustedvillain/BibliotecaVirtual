@@ -3,6 +3,16 @@ include("../sources/funciones.php");
 if (!isset($_SESSION["usuario"])) {
     header("Location:error.php?type=8");
 }
+
+$nivel_educativo = consultaNivel($_SESSION["usuario"]->id_nivel_educativo);
+
+if (!isset($nivel_educativo->color1)) {
+    $nivel_educativo->color1 = "#03B2EC";
+}
+
+if (!isset($nivel_educativo->color2)) {
+    $nivel_educativo->color2 = "#044c64";
+}
 ?>
 <!DOCTYPE html>
 <!--
@@ -17,8 +27,17 @@ and open the template in the editor.
         <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
         <link href="css/navigation.css" rel="stylesheet">
         <link rel="icon" href="../img/ico.ico">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
     </head>
     <body id="body">
+        <div id="loading">
+            <center>
+                <div class="loader">
+                    <span></span><span></span><span></span>
+                    <h1>Cargando Biblioteca Virtual...</h1>
+                </div>
+            </center>
+        </div>
         <section class="ccblue top">	
             <div class="mainmenu">
                 <ul>
@@ -33,9 +52,13 @@ and open the template in the editor.
             <iframe id="frame" frameBorder="0" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%" src="destacados.php"></iframe>
         </div>
         <script>
+            jquery = false;
             function abrir(direccion, pos) {
                 var frame = document.getElementById("frame");
                 frame.src = direccion;
+                if (jquery) {
+                    $("#loading").fadeIn("slow");
+                }
                 try {
                     var elements = document.getElementsByClassName("item");
                     for (var i = 0; i < elements.length; i++) {
@@ -50,30 +73,67 @@ and open the template in the editor.
                 }
             }
 
-//            function windowSize() {
-//                var w = window.innerWidth
-//                        || document.documentElement.clientWidth
-//                        || document.body.clientWidth;
-//
-//                var h = window.innerHeight
-//                        || document.documentElement.clientHeight
-//                        || document.body.clientHeight;
-//                return {
-//                    width: w,
-//                    height: h
-//                }
-//            }
-//
-//            function resize() {
-//                window.resizeTo(windowSize().width, windowSize().height);
-//                document.getElementById("body").style.height=windowSize().height+"px";
-//            }
-//            resize();
-//            window.onresize = function () {
-//                resize();
-//            };
-//            
-//            alert(windowSize().height);
+            $(document).ready(function () {
+                jquery = true;
+                $("#frame").load(function () {
+                    $("#loading").fadeOut("slow");
+                });
+
+                //Colores menu:
+                $(".ccblue .mainmenu").css({
+                    "background-color": "<?= $nivel_educativo->color1; ?>"
+                });
+
+                $(".ccblue .mainmenu li").hover(function () {
+                    $(this).css({
+                        "background-color": "<?= $nivel_educativo->color2; ?>"
+                    });
+                }, function () {
+                    if (!$(this).hasClass("active")) {
+                        $(this).css({
+                            "background-color": "<?= $nivel_educativo->color1; ?>"
+                        });
+                    }
+
+                });
+
+                $(".ccblue .mainmenu li i").css({
+                    "color": "<?= $nivel_educativo->color2; ?>"
+                });
+
+                $(".ccblue .mainmenu li").hover(function () {
+                    $(this).children("i").css({
+                        color: "#fff"
+                    });
+                }, function () {
+                    if (!$(this).hasClass("active")) {
+                        $(this).children("i").css({
+                            color: "<?= $nivel_educativo->color2; ?>"
+                        });
+                    }
+                });
+
+                $(".active").css({
+                    "background-color": "<?= $nivel_educativo->color2; ?>",
+                    color: "#fff"
+                });
+
+                $(".active i").css({
+                    color: "#fff"
+                });
+
+                $(".item").click(function () {
+                    $(".item").css({
+                        "background-color": "<?= $nivel_educativo->color1; ?>"
+                    });
+                    $(".active").css({
+                        "background-color": "<?= $nivel_educativo->color2; ?>"
+                    });
+                    $(".active i").css({
+                        color: "#fff"
+                    });
+                });
+            });
         </script>
 
     </body>
