@@ -25,7 +25,7 @@ include("../sources/funciones.php");
             <input id="submit" type="submit" value="Buscar">
         </form>
     <center>
-        <?php var_dump($_SESSION);?>
+        <?php // var_dump($_SESSION);?>
         <div id="resultados">
 <!--            <table class="zebra">
                 <thead>

@@ -106,17 +106,19 @@ if (!isset($_SESSION["usuario"])) {
                     function setSliderSize() {
                         
                         var ratio = pWidth(100) / pHeight(100);
+                        var wantedWidth = 50;
+                        var wantedHeight = 10;
                         
                         if(ratio > 1){
                             //Horizontal
                             console.log("Horizontal");
-                            height = pHeight(70);
+                            height = pHeight(wantedWidth);
                             width = height * 0.75;
                             
                         }else if(ratio < 1){
                             //Vertical
                             console.log("Vertical");
-                            width = pWidth(30);
+                            width = pWidth(wantedHeight);
                             height = width * 1.25;
                         }else{
                             width = pWidth(30);
@@ -173,7 +175,7 @@ if (!isset($_SESSION["usuario"])) {
                         });   
                         
                         $(".ss-holder section").css({
-                           top: "" 
+                           top: height * 1.2 
                         });
                         
 //                        $("ul").css({

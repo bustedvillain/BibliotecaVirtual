@@ -30,6 +30,7 @@ $(document).ready(function () {
                 $("#resultados").html("<div class='loader'><span></span><span></span><span></span><br>Buscando...</div>");
 
                 $.post("../sources/Controlador.Middleware.php", {funcion: "buscar", palabra: $("#search").val()}, function (respuesta) {
+                    console.log(respuesta);
                     if (respuesta) {
                         var responseJSON = $.parseJSON(respuesta);
                         if (responseJSON) {

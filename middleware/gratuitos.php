@@ -41,7 +41,7 @@ if (!isset($_SESSION["usuario"])) {
             <div id="effects"><!-- script will add automatically the scroll effect class here -->
                 <article id="articlehold">
                     <!-- START SLIDE -->
-<?php consultaLibrosGratuitos($_SESSION["usuario"]->id_nivel_educativo, "imprime") ?>
+                    <?php consultaLibrosGratuitos($_SESSION["usuario"]->id_nivel_educativo, "imprime") ?>
                     <!-- END SLIDE -->                    
                 </article>
                 <!-- START NAVIGATION ARROWS -->
@@ -103,8 +103,27 @@ if (!isset($_SESSION["usuario"])) {
                 //Modificar tamaños
                 try {
                     function setSliderSize() {
-                        var width = pWidth(30);
-                        var height = width * 1.25;
+
+                        var ratio = pWidth(100) / pHeight(100);
+                        var wantedWidth = 50;
+                        var wantedHeight = 10;
+
+                        if (ratio > 1) {
+                            //Horizontal
+                            console.log("Horizontal");
+                            height = pHeight(wantedWidth);
+                            width = height * 0.75;
+
+                        } else if (ratio < 1) {
+                            //Vertical
+                            console.log("Vertical");
+                            width = pWidth(wantedHeight);
+                            height = width * 1.25;
+                        } else {
+                            width = pWidth(30);
+                            height = pHeight(70)
+                        }
+
                         $(".bk-book").css({
                             width: width,
                             height: height
@@ -146,9 +165,28 @@ if (!isset($_SESSION["usuario"])) {
                             height: height
                         });
 
-                        var ratio = width / height;
-                        $("ul").css({
-                            top: pHeight(8) * ratio
+                        $(".ss-holder section").css({
+                            "font-size": width * .05
+                        });
+
+                        $(".ss-holder .bk-list li").css({
+                            width: width
+                        });
+
+                        $(".ss-holder section").css({
+                            top: height * 1.2
+                        });
+
+//                        $("ul").css({
+//                           top: pHeight(8) * ratio
+//                        });
+                        $(".ss-holder .bk-list").css({
+                            "margin-left": ""
+                        });
+
+                        $("section").css({
+                            width: width,
+                            height: height
                         });
                     }
                     setSliderSize();
