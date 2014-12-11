@@ -75,7 +75,7 @@ $menu = 4;
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nombreInstancia">Nombre de la Instancia</label>
-                                <input type="text" class="form-control" name="nombre_instancia" placeholder="Nombre de la Instancia">
+                                <input type="text" class="form-control" name="nombre_instancia" placeholder="Nombre de la Instancia" required>
                             </div>                          
                         </div>
                         <div class="modal-footer">
